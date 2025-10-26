@@ -1,0 +1,16 @@
+node_modules
+.git
+.venv
+.env
+*.pyc
+__pycache__
+.vscode
+.idea
+database
+backend/data
+*.db
+*.sqlite
+*.sqlite3
+FWF_V2
+docs
+git-push.*
