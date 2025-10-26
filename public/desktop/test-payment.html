@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Payment Gateway - FWF</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .container {
+      max-width: 500px;
+      width: 100%;
+      background: white;
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .logo {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+    h1 {
+      font-size: 24px;
+      color: #0f172a;
+      margin-bottom: 5px;
+    }
+    .subtitle {
+      color: #64748b;
+      font-size: 14px;
+    }
+    .info-box {
+      background: #f8fafc;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0;
+      padding: 8px 0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .info-row:last-child {
+      border-bottom: none;
+    }
+    .label {
+      color: #64748b;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .value {
+      color: #0f172a;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .amount {
+      text-align: center;
+      margin: 30px 0;
+    }
+    .amount-value {
+      font-size: 48px;
+      font-weight: 900;
+      color: #6366f1;
+      margin: 10px 0;
+    }
+    .amount-label {
+      color: #64748b;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .test-notice {
+      background: linear-gradient(90deg, #fef3c7, #fed7aa);
+      border: 2px solid #f59e0b;
+      border-radius: 12px;
+      padding: 15px;
+      margin: 20px 0;
+      text-align: center;
+    }
+    .test-notice i {
+      color: #f59e0b;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .test-notice p {
+      color: #92400e;
+      font-weight: 700;
+      margin: 5px 0;
+    }
+    .btn-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 30px;
+    }
+    .btn {
+      flex: 1;
+      padding: 16px;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .btn-success {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: white;
+      box-shadow: 0 8px 20px rgba(34,197,94,0.3);
+    }
+    .btn-success:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(34,197,94,0.4);
+    }
+    .btn-fail {
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      color: white;
+      box-shadow: 0 8px 20px rgba(239,68,68,0.3);
+    }
+    .btn-fail:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(239,68,68,0.4);
+    }
+    .note {
+      text-align: center;
+      color: #64748b;
+      font-size: 12px;
+      margin-top: 20px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">💳</div>
+      <h1>Test Payment Gateway</h1>
+      <p class="subtitle">Localhost Testing Mode</p>
+    </div>
+
+    <div class="test-notice">
+      <i class="fa-solid fa-flask"></i>
+      <p><strong>TEST MODE</strong></p>
+      <p>This is a simulated payment gateway for testing</p>
+    </div>
+
+    <div class="info-box">
+      <div class="info-row">
+        <span class="label">Transaction Type:</span>
+        <span class="value" id="txnType">Membership</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Member Name:</span>
+        <span class="value" id="memberName">-</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Email:</span>
+        <span class="value" id="memberEmail">-</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Mobile:</span>
+        <span class="value" id="memberMobile">-</span>
+      </div>
+    </div>
+
+    <div class="amount">
+      <div class="amount-label">Amount to Pay</div>
+      <div class="amount-value">₹<span id="amount">200</span></div>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn btn-success" onclick="simulateSuccess()">
+        <i class="fa-solid fa-check-circle"></i>
+        Pay Success
+      </button>
+      <button class="btn btn-fail" onclick="simulateFail()">
+        <i class="fa-solid fa-times-circle"></i>
+        Pay Failed
+      </button>
+    </div>
+
+    <p class="note">
+      Click "Pay Success" to simulate successful payment and proceed to member creation.<br>
+      Click "Pay Failed" to test error handling.
+    </p>
+  </div>
+
+  <script>
+    // Get URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    // Display payment details
+    document.getElementById('amount').textContent = urlParams.get('amount') || '200';
+    document.getElementById('memberName').textContent = decodeURIComponent(urlParams.get('name') || '-');
+    document.getElementById('memberEmail').textContent = decodeURIComponent(urlParams.get('email') || '-');
+    document.getElementById('memberMobile').textContent = decodeURIComponent(urlParams.get('mobile') || '-');
+    document.getElementById('txnType').textContent = urlParams.get('type') || 'Membership';
+
+    function simulateSuccess() {
+      // Generate mock transaction ID
+      const txnId = 'TEST_TXN_' + Date.now();
+      
+      // Redirect to payment success page
+      const callback = urlParams.get('callback') || window.location.origin + '/payment-success.html';
+      const successUrl = `${callback}?status=success&txn_id=${txnId}&amount=${urlParams.get('amount')}&name=${encodeURIComponent(urlParams.get('name'))}&email=${encodeURIComponent(urlParams.get('email'))}&mobile=${encodeURIComponent(urlParams.get('mobile'))}`;
+      
+      window.location.href = successUrl;
+    }
+
+    function simulateFail() {
+      // Redirect to payment success page with failure status
+      const callback = urlParams.get('callback') || window.location.origin + '/payment-success.html';
+      const failUrl = `${callback}?status=failed&error=Payment cancelled by user`;
+      
+      window.location.href = failUrl;
+    }
+  </script>
+
+</body>
+</html>

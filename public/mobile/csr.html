@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+  <!-- Desktop Detection & Redirect -->
+  <script>
+    (function() {
+      // Check if already on desktop site
+      if (window.location.pathname.includes('/desktop')) return;
+      
+      // Detect desktop (not mobile/tablet)
+      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      const isTablet = /(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(navigator.userAgent);
+      
+      if (!isMobile && !isTablet) {
+        // Get current page name
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        // Redirect to desktop site
+        window.location.href = '/desktop/' + currentPage;
+      }
+    })();
+  </script>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+  />
+  <title>FWF — Skills to Livelihood</title>
+  <meta name="description" content="Partner with FWF to build livelihoods through skills & micro-businesses." />
+
+  <!-- Bootstrap 5 (CSS) -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  />
+
+  <!-- Tailwind CDN (utility-first) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* CSS Variables for Dark Theme */
+    :root {
+      --primary: #8B5CF6;
+      --primary-dark: #7C3AED;
+      --primary-light: #A78BFA;
+      --accent: #3B82F6;
+      --cyan: #06B6D4;
+      --green: #10B981;
+      --orange: #F97316;
+      --red: #EF4444;
+      --bg: #0B0B10;
+      --bg-card: #14141A;
+      --bg-elevated: #1C1C22;
+      --text: #FFFFFF;
+      --text-secondary: #A1A1AA;
+      --divider: #26262C;
+      --radius: 18px;
+      --radius-sm: 12px;
+      --shadow: 0 8px 28px rgba(0,0,0,.35);
+    }
+
+    /* Reset & Base */
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      min-height: 100vh;
+      -webkit-tap-highlight-color: transparent;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+
+    .no-scroll { overflow: hidden; }
+
+    /* Slide-out menu animation */
+    .drawer {
+      transform: translateX(100%);
+      transition: transform 0.28s ease;
+    }
+    .drawer.open {
+      transform: translateX(0);
+    }
+
+    /* Floating center logo spacing on bottom nav */
+    .bn-center {
+      margin-top: -2rem;
+    }
+
+    /* Safe area padding for iOS */
+    .safe-bottom {
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+  </style>
+</head>
+
+<body class="min-h-screen" style="background: var(--bg);">
+  <!-- Slide-out Overlay & Drawer -->
+  <div id="overlay" class="fixed inset-0 z-40 hidden">
+    <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+    <aside id="drawer"
+      class="drawer absolute right-0 top-0 h-full w-64 shadow-2xl p-6 z-50" style="background: var(--bg-card);">
+      <div class="flex items-center justify-between mb-6">
+        <div class="flex items-center space-x-2">
+          <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-md">
+            <img src="assets/icons/logo.png" alt="F" class="w-6 h-6 object-contain" style="filter: brightness(0) invert(1);" />
+          </div>
+          <span class="font-bold text-xl" style="color: var(--text);">FWF</span>
+        </div>
+        <button id="closeMenu" style="color: var(--text-secondary);">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <nav class="space-y-4">
+        <a href="/index.html" data-nav="home" class="block font-medium transition-colors" style="color: var(--text-secondary);" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-secondary)'">Home</a>
+        <a href="/csr.html" data-nav="csr" class="block font-medium transition-colors" style="color: var(--primary);">CSR</a>
+        <a href="/projects.html" data-nav="projects" class="block font-medium transition-colors" style="color: var(--text-secondary);" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-secondary)'">Projects</a>
+        <a href="/about.html" class="block font-medium transition-colors" style="color: var(--text-secondary);" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-secondary)'">About Us</a>
+        <a href="#contact" data-nav="more" class="block font-medium transition-colors" style="color: var(--text-secondary);" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-secondary)'">Contact</a>
+      </nav>
+    </aside>
+  </div>
+
+  <!-- Main Content -->
+  <main id="appMain" class="pb-24 pt-20">
+    <!-- HOME TAB -->
+    <section id="tab-home" class="px-4">
+      <!-- Hero -->
+      <div class="py-8 text-center">
+        <div class="inline-block px-4 py-2 rounded-full text-sm font-medium mb-4" style="background: var(--bg-card); color: var(--primary);">
+          🤝 CSR Partnership
+        </div>
+        <h1 class="text-3xl font-bold mb-3 leading-tight" style="color: var(--text);">
+          Empowering Lives,<br />
+          <span style="background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
+            Creating Sustainable Impact
+          </span>
+        </h1>
+        <p class="text-sm max-w-md mx-auto" style="color: var(--text-secondary);">
+          Partner with FWF to build livelihoods through skills & micro-businesses
+        </p>
+      </div>
+
+      <!-- What We Do -->
+      <div class="mb-8">
+        <div class="rounded-3xl shadow-lg p-6" style="background: var(--bg-card); border: 1px solid var(--divider);">
+          <h2 class="text-xl font-bold mb-4 flex items-center" style="color: var(--text);">
+            <span class="text-2xl mr-2">⚡</span> What We Do
+          </h2>
+
+          <div class="space-y-3">
+            <div class="flex items-center space-x-3 p-3 bg-green-50 rounded-xl">
+              <div class="w-10 h-10 bg-green-500 rounded-xl flex items-center justify-center text-white font-bold">W</div>
+              <div>
+                <p class="font-semibold text-sm text-gray-900">Women empowerment</p>
+                <p class="text-xs text-gray-500">Leadership & Entrepreneurship</p>
+              </div>
+            </div>
+
+            <div class="flex items-center space-x-3 p-3 bg-yellow-50 rounded-xl">
+              <div class="w-10 h-10 bg-yellow-500 rounded-xl flex items-center justify-center text-white font-bold">I</div>
+              <div>
+                <p class="font-semibold text-sm text-gray-900">Income</p>
+                <p class="text-xs text-gray-500">Livelihood creation</p>
+              </div>
+            </div>
+
+            <div class="flex items-center space-x-3 p-3 bg-blue-50 rounded-xl">
+              <div class="w-10 h-10 bg-blue-500 rounded-xl flex items-center justify-center text-white font-bold">N</div>
+              <div>
+                <p class="font-semibold text-sm text-gray-900">Nurture skills</p>
+                <p class="text-xs text-gray-500">Skill & training</p>
+              </div>
+            </div>
+
+            <div class="flex items-center space-x-3 p-3 bg-purple-50 rounded-xl">
+              <div class="w-10 h-10 bg-purple-500 rounded-xl flex items-center justify-center text-white font-bold">S</div>
+              <div>
+                <p class="font-semibold text-sm text-gray-900">Support Local</p>
+                <p class="text-xs text-gray-500">Vocal for Local</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- One Step for Humanity -->
+      <div class="mb-8">
+        <div class="rounded-3xl p-6 shadow-lg" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.1));">
+          <h2 class="text-2xl font-bold mb-2" style="color: var(--primary);">One Step for Humanity</h2>
+          <p class="text-sm mb-4" style="color: var(--text-secondary);">Your small effort can put two meals on a family's table.</p>
+
+          <div class="rounded-2xl p-4 shadow-sm" style="background: var(--bg-card);">
+            <h3 class="font-bold text-lg mb-3 flex items-center" style="background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip: text; background-clip: text; color: transparent;">
+              <span class="text-2xl mr-2">🌱</span> Seed to Sustain
+            </h3>
+            <p class="text-sm" style="color: var(--text-secondary);">Together, we seed skills that blossom into businesses and sustain families.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="mb-8">
+        <h2 class="text-xl font-bold mb-4" style="color: var(--text);">Our Projects</h2>
+
+        <div class="grid grid-cols-2 gap-3" id="projectsGrid">
+          <!-- Cards inserted by JS below (same as React list) -->
+        </div>
+      </div>
+
+      <!-- Donate CTA -->
+      <div class="mb-8">
+        <div class="rounded-3xl p-6 shadow-xl" style="background: linear-gradient(135deg, var(--primary), var(--accent)); color: white;">
+          <h2 class="text-2xl font-bold mb-2">Fund a Livelihood, Create Jobs</h2>
+          <p class="text-sm mb-4" style="color: rgba(255, 255, 255, 0.8);">Your CSR funds directly support small manufacturing units and livelihood setups.</p>
+          <button class="w-full font-bold py-3 rounded-xl shadow-lg transition-all" style="background: var(--bg); color: var(--primary);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)'">
+            ₹ Donate Now
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CSR TAB -->
+    <section id="tab-csr" class="px-4 py-8 hidden text-center">
+      <div class="flex justify-center mb-4">
+        <i data-lucide="heart" class="w-12 h-12" style="color: var(--primary);"></i>
+      </div>
+      <h2 class="text-2xl font-bold mb-2" style="color: var(--text);">CSR Partnership</h2>
+      <p style="color: var(--text-secondary);">Partner with us to create lasting social impact</p>
+    </section>
+
+    <!-- PROJECTS TAB -->
+    <section id="tab-projects" class="px-4 py-8 hidden">
+      <h2 class="text-2xl font-bold mb-4" style="color: var(--text);">All Projects</h2>
+
+      <div id="projectsList" class="space-y-3">
+        <!-- List items inserted by JS -->
+      </div>
+    </section>
+
+    <!-- MORE / CONTACT TAB -->
+    <section id="tab-more" class="px-4 py-8 hidden">
+      <div class="rounded-3xl shadow-lg p-6 mb-4" style="background: var(--bg-card);">
+        <h2 class="text-2xl font-bold mb-4" style="color: var(--text);">Contact Us</h2>
+        <div class="space-y-3">
+          <div class="flex items-start space-x-3">
+            <i data-lucide="map-pin" class="w-5 h-5 mt-1" style="color: var(--primary);"></i>
+            <p class="text-sm" style="color: var(--text-secondary);">1398/1850 Sogarjpuri Gallamandi, Kanpur - 208021 U.P. India</p>
+          </div>
+          <div class="flex items-center space-x-3">
+            <i data-lucide="phone" class="w-5 h-5" style="color: var(--primary);"></i>
+            <p class="text-sm" style="color: var(--text-secondary);">+91-9580118412</p>
+          </div>
+          <div class="flex items-center space-x-3">
+            <i data-lucide="mail" class="w-5 h-5" style="color: var(--primary);"></i>
+            <p class="text-sm" style="color: var(--text-secondary);">info@fwfindia.org</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-3xl shadow-lg p-6" style="background: var(--bg-card);">
+        <h3 class="text-lg font-bold mb-3" style="color: var(--text);">Follow Us</h3>
+        <div class="flex space-x-4 justify-center">
+          <a href="#" class="p-3 rounded-full transition-colors" style="background: var(--primary); color: white;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+            <i data-lucide="facebook" class="w-5 h-5"></i>
+          </a>
+          <a href="#" class="p-3 rounded-full transition-colors" style="background: var(--primary); color: white;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+            <i data-lucide="twitter" class="w-5 h-5"></i>
+          </a>
+          <a href="#" class="p-3 rounded-full transition-colors" style="background: var(--primary); color: white;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+            <i data-lucide="linkedin" class="w-5 h-5"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+        <p class="text-xs text-center" style="color: var(--text-secondary);">© 2025 FWF - All Rights Reserved</p>
+        <p class="text-xs text-center mt-2" style="color: var(--text-secondary); opacity: 0.7;">Reg: 12A • 80G • CSR-1</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Horizontal Expandable Menu -->
+    <div id="horizontalMenu" class="fixed bottom-20 left-0 right-0 backdrop-blur-lg border-t shadow-lg transform translate-y-full transition-transform duration-300 ease-in-out" style="background: var(--bg-card); border-color: var(--divider); z-index: 999;">
+        <div class="flex items-center justify-around px-4 py-3">
+            <a href="about.html" class="flex flex-col items-center space-y-1 transition-colors" style="color: var(--text-secondary);" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-secondary)'">
+                <i data-lucide="users" class="w-5 h-5"></i>
+                <span class="text-xs font-medium">About</span>
+            </a>
+            <a href="join.html" class="flex flex-col items-center space-y-1 transition-colors" style="color: var(--text-secondary);" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-secondary)'">
+                <i data-lucide="user-plus" class="w-5 h-5"></i>
+                <span class="text-xs font-medium">Join</span>
+            </a>
+            <a href="donate.html" class="flex flex-col items-center space-y-1 transition-colors" style="color: var(--text-secondary);" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-secondary)'">
+                <i data-lucide="heart" class="w-5 h-5"></i>
+                <span class="text-xs font-medium">Donate</span>
+            </a>
+            <a href="#contact" class="flex flex-col items-center space-y-1 transition-colors" style="color: var(--text-secondary);" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-secondary)'">
+                <i data-lucide="phone" class="w-5 h-5"></i>
+                <span class="text-xs font-medium">Contact</span>
+            </a>
+            <a href="#support" class="flex flex-col items-center space-y-1 transition-colors" style="color: var(--text-secondary);" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-secondary)'">
+                <i data-lucide="help-circle" class="w-5 h-5"></i>
+                <span class="text-xs font-medium">Support</span>
+            </a>
+            <a href="#settings" class="flex flex-col items-center space-y-1 transition-colors" style="color: var(--text-secondary);" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-secondary)'">
+                <i data-lucide="settings" class="w-5 h-5"></i>
+                <span class="text-xs font-medium">Settings</span>
+            </a>
+        </div>
+    </div>  
+    
+  <!-- Bottom Navigation -->
+  <nav class="fixed bottom-0 left-0 right-0 backdrop-blur-lg shadow-xl" style="background: white; border: 1px solid var(--divider); z-index: 1001; padding: 8px;">
+    
+    <div class="flex items-center justify-around px-2 py-2">
+      <a href="index.html" class="flex flex-col items-center space-y-1" style="color: var(--text-secondary);" data-tab="home">
+        <i data-lucide="home" class="w-6 h-6"></i>
+        <span class="text-xs font-medium">Home</span>
+      </a>
+      <a href="csr.html" class="flex flex-col items-center space-y-1" style="color: var(--primary);" data-tab="csr">
+        <i data-lucide="heart" class="w-6 h-6"></i>
+        <span class="text-xs font-medium">CSR</span>
+      </a>
+      <div class="flex flex-col items-center bn-center select-none" style="position: absolute; top: -35px; left: 50%; transform: translateX(-50%); z-index: 10;">
+        <!-- Black/dark background spacer -->
+        <div class="w-18 h-18 rounded-full flex items-center justify-center" style="background: var(--bg); width: 72px; height: 72px;">
+          <!-- Actual logo container -->
+          <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-xl border-4" style="background: linear-gradient(135deg, var(--primary), var(--accent)); border-color: var(--bg);">
+            <img src="assets/icons/logo.png" alt="FWF" class="w-10 h-10 object-contain" style="filter: brightness(0) invert(1);" />
+          </div>
+        </div>
+      </div>
+      <a href="projects.html" class="flex flex-col items-center space-y-1" style="color: var(--text-secondary);" data-tab="projects">
+        <i data-lucide="briefcase" class="w-6 h-6"></i>
+        <span class="text-xs font-medium">Projects</span>
+      </a>
+      <button class="flex flex-col items-center space-y-1" style="color: var(--text-secondary);" id="moreBtn" data-tab="more">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+        <span class="text-xs font-medium">More</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Horizontal Menu -->
+  <div id="horizontalMenu" class="fixed bottom-20 left-0 right-0 backdrop-blur-lg border-t shadow-lg transform translate-y-full transition-transform duration-300 ease-in-out" style="background: var(--bg-card); border-color: var(--divider); z-index: 1000;">
+    <div class="flex items-center justify-around px-4 py-3">
+      <a href="about.html" class="flex flex-col items-center space-y-1 transition-colors" style="color: var(--text-secondary);" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-secondary)'">
+        <i data-lucide="users" class="w-5 h-5"></i><span class="text-xs font-medium">About</span>
+      </a>
+      <a href="join.html" class="flex flex-col items-center space-y-1 transition-colors" style="color: var(--text-secondary);" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-secondary)'">
+        <i data-lucide="user-plus" class="w-5 h-5"></i><span class="text-xs font-medium">Join</span>
+      </a>
+      <a href="donate.html" class="flex flex-col items-center space-y-1 transition-colors" style="color: var(--text-secondary);" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-secondary)'">
+        <i data-lucide="heart" class="w-5 h-5"></i><span class="text-xs font-medium">Donate</span>
+      </a>
+      <button id="contactBtn" class="flex flex-col items-center space-y-1 transition-colors" style="color: var(--text-secondary); background: none; border: none; cursor: pointer;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-secondary)'">
+        <i data-lucide="phone" class="w-5 h-5"></i><span class="text-xs font-medium">Contact</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 (JS) -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script>
+
+  <script>
+    // === ICONS ===
+    lucide.createIcons();
+
+    // Navigation functionality
+    const moreBtn = document.getElementById('moreBtn');
+    const horizontalMenu = document.getElementById('horizontalMenu');
+    const contactBtn = document.getElementById('contactBtn');
+
+    // Toggle horizontal menu
+    moreBtn?.addEventListener('click', () => {
+      horizontalMenu.classList.toggle('translate-y-full');
+    });
+
+    // Close horizontal menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!moreBtn?.contains(e.target) && !horizontalMenu?.contains(e.target)) {
+        horizontalMenu?.classList.add('translate-y-full');
+      }
+    });
+
+    // === DATA (same as React "projects" array) ===
+    const projects = [
+      { name: 'Surekha', desc: 'Manufacturing health & hygiene products', status: 'Seeding', icon: '🛡️' },
+      { name: 'Swachh Bharat', desc: 'Cleanliness solutions', status: 'Seeding', icon: '🧹' },
+      { name: 'Happy Meal', desc: 'Nutritious food products', status: 'Seeding', icon: '🍽️' },
+      { name: 'Green Energy', desc: 'Renewable energy solutions', status: 'Seeding', icon: '⚡' },
+      { name: 'DIY Crafts', desc: 'Handmade & artisan products', status: 'Seeding', icon: '🎨' },
+      { name: 'Swachh Jal', desc: 'Affordable water & sanitation', status: 'Seeding', icon: '💧' },
+      { name: 'Samman', desc: 'Affordable garments', status: 'Seeding', icon: '👕' },
+      { name: 'Sweet Home', desc: 'Household products', status: 'Seeding', icon: '🏠' },
+    ];
+
+    // === HELPERS ===
+    const $ = (q) => document.querySelector(q);
+    const $$ = (q) => Array.from(document.querySelectorAll(q));
+
+    function setActiveTab(tab) {
+      // hide all
+      ['home','csr','projects','more'].forEach(t => {
+        const sec = document.getElementById('tab-' + t);
+        if (sec) sec.classList.add('hidden');
+      });
+      // show requested
+      const active = document.getElementById('tab-' + tab);
+      if (active) active.classList.remove('hidden');
+
+      // update bottom nav colors
+      $$('nav [data-tab]').forEach(btn => {
+        const isActive = btn.getAttribute('data-tab') === tab;
+        btn.classList.toggle('text-green-600', isActive);
+        btn.classList.toggle('text-gray-400', !isActive);
+      });
+
+      // Close drawer if switching away via menu
+      closeMenu();
+    }
+
+    function openMenu() {
+      $('#overlay')?.classList.remove('hidden');
+      $('#drawer')?.classList.add('open');
+      document.body.classList.add('no-scroll');
+    }
+
+    function closeMenu() {
+      $('#drawer')?.classList.remove('open');
+      // Wait for slide animation to finish then hide overlay
+      setTimeout(() => {
+        $('#overlay')?.classList.add('hidden');
+        document.body.classList.remove('no-scroll');
+      }, 280);
+    }
+
+    // === INIT PROJECT CARDS ===
+    function renderProjectsGrid() {
+      const grid = document.getElementById('projectsGrid');
+      if (!grid) return;
+      grid.innerHTML = projects.map((p, idx) => `
+        <div class="bg-white rounded-2xl p-4 shadow-md hover:shadow-xl transition-shadow border border-gray-100">
+          <div class="text-3xl mb-2">${p.icon}</div>
+          <h3 class="font-bold text-sm text-gray-900 mb-1">${p.name}</h3>
+          <p class="text-xs text-gray-500 mb-3">${p.desc}</p>
+          <div class="flex items-center justify-between">
+            <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">${p.status}</span>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-gray-400"></i>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderProjectsList() {
+      const list = document.getElementById('projectsList');
+      if (!list) return;
+      list.innerHTML = projects.map(p => `
+        <div class="bg-white rounded-2xl p-4 shadow-md flex items-center space-x-4">
+          <div class="text-3xl">${p.icon}</div>
+          <div class="flex-1">
+            <h3 class="font-bold text-gray-900">${p.name}</h3>
+            <p class="text-sm text-gray-500">${p.desc}</p>
+          </div>
+          <i data-lucide="chevron-right" class="w-5 h-5 text-gray-400"></i>
+        </div>
+      `).join('');
+    }
+
+    // === EVENT BINDINGS ===
+    // bottom nav
+    $$('nav [data-tab]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const tab = btn.getAttribute('data-tab');
+        
+        // Handle "More" button to toggle horizontal menu
+        if (tab === 'more') {
+          toggleHorizontalMenu();
+          return;
+        }
+        
+        setActiveTab(tab);
+        // Close horizontal menu when other tabs are clicked
+        closeHorizontalMenu();
+      });
+    });
+
+    // Horizontal Menu Functions
+    function toggleHorizontalMenu() {
+      const menu = document.getElementById('horizontalMenu');
+      const isOpen = menu.classList.contains('open');
+      
+      if (isOpen) {
+        closeHorizontalMenu();
+      } else {
+        openHorizontalMenu();
+      }
+    }
+
+    function openHorizontalMenu() {
+      const menu = document.getElementById('horizontalMenu');
+      menu.classList.add('open');
+      menu.style.transform = 'translateY(0)';
+    }
+
+    function closeHorizontalMenu() {
+      const menu = document.getElementById('horizontalMenu');
+      menu.classList.remove('open');
+      menu.style.transform = 'translateY(100%)';
+    }
+
+    // Close horizontal menu when clicking outside
+    document.addEventListener('click', (e) => {
+      const menu = document.getElementById('horizontalMenu');
+      const moreBtn = document.getElementById('moreBtn');
+      
+      if (!menu.contains(e.target) && !moreBtn.contains(e.target)) {
+        closeHorizontalMenu();
+      }
+    });
+
+    // Drawer controls (for slide-out menu)
+    $('#closeMenu')?.addEventListener('click', closeMenu);
+    $('#overlay')?.addEventListener('click', (e) => {
+      // close if click outside drawer
+      if (e.target.id === 'overlay') closeMenu();
+    });
+
+    // Drawer nav clicks
+    $$('#drawer [data-nav]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const tab = link.getAttribute('data-nav');
+        setActiveTab(tab);
+      });
+    });
+
+    // === FIRST RENDER ===
+    renderProjectsGrid();
+    renderProjectsList();
+    lucide.createIcons(); // re-scan after dynamic HTML
+
+    // default tab
+    setActiveTab('home');
+  </script>
+</body>
+</html>

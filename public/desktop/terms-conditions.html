@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Terms & Conditions — Foundris Welfare Foundation</title>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/logo.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/images/logo.png">
+<link rel="apple-touch-icon" href="assets/images/logo.png">
+<link rel="shortcut icon" href="assets/images/logo.png">
+
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Plus+Jakarta+Sans:wght@400;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700;800&family=Mukti:wght@400;700;800&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+
+<style>
+  :root{
+    --bg:#0b1220; --panel:#101a2b; --muted:#94a3b8; --text:#e5ecf5;
+    --accent:#60a5fa; --border:#1e293b; --warn:#fde68a; --warn-text:#b45309;
+    --primary:#6153ff; --accent-green:#22c55e; --blue:#3b82f6;
+    --deep:#0f172a; --soft:#f1f5f9; --brd:#e3e8f5;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth; background:linear-gradient(120deg,#f6f8ff 0%,#eef2ff 50%,#f8fafc 100%)}
+  body{
+    margin:0; padding-top:90px; height:100%;
+    font-family:'Plus Jakarta Sans',Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+    background:var(--bg);color:var(--text);line-height:1.65; overflow-x:hidden; letter-spacing:.01em;
+  }
+  html[data-lang="hi"] body{font-family:'Noto Sans Devanagari','Mukti','Plus Jakarta Sans',system-ui,sans-serif}
+  
+  /* ========= HEADER STYLES ========= */
+  .header{
+    position:fixed; inset:0 0 auto 0; height:78px; z-index:200; display:flex; align-items:center; justify-content:center;
+    background:rgba(255,255,255,.78); backdrop-filter:blur(14px) saturate(140%); border-bottom:1px solid #dbe3f3; transition:.22s
+  }
+  .header.scrolled{ height:64px; background:rgba(255,255,255,.88); box-shadow:0 10px 30px rgba(2,6,23,.06) }
+  .header .H {
+    max-width:1240px; width:100%; padding:0 18px; display:flex; align-items:center; gap:0; justify-content:space-between;
+  }
+  .brand { flex: 0 0 auto; margin-right: 0; }
+  .brand img { width: 52px; height: 52px; object-fit: contain; display: block; }
+  nav { flex: 1 1 0; display: flex; justify-content: center; align-items: center; }
+  .navList {
+    display: flex; gap: 32px; list-style: none; margin: 0; padding: 0; justify-content: center;
+    font-size: 1.25rem; font-weight: 700;
+  }
+  .navList a {
+    display: inline-flex; align-items: center; padding: 10px 14px; border-radius: 12px; font-weight: 800;
+    color: #0f172a; position: relative; transition: background .18s, color .18s;
+  }
+  .navList a:after {
+    content: ""; position: absolute; left: 12px; right: 12px; bottom: 6px; height: 3px; border-radius: 3px;
+    background: linear-gradient(90deg,#6366f1,#22c55e); opacity: 0; transform: translateY(4px); transition: .18s;
+  }
+  .navList a:hover { background: rgba(15,23,42,.06); }
+  .navList a:hover:after { opacity: 1; transform: translateY(0); }
+  .langDesktop { flex: 0 0 auto; display: flex; align-items: center; margin-left: 0; }
+  .lang-switch button {
+    font-weight: 800; font-size: 1rem; padding: 8px 18px; border-radius: 10px; border: 1.5px solid #e6eaf7;
+    background: #f8fafc; color: #334155; cursor: pointer; transition: background .18s, color .18s;
+  }
+  .lang-switch button.active {
+    background: linear-gradient(90deg,#22c55e,#3b82f6); color: #fff; border-color: #22c55e;
+  }
+  .lang-switch button:not(.active):hover { background: #e0e7ff; color: #22c55e; }
+  .lang-sep {
+    width: 2px; height: 22px; background: #e6eaf7; display: inline-block; margin: 0 4px; border-radius: 2px;
+  }
+  .navToggle {
+    background: none; border: none; font-size: 1.5rem; color: #0f172a; cursor: pointer;
+    padding: 8px; border-radius: 8px; transition: background .18s;
+  }
+  .navToggle:hover { background: rgba(15,23,42,.06); }
+  @media (min-width: 900px) { .navToggle { display: none; } }
+  @media (max-width: 900px) {
+    .header .H { gap: 12px; }
+    nav { justify-content: flex-start; }
+    .langDesktop { margin-left: auto; }
+    .navList {
+      position: absolute; top: 100%; left: 0; right: 0; background: rgba(255,255,255,.95);
+      backdrop-filter: blur(14px); border-bottom: 1px solid #dbe3f3; padding: 20px;
+      flex-direction: column; gap: 16px; display: none;
+    }
+    .navList.open { display: flex; }
+  }
+  
+  /* ========= CONTENT STYLES ========= */
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:980px;margin:0 auto;padding:28px 16px}
+  header.card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:22px 18px;position:relative}
+  h1{margin:0 0 8px;font-weight:800;font-size:28px}
+  .meta{color:var(--muted);font-size:13px;margin-bottom:10px}
+  .quick{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .quick a{background:#0e1526;border:1px solid var(--border);color:var(--muted);padding:6px 10px;border-radius:999px;font-size:12px}
+  main .card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:20px 18px;margin-top:18px}
+  h2{margin:0 0 10px;font-size:20px}
+  h3{margin-top:18px;font-size:16px}
+  ul{padding-left:18px;margin:8px 0}
+  .note{background:#0f172a;border:1px dashed #334155;color:var(--muted);padding:10px 12px;border-radius:10px}
+  .warn{background:var(--warn);color:var(--warn-text);border:1px solid #f59e0b}
+  footer{color:var(--muted);font-size:12px;text-align:center;padding:24px 0}
+  @media (max-width:560px){ .quick{gap:6px} }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="siteHeader">
+<div class="H">
+  <!-- HEADER LOGO -->
+  <a class="brand" href="/" aria-label="FWF Home">
+    <img src="assets/images/logo.png" alt="FWF">
+  </a>
+  <nav>
+    <ul class="navList" id="navList">
+      <!-- NAV HOME LINK -->
+      <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+      <li><a href="/csr">CSR</a></li>
+      <li><a href="/projects" data-i18n="nav.projects">Projects</a></li>
+      <li><a href="/about" data-i18n="nav.about">About Us</a></li>
+    </ul>
+  </nav>
+  <div class="langDesktop">
+    <div class="lang-switch" role="group" aria-label="Language switch">
+      <button id="btn-hi" type="button">HI</button>
+      <div class="lang-sep"></div>
+      <button id="btn-en" type="button">EN</button>
+    </div>
+  </div>
+  <button class="navToggle" id="navToggle" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+</div>
+</header>
+
+<div class="wrap">
+  <header class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+      <div>
+        <div style="opacity:.8;font-size:12px">Foundris Welfare Foundation</div>
+        <h1>Terms & Conditions</h1>
+        <div class="meta">Last updated: 02 Oct 2025 · Jurisdiction: India</div>
+      </div>
+      <span style="font-size:12px;background:#0e1526;border:1px solid var(--border);padding:6px 10px;border-radius:999px">Terms & Conditions</span>
+    </div>
+
+    <!-- Quick links -->
+    <div class="quick" aria-label="Quick links">
+      <a href="#about">About this Document</a>
+      <a href="#ownership">Platform & Ownership</a>
+      <a href="#scope">Acceptance & Scope</a>
+      <a href="#use">Use of Services</a>
+      <a href="#ip">Intellectual Property</a>
+      <a href="#fees">Fees & Payments</a>
+      <a href="#thirdparty">Third Party Links</a>
+      <a href="#indemnity">Indemnity</a>
+      <a href="#liability">Limitation of Liability</a>
+      <a href="#force">Force Majeure</a>
+      <a href="#governing">Governing Law & Jurisdiction</a>
+      <a href="#contact">Contact</a>
+      <!-- NEW -->
+      <a href="#cancel">Cancellation & Refund</a>
+    </div>
+  </header>
+
+  <!-- Intro / Preamble -->
+  <section id="about" class="card">
+    <p>This document is an electronic record under the Information Technology Act, 2000 and applicable rules. It governs your use of <fwfindia class="org"></fwfindia> fwfindia.org. </p>
+    <p><strong>ACCESSING, BROWSING OR OTHERWISE USING THE PLATFORM INDICATES YOUR AGREEMENT TO ALL THE TERMS.</strong></p>
+  </section>
+
+  <section id="ownership" class="card">
+    <h2>Platform & Ownership</h2>
+    <p>The Platform is owned by Foundris Welfare Foundation, registered office at 1398/1850 Sagarpuri Gallamandi, Kanpur - 208021 U.P India .</p>
+  </section>
+
+  <section id="scope" class="card">
+    <h2>Acceptance & Scope</h2>
+    <ul>
+      <li>These Terms apply to your use of our website, goods (as applicable) or services (as applicable) (“Services”).</li>
+      <li>We may modify these Terms; the latest version will be posted here.</li>
+    </ul>
+  </section>
+
+  <section id="use" class="card">
+    <h2>Use of Services</h2>
+    <ul>
+      <li>You agree to provide true and accurate information and to safeguard your account credentials.</li>
+      <li>You use the Services at your own risk and discretion and must ensure they meet your requirements.</li>
+    </ul>
+  </section>
+
+  <section id="ip" class="card">
+    <h2>Intellectual Property</h2>
+    <p>Contents of the Platform are proprietary to and/or licensed to us. Unauthorized use may lead to action under these Terms and applicable laws.</p>
+  </section>
+
+  <section id="fees" class="card">
+    <h2>Fees & Payments</h2>
+    <ul>
+      <li>You agree to pay applicable charges for availing Services.</li>
+      <li>You will not use the Services for unlawful purposes or in violation of applicable laws.</li>
+    </ul>
+  </section>
+
+  <section id="thirdparty" class="card">
+    <h2>Third Party Links</h2>
+    <p>Links to third-party websites are provided for convenience. Their terms and privacy policies apply when you access them.</p>
+  </section>
+
+  <section id="indemnity" class="card">
+    <h2>Indemnity</h2>
+    <p>You shall indemnify and hold harmless the Platform Owner and its affiliates from claims arising out of your breach of these Terms or violation of law/rights of others.</p>
+  </section>
+
+  <section id="liability" class="card">
+    <h2>Limitation of Liability</h2>
+    <p>To the maximum extent permitted by law, the Platform Owner is not liable for indirect or consequential damages. Aggregate liability, if any, for claims relating to the Services shall not exceed the amount paid by you for using the Services giving rise to the claim or ?100, whichever is less.</p>
+  </section>
+
+  <section id="force" class="card">
+    <h2>Force Majeure</h2>
+    <p>No party will be liable for failure to perform obligations if performance is prevented or delayed by a force majeure event.</p>
+  </section>
+
+  <!-- NEW: Cancellation & Refund -->
+  <section id="cancel" class="card">
+    <h2>Cancellation & Refund</h2>
+    <div class="note warn"><strong>Donations are non-refundable.</strong> </div>
+
+  </section>
+
+  <section id="governing" class="card">
+    <h2>Governing Law & Jurisdiction</h2>
+    <p>These Terms are governed by the laws of India. Courts at Kanpur Uttar Pradesh shall have exclusive jurisdiction.</p>
+  </section>
+
+  <section id="contact" class="card">
+    <h2>Contact</h2>
+    <p>For any concerns regarding these Terms, write to us at info@fwfindia.org .</p>
+      </section>
+
+  <footer>
+    <div style="max-width: 980px; margin: 0 auto; padding: 40px 16px; border-top: 1px solid var(--border);">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 30px;">
+        <div>
+          <h4 style="color: var(--accent); margin-bottom: 15px; font-size: 1.1em;">FWF - Foundris Welfare Foundation</h4>
+          <p style="color: var(--muted); margin-bottom: 15px; line-height: 1.6;">Uniting skills, opportunities and livelihoods on one platform.</p>
+        </div>
+        <div>
+          <h4 style="color: var(--accent); margin-bottom: 15px; font-size: 1.1em;">Contact</h4>
+          <div style="margin-bottom: 8px; color: var(--muted);"><i class="fas fa-map-marker-alt" style="color: #ef4444; margin-right: 8px;"></i><strong>Address:</strong> 1398/1850 Sagarpuri Gallamandi, Kanpur - 208021 U.P India</div>
+          <div style="margin-bottom: 8px; color: var(--muted);"><i class="fas fa-phone" style="color: #22c55e; margin-right: 8px;"></i><strong>Phone:</strong> <a href="tel:+919580118412" style="color: var(--accent); text-decoration: none;">+91-9580118412</a></div>
+          <div style="margin-bottom: 8px; color: var(--muted);"><i class="fas fa-envelope" style="color: #3b82f6; margin-right: 8px;"></i><strong>Email:</strong> <a href="mailto:info@fwfindia.org" style="color: var(--accent); text-decoration: none;">info@fwfindia.org</a></div>
+          <div style="margin-bottom: 8px; color: var(--muted);"><i class="fab fa-whatsapp" style="color: #25d366; margin-right: 8px;"></i><strong>WhatsApp:</strong> <a href="https://wa.me/919580118412" target="_blank" style="color: var(--accent); text-decoration: none;">+91-9580118412</a></div>
+          <div style="margin-top: 10px; color: var(--muted); font-size: 0.9em;"><i class="fas fa-certificate" style="color: #f59e0b; margin-right: 8px;"></i>Reg: 12A • 80G • CSR-1</div>
+        </div>
+      </div>
+      <div style="text-align: center; border-top: 1px solid var(--border); padding-top: 20px; color: var(--muted);">
+        © 2025 FWF-Foundris Welfare Foundation. All rights reserved.
+        <div style="margin-top: 10px;">
+          <a href="/privacy" style="color: var(--accent); text-decoration: none;">Privacy Policy</a> • <a href="/terms" style="color: var(--accent); text-decoration: none;">Terms & Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+// ========= HEADER JS (scroll, nav, i18n) =========
+const siteHeader=document.getElementById('siteHeader');
+function doScrollHdr(){ if(siteHeader) siteHeader.classList.toggle('scrolled', window.scrollY>6); }
+window.addEventListener('scroll', doScrollHdr, {passive:true});
+const navToggle=document.getElementById('navToggle'), navList=document.getElementById('navList');
+if(navToggle) navToggle.addEventListener('click', ()=> navList.classList.toggle('open'));
+
+// ========= TRANSLATION SYSTEM =========
+const T = {
+  en: {
+    'nav.home': 'Home',
+    'nav.projects': 'Projects', 
+    'nav.about': 'About Us'
+  },
+  hi: {
+    'nav.home': '???',
+    'nav.projects': '???????????',
+    'nav.about': '????? ???? ???'
+  }
+};
+
+function setI18n(lang) {
+  const L = (lang === 'hi') ? 'hi' : 'en';
+  document.documentElement.setAttribute('lang', L);
+  document.documentElement.setAttribute('data-lang', L);
+
+  // textContent replacements
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.getAttribute('data-i18n');
+    if (T[L][k] != null) el.textContent = T[L][k];
+  });
+
+  document.getElementById('btn-en').classList.toggle('active', L === 'en');
+  document.getElementById('btn-hi').classList.toggle('active', L === 'hi');
+}
+
+// Lang buttons
+const be = document.getElementById('btn-en'), bh = document.getElementById('btn-hi');
+if (be && bh) {
+  be.onclick = () => setI18n('en');
+  bh.onclick = () => setI18n('hi');
+}
+// initial
+setI18n(document.documentElement.getAttribute('data-lang') || 'en');
+</script>
+
+
+</body>
+</html>

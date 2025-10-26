@@ -1,0 +1,32 @@
+{
+  "name": "FWF \u2014 Skills to Livelihood",
+  "short_name": "FWF",
+  "description": "Foundris Welfare Foundation (FWF) \u2014 Skills to Livelihood",
+  "lang": "en",
+  "dir": "ltr",
+  \"start_url\": \"/mobile/index.html\",
+  \"scope\": \"/mobile/\",
+  "display": "standalone",
+  "background_color": "#0b1020",
+  "theme_color": "#F97316",
+  "icons": [
+    {
+      "src": \"/mobile/assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": \"/mobile/assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": \"/mobile/assets/icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

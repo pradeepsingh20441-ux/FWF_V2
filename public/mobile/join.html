@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+  <!-- Desktop Detection & Redirect -->
+  <script>
+    (function() {
+      // Check if already on desktop site
+      if (window.location.pathname.includes('/desktop')) return;
+      
+      // Detect desktop (not mobile/tablet)
+      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      const isTablet = /(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(navigator.userAgent);
+      
+      if (!isMobile && !isTablet) {
+        // Get current page name
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        // Redirect to desktop site
+        window.location.href = '/desktop/' + currentPage;
+      }
+    })();
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FWF — Skills to Livelihood</title>
+  <meta name="description" content="Foundris Welfare Foundation (FWF) — Skills to Livelihood" />
+  <link rel="manifest" href="/mobile/manifest.json">
+  <meta name="theme-color" content="#F97316">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="/mobile/assets/icons/icon-192.png">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script type="module">
+    import { registerSW } from '/sw-register.js';
+    registerSW();
+  </script>
+
+</head>
+<body>
+
+<header class="app-header">  
+  <!-- Desktop Detection & Redirect -->
+  <script>
+    (function() {
+      // Check if already on desktop site
+      if (window.location.pathname.includes('/desktop')) return;
+      
+      // Detect desktop (not mobile/tablet)
+      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      const isTablet = /(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(navigator.userAgent);
+      
+      if (!isMobile && !isTablet) {
+        // Get current page name
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        // Redirect to desktop site
+        window.location.href = '/desktop/' + currentPage;
+      }
+    })();
+  </script>
+  <div class="container row between center-v">
+    <a class="brand" href="/index.html">
+      <span class="logo">FWF</span>
+      <span class="brand-text">FWF — Skills to Livelihood</span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle Menu"><i class="fa-solid fa-bars"></i></button>
+    <nav class="nav">
+      <a href="/index.html" class="nav-link">Home</a>
+      <a href="/projects.html" class="nav-link">Projects</a>
+      <a href="/join.html" class="nav-link">Join</a>
+      <a href="/donate.html" class="nav-link">Donate</a>
+      <a href="/about.html" class="nav-link">About</a>
+    </nav>
+  </div>
+</header>
+
+
+<main class="container pad" id="register">
+  <h1>Join Membership</h1>
+  <p class="muted">Membership fee ₹200 only. After payment, Member ID & password will be emailed.</p>
+
+  <form class="form card pad" id="joinForm">
+    <div class="grid2 gap16">
+      <label>Full Name
+        <input type="text" name="name" required placeholder="Your name">
+      </label>
+      <label>Mobile
+        <input type="tel" name="mobile" required placeholder="10-digit number">
+      </label>
+      <label>Email
+        <input type="email" name="email" required placeholder="you@example.com">
+      </label>
+      <label>Aadhaar Number
+        <input type="text" name="aadhaar" required placeholder="XXXX-XXXX-XXXX">
+      </label>
+      <label>PAN Number
+        <input type="text" name="pan" required placeholder="ABCDE1234F">
+      </label>
+      <label>Preferred Unit / Project
+        <select name="project" required>
+          <option value="">Select a project</option>
+          <option>MediSan Liquids Unit</option>
+          <option>Women Tailoring Cluster</option>
+        </select>
+      </label>
+    </div>
+    <label>Your Skills / Interest
+      <textarea name="skills" rows="3" placeholder="Tell us your skills / how you'd like to contribute"></textarea>
+    </label>
+    <button class="btn primary" type="submit">Pay ₹200 & Join</button>
+    <p class="tiny muted">After payment, your Member ID & password will be sent to your email.</p>
+  </form>
+</main>
+
+
+<footer class="app-footer">
+  <div class="container grid2 gap16">
+    <div>
+      <div class="footer-title">Contact</div>
+      <ul class="list">
+        <li><i class="fa-solid fa-location-dot"></i> 1398/1850, Sagarpuri, Gallamandi<br/>Kanpur - 208021, U.P., India</li>
+        <li><i class="fa-solid fa-envelope"></i> <a href="mailto:info@fwfindia.org">info@fwfindia.org</a></li>
+        <li>
+          <i class="fa-brands fa-whatsapp" style="color:#25D366"></i>
+          <a class="wa" href="https://wa.me/919580118412" target="_blank" rel="noopener">WhatsApp us</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-title">Quick Links</div>
+      <ul class="list">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/projects.html">Projects</a></li>
+        <li><a href="/join.html">Join Membership</a></li>
+        <li><a href="/donate.html">Donate</a></li>
+        <li><a href="/about.html">About Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="cpy">© Foundris Welfare Foundation (FWF) — Skills to Livelihood</div>
+</footer>
+<script src="/js/app.js" defer></script>
+
+<!-- Contact Modal -->
+<div id="contactModal" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center z-50">
+  <div class="bg-white rounded-lg p-6 max-w-sm mx-4">
+    <h3 class="text-lg font-semibold mb-4">Contact Information</h3>
+    <div class="space-y-3">
+      <div class="flex items-center space-x-3">
+        <i data-lucide="phone" class="w-5 h-5 text-blue-600"></i>
+        <span>+91 9876543210</span>
+      </div>
+      <div class="flex items-center space-x-3">
+        <i data-lucide="mail" class="w-5 h-5 text-blue-600"></i>
+        <span>info@fwf.org</span>
+      </div>
+      <div class="flex items-center space-x-3">
+        <i data-lucide="map-pin" class="w-5 h-5 text-blue-600"></i>
+        <span>123 Main St, City</span>
+      </div>
+    </div>
+    <button id="closeContactModal" class="mt-4 w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">Close</button>
+  </div>
+</div>
+
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 right-0 backdrop-blur-lg shadow-xl" style="background: white; border: 1px solid var(--divider); z-index: 1001; padding: 8px;">
+  <div class="flex items-center justify-around px-2 py-2">
+    <a href="index.html" class="flex flex-col items-center space-y-1" style="color: var(--text-secondary);" data-tab="home">
+      <i data-lucide="home" class="w-6 h-6"></i>
+      <span class="text-xs font-medium">Home</span>
+    </a>
+    <a href="csr.html" class="flex flex-col items-center space-y-1" style="color: var(--text-secondary);" data-tab="csr">
+      <i data-lucide="heart" class="w-6 h-6"></i>
+      <span class="text-xs font-medium">CSR</span>
+    </a>
+    <div class="flex flex-col items-center bn-center select-none" style="position: absolute; top: -35px; left: 50%; transform: translateX(-50%); z-index: 10;">
+      <div class="w-18 h-18 rounded-full flex items-center justify-center" style="background: var(--bg); width: 72px; height: 72px;">
+        <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-xl border-4" style="background: linear-gradient(135deg, var(--primary), var(--accent)); border-color: var(--bg);">
+          <img src="assets/icons/logo.png" alt="FWF" class="w-10 h-10 object-contain" style="filter: brightness(0) invert(1);" />
+        </div>
+      </div>
+    </div>
+    <a href="projects.html" class="flex flex-col items-center space-y-1" style="color: var(--text-secondary);" data-tab="projects">
+      <i data-lucide="briefcase" class="w-6 h-6"></i>
+      <span class="text-xs font-medium">Projects</span>
+    </a>
+    <button class="flex flex-col items-center space-y-1" style="color: var(--text-secondary);" id="moreBtn" data-tab="more">
+      <i data-lucide="menu" class="w-6 h-6"></i>
+      <span class="text-xs font-medium">More</span>
+    </button>
+  </div>
+</nav>
+
+<!-- Horizontal Menu -->
+<div id="horizontalMenu" class="fixed bottom-20 left-0 right-0 backdrop-blur-lg border-t shadow-lg transform translate-y-full transition-transform duration-300 ease-in-out" style="background: var(--bg-card); border-color: var(--divider); z-index: 1000;">
+  <div class="flex items-center justify-around px-4 py-3">
+    <a href="about.html" class="flex flex-col items-center space-y-1 transition-colors" style="color: var(--text-secondary);" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-secondary)'">
+      <i data-lucide="users" class="w-5 h-5"></i><span class="text-xs font-medium">About</span>
+    </a>
+    <a href="join.html" class="flex flex-col items-center space-y-1 transition-colors" style="color: var(--primary);">
+      <i data-lucide="user-plus" class="w-5 h-5"></i><span class="text-xs font-medium">Join</span>
+    </a>
+    <a href="donate.html" class="flex flex-col items-center space-y-1 transition-colors" style="color: var(--text-secondary);" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-secondary)'">
+      <i data-lucide="heart" class="w-5 h-5"></i><span class="text-xs font-medium">Donate</span>
+    </a>
+    <button id="contactBtn" class="flex flex-col items-center space-y-1 transition-colors" style="color: var(--text-secondary); background: none; border: none; cursor: pointer;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-secondary)'">
+      <i data-lucide="phone" class="w-5 h-5"></i><span class="text-xs font-medium">Contact</span>
+    </button>
+  </div>
+</div>
+
+<script>
+        lucide.createIcons();
+        document.getElementById('moreBtn').addEventListener('click', () => {
+            const menu = document.getElementById('horizontalMenu');
+            if (menu.classList.contains('translate-y-full')) {
+                menu.classList.remove('translate-y-full');
+                menu.classList.add('translate-y-0');
+            } else {
+                menu.classList.add('translate-y-full');
+                menu.classList.remove('translate-y-0');
+            }
+        });
+        document.addEventListener('click', (event) => {
+            const menu = document.getElementById('horizontalMenu');
+            const moreBtn = document.getElementById('moreBtn');
+            if (!moreBtn.contains(event.target) && !menu.contains(event.target)) {
+                menu.classList.add('translate-y-full');
+                menu.classList.remove('translate-y-0');
+            }
+        });
+        const contactBtn = document.getElementById('contactBtn');
+        const contactModal = document.getElementById('contactModal');
+        const closeContactModal = document.getElementById('closeContactModal');
+        if (contactBtn) {
+            contactBtn.addEventListener('click', () => {
+                contactModal.classList.remove('hidden');
+                contactModal.classList.add('flex');
+                const menu = document.getElementById('horizontalMenu');
+                menu.classList.add('translate-y-full');
+                menu.classList.remove('translate-y-0');
+            });
+        }
+        if (closeContactModal) {
+            closeContactModal.addEventListener('click', () => {
+                contactModal.classList.add('hidden');
+                contactModal.classList.remove('flex');
+            });
+        }
+        contactModal.addEventListener('click', (event) => {
+            if (event.target === contactModal) {
+                contactModal.classList.add('hidden');
+                contactModal.classList.remove('flex');
+            }
+        });
+</script>
+
+</body>
+</html>

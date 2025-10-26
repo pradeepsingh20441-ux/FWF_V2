@@ -1,0 +1,350 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Success - FWF</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .container {
+      max-width: 500px;
+      width: 100%;
+      background: white;
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      text-align: center;
+    }
+    .success-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #22c55e, #10b981);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      animation: scaleIn 0.5s ease;
+    }
+    .success-icon i {
+      font-size: 40px;
+      color: white;
+    }
+    @keyframes scaleIn {
+      from { transform: scale(0); }
+      to { transform: scale(1); }
+    }
+    .loading-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 20px;
+    }
+    .spinner {
+      width: 80px;
+      height: 80px;
+      border: 6px solid #f3f4f6;
+      border-top: 6px solid #6366f1;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    h1 {
+      font-size: 28px;
+      color: #0f172a;
+      margin-bottom: 10px;
+      font-weight: 800;
+    }
+    .subtitle {
+      font-size: 16px;
+      color: #64748b;
+      margin-bottom: 30px;
+      line-height: 1.5;
+    }
+    .info-box {
+      background: linear-gradient(90deg, #ede9fe, #e0f2fe, #dcfce7);
+      border: 1px solid #c7d2fe;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+      text-align: left;
+    }
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 10px 0;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .info-row:last-child {
+      border-bottom: none;
+    }
+    .info-label {
+      font-weight: 700;
+      color: #475569;
+      font-size: 14px;
+    }
+    .info-value {
+      font-weight: 900;
+      color: #0f172a;
+      font-size: 15px;
+    }
+    .member-id {
+      font-size: 20px;
+      color: #6366f1;
+      font-family: monospace;
+      letter-spacing: 2px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-weight: 800;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.2s;
+      margin: 10px 5px;
+    }
+    .btn-primary {
+      background: linear-gradient(90deg, #6366f1, #22c55e);
+      color: white;
+      box-shadow: 0 8px 20px rgba(99,102,241,0.3);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(99,102,241,0.4);
+    }
+    .btn-secondary {
+      background: white;
+      color: #6366f1;
+      border: 2px solid #6366f1;
+    }
+    .btn-secondary:hover {
+      background: #f1f5f9;
+    }
+    .error-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      animation: scaleIn 0.5s ease;
+    }
+    .error-icon i {
+      font-size: 40px;
+      color: white;
+    }
+    .note {
+      background: #fef3c7;
+      border: 1px solid #fbbf24;
+      border-radius: 8px;
+      padding: 12px;
+      margin: 20px 0;
+      font-size: 14px;
+      color: #92400e;
+      text-align: left;
+    }
+    .note i {
+      color: #f59e0b;
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="content">
+    <!-- Loading State -->
+    <div id="loadingState">
+      <div class="loading-icon">
+        <div class="spinner"></div>
+      </div>
+      <h1>Processing Your Payment...</h1>
+      <p class="subtitle">Please wait while we create your member account</p>
+    </div>
+
+    <!-- Success State -->
+    <div id="successState" style="display:none;">
+      <div class="success-icon">
+        <i class="fa-solid fa-check"></i>
+      </div>
+      <h1>Welcome to FWF! 🎉</h1>
+      <p class="subtitle">Your membership has been activated successfully</p>
+      
+      <div class="info-box">
+        <div class="info-row">
+          <span class="info-label">Member ID:</span>
+          <span class="info-value member-id" id="memberId">-</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Name:</span>
+          <span class="info-value" id="memberName">-</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Email:</span>
+          <span class="info-value" id="memberEmail">-</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Mobile:</span>
+          <span class="info-value" id="memberMobile">-</span>
+        </div>
+      </div>
+
+      <div class="note">
+        <i class="fa-solid fa-envelope"></i>
+        <strong>Check your email!</strong> We've sent your login credentials and welcome information to your email address.
+      </div>
+
+      <div style="margin-top: 30px;">
+        <a href="member-dashboard.html" class="btn btn-primary">
+          <i class="fa-solid fa-arrow-right"></i>
+          Go to Dashboard
+        </a>
+        <a href="index.html" class="btn btn-secondary">
+          <i class="fa-solid fa-home"></i>
+          Back to Home
+        </a>
+      </div>
+    </div>
+
+    <!-- Error State -->
+    <div id="errorState" style="display:none;">
+      <div class="error-icon">
+        <i class="fa-solid fa-xmark"></i>
+      </div>
+      <h1>Payment Failed</h1>
+      <p class="subtitle" id="errorMessage">Something went wrong with your payment. Please try again.</p>
+      
+      <div style="margin-top: 30px;">
+        <a href="donation.html" class="btn btn-primary">
+          <i class="fa-solid fa-arrow-left"></i>
+          Try Again
+        </a>
+        <a href="index.html" class="btn btn-secondary">
+          <i class="fa-solid fa-home"></i>
+          Back to Home
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Get URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const paymentStatus = urlParams.get('status') || 'success'; // Mock: assume success
+    const transactionId = urlParams.get('txn_id') || 'TXN' + Date.now();
+
+    async function processMembership() {
+      try {
+        // Get member data from URL parameters OR localStorage
+        let memberData;
+        
+        // First try to get from URL parameters (from test-payment redirect)
+        if (urlParams.get('name') && urlParams.get('email')) {
+          memberData = {
+            name: decodeURIComponent(urlParams.get('name')),
+            mobile: decodeURIComponent(urlParams.get('mobile') || ''),
+            email: decodeURIComponent(urlParams.get('email')),
+            aadhar: decodeURIComponent(urlParams.get('aadhar') || '')
+          };
+        } else {
+          // Fallback to localStorage
+          const pendingMemberData = localStorage.getItem('pendingMember');
+          
+          if (!pendingMemberData) {
+            throw new Error('No pending membership data found');
+          }
+
+          memberData = JSON.parse(pendingMemberData);
+        }
+        
+        // Call backend API to create member (using serverless API endpoint for Vercel)
+        const response = await fetch('/api/join', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name: memberData.name,
+            fullName: memberData.name,
+            mobile: memberData.mobile,
+            email: memberData.email,
+            aadhar: memberData.aadhar || '',
+            project: memberData.project || 'General',
+            paymentRef: transactionId
+          })
+        });
+
+        const result = await response.json();
+
+        if (result.ok) {
+          // Clear pending data
+          localStorage.removeItem('pendingMember');
+          
+          // Show success
+          document.getElementById('loadingState').style.display = 'none';
+          document.getElementById('successState').style.display = 'block';
+          
+          // Fill in member details
+          document.getElementById('memberId').textContent = result.memberId;
+          document.getElementById('memberName').textContent = memberData.name;
+          document.getElementById('memberEmail').textContent = memberData.email;
+          document.getElementById('memberMobile').textContent = memberData.mobile;
+          
+          // Store member ID in session for dashboard access
+          sessionStorage.setItem('currentMemberId', result.memberId);
+          // Note: Password will be set via email link
+          sessionStorage.setItem('memberEmail', memberData.email);
+          
+        } else {
+          throw new Error(result.error || 'Failed to create membership');
+        }
+        
+      } catch (error) {
+        console.error('Membership processing error:', error);
+        document.getElementById('loadingState').style.display = 'none';
+        document.getElementById('errorState').style.display = 'block';
+        
+        // Show detailed error message
+        let errorMsg = error.message;
+        if (errorMsg.includes('MongooseServerSelectionError')) {
+          errorMsg = 'Database connection failed. Please ensure MongoDB IP whitelist includes 0.0.0.0/0 (Allow from anywhere) in Atlas Network Access settings.';
+        } else if (errorMsg.includes('fetch')) {
+          errorMsg = 'API connection failed. Please check if environment variables are set in Vercel.';
+        }
+        
+        document.getElementById('errorMessage').textContent = errorMsg;
+      }
+    }
+
+    // Check payment status and process
+    if (paymentStatus === 'success') {
+      // Simulate delay for processing
+      setTimeout(processMembership, 2000);
+    } else {
+      document.getElementById('loadingState').style.display = 'none';
+      document.getElementById('errorState').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>

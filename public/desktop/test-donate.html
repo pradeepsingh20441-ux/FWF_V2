@@ -1,0 +1,704 @@
+﻿<!DOCTYPE html> 
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FWF — Donate, Join & Create Impact</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/logo.png">
+  <link rel="apple-touch-icon" href="assets/images/logo.png">
+  <link rel="shortcut icon" href="assets/images/logo.png">
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Plus+Jakarta+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700;800&family=Mukta:wght@400;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+
+  <style>
+    :root{
+      --primary:#6153ff; --accent:#22c55e; --deep:#0f172a; --brd:#e3e8f5;
+      --cta:#16a34a; --orange:#fb923c;
+    }
+
+    html{scroll-behavior:smooth;background:
+      radial-gradient(120vw 85vh at 65% 0,#e0e7ff 0%,#f8fafc 70%),
+      linear-gradient(120deg,#f5f5fb 60%,#ece9fa 100%);}
+    body{margin:0;font-family:'Plus Jakarta Sans',Montserrat,sans-serif;color:var(--deep);min-height:100vh;overflow-x:hidden;letter-spacing:.01em;padding-top:90px}
+    *{box-sizing:border-box}
+    a{color:inherit;text-decoration:none}
+
+    /* HEADER */
+    .header{position:fixed; inset:0 0 auto 0; height:78px; z-index:200; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,.78); backdrop-filter:blur(14px) saturate(140%); border-bottom:1px solid #dbe3f3; transition:height .22s, border-color .2s, box-shadow .2s, background .2s;}
+    .header.scrolled{ height:64px; background:rgba(255,255,255,.88); box-shadow:0 10px 30px rgba(2,6,23,.06); border-bottom-color:#e6eaf4; }
+    .H{max-width:1240px;width:100%;padding:0 18px;display:flex;align-items:center;gap:18px}
+    .brand{display:inline-flex;align-items:center;gap:10px}
+    .brand img{width:52px;height:52px;object-fit:contain;border-radius:14px}
+    nav{margin-left:auto;display:flex;align-items:center;gap:14px}
+    .navList{display:flex;align-items:center;gap:6px;margin:0;padding:0;list-style:none}
+    .navList a{display:inline-flex;align-items:center;padding:10px 14px;border-radius:12px;font-weight:800;color:#0f172a;position:relative}
+    .navList a:hover{background:rgba(15,23,42,.06)}
+    .lang-switch{display:inline-flex;align-items:center;height:42px;border:1px solid #c7d0e4;border-radius:12px;overflow:hidden;background:#fff}
+    .lang-switch button{border:0;background:transparent;padding:0 12px;height:100%;display:inline-flex;align-items:center;font-weight:900;letter-spacing:.08em;cursor:pointer;color:#475569}
+    .lang-switch button.active{background:linear-gradient(90deg,#60a5fa22,#a78bfa22);color:#111827}
+    .lang-sep{width:1px;background:#e2e8f0}
+    .navToggle{display:none;height:42px;width:42px;border-radius:10px;border:1px solid #dbe3f3;background:#fff;cursor:pointer;align-items:center;justify-content:center;font-size:18px}
+    @media (max-width:880px){
+      .navToggle{display:inline-flex}
+      .navList{display:none;position:absolute;left:0;right:0;top:78px;padding:10px 14px;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);
+        border-bottom:1px solid #e8edf7;box-shadow:0 14px 26px rgba(2,6,23,.07);flex-direction:column;gap:6px}
+      .header.scrolled .navList{top:64px}
+      .navList.open{display:flex}
+      .lang-switch{display:none}
+    }
+
+    /* HERO */
+    .mainHero{position:relative; z-index:0; color:#0f172a; min-height:72vh; display:flex; align-items:center; justify-content:center;
+      background:
+        radial-gradient(1200px 70% at 20% 10%, #a5b4fc33 0%, transparent 60%),
+        radial-gradient(1000px 60% at 80% 0%, #22c55e22 0%, transparent 60%),
+        linear-gradient(120deg,#f8fafc 55%, #eef2ff 100%); overflow:hidden; text-align:center;}
+    .heroLayer.pattern{position:absolute; inset:0; z-index:0; background:
+      linear-gradient(90deg,rgba(96,165,250,.08) 1px, transparent 1px) 0 0/28px 28px,
+      linear-gradient(0deg, rgba(167,139,250,.08) 1px, transparent 1px) 0 0/28px 28px;
+      mask:linear-gradient(to bottom, rgba(0,0,0,.75), rgba(0,0,0,.2)); pointer-events:none;}
+    .heroLayer.vignette{position:absolute; inset:0; z-index:0; background:radial-gradient(120% 90% at 50% 0%, transparent 40%, rgba(15,23,42,.14) 100%); pointer-events:none;}
+    .heroWrap{ z-index:1; width:100%; max-width:1240px; padding:40px 24px 34px; display:grid; grid-template-columns:1fr; gap:20px; place-items:center; }
+    .heroLeft{ display:flex; flex-direction:column; gap:16px; max-width:900px; align-items:center; }
+    .heroBadge{display:inline-flex;gap:10px;align-items:center;font-weight:900;letter-spacing:.02em;padding:8px 12px;border-radius:999px;background:linear-gradient(90deg,#e0e7ff,#dcfce7);border:1px solid #dbe3f3;color:#0f172a;box-shadow:0 8px 18px rgba(2,6,23,.06)}
+    .heroBadge i{ color:#22c55e; }
+    .heroTitle .titleText{
+      font-size:clamp(36px,5.6vw,74px);
+      font-family:Montserrat,'Plus Jakarta Sans',sans-serif;
+      font-weight:900; line-height:1.05; letter-spacing:-.03em;
+      background:linear-gradient(135deg,#0f172a 0%, #334155 35%, #22c55e 100%);
+      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+      text-shadow:0 10px 60px #22c55e22;
+    }
+    .heroTitle{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:0}
+    .heroDesc{ font-size:clamp(13px,1.5vw,17px); max-width:720px; margin:6px auto 16px; color:#1f2a44; font-weight:600; font-style:italic; letter-spacing:.01em; text-shadow:0 1px 12px rgba(34,197,94,.12);}
+    .downArrow{
+      width:58px;height:58px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;
+      background:linear-gradient(#fff,#fff) padding-box, conic-gradient(#22c55e, #60a5fa, #22c55e) border-box;
+      border:2px solid transparent; color:#0f172a; position:relative; margin:10px auto 0;
+      box-shadow:0 10px 28px rgba(2,6,23,.10); animation:floaty 2.2s ease-in-out infinite;
+    }
+    @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+    .footer{margin:50px 0 38px;text-align:center;color:#6153ffd6;font-weight:900;font-size:1.1em}
+    html[data-lang="hi"] body{font-family:'Noto Sans Devanagari','Mukta','Plus Jakarta Sans',system-ui,sans-serif}
+
+    .tabsWrap{ position:sticky; top:74px; z-index:150; margin:-12px auto 18px; padding:4px 8px; backdrop-filter: blur(8px) saturate(140%); background:rgba(255,255,255,0.92); border:none; border-radius:16px; box-shadow:0 4px 18px rgba(59,130,246,0.08); max-width:700px; display:flex; justify-content:center;}
+    .tabs{display:flex; gap:8px; flex-wrap:wrap; justify-content:center; width:100%}
+    .tabBtn{appearance:none; border:none; background:#f3f6ff; color:#0f172a; font-weight:900; padding:10px 22px; border-radius:999px; cursor:pointer; letter-spacing:.02em; font-size:1.08rem; box-shadow:0 2px 8px rgba(59,130,246,0.07); transition:background .18s, color .18s, box-shadow .18s; outline:none}
+    .tabBtn.active, .tabBtn:hover{ background:linear-gradient(90deg,#6366f1 60%,#22c55e 100%); color:#fff; box-shadow:0 6px 18px rgba(34,197,94,0.10) }
+
+    .main-container{ max-width:1200px; margin:0 auto; padding: 0 18px }
+    .section-header{ text-align:center; margin: 40px 0 36px }
+    .main-title{ font-size:clamp(32px,6vw,60px); font-weight:900; background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4); background-size:300% 300%; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; animation: gradientShift 8s ease infinite; margin-bottom:8px }
+    .main-subtitle{ font-size:1.05rem; color:#475569; font-weight:700 }
+    @keyframes gradientShift{ 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+
+    .featureSection{ position:relative; overflow:hidden; border-radius:32px; margin: 26px 0; padding: clamp(48px,6vw,84px) clamp(22px,3vw,44px); color:#fff }
+    .featureSection .section-content{ display:grid; grid-template-columns: 1fr 1fr; gap: clamp(24px,4vw,64px); align-items:center }
+    .featureSection .content-right{ display:flex; justify-content:center; align-items:center }
+    .illustration{ width:min(400px,42vw); height:min(300px,32vw); background: rgba(255,255,255,0.12); border-radius:20px; display:flex; align-items:center; justify-content:center; backdrop-filter: blur(10px); border:1px solid rgba(255,255,255,0.22); position:relative; overflow:hidden }
+    .illustration i{ font-size: clamp(72px,10vw,140px); color: rgba(255,255,255,0.9) }
+    .section-title{ font-size: clamp(28px,4vw,44px); font-weight:900; margin:0 0 10px; line-height:1.15 }
+    .section-description{ font-size: clamp(15px,1.4vw,18px); margin: 0 0 22px; line-height:1.65; font-weight:700 }
+    .features-list{ list-style:none; margin:0 0 26px; padding:0 }
+    .features-list li{ display:flex; align-items:center; gap:10px; margin:10px 0; font-weight:800 }
+    .features-list i{ color:#86efac }
+    .cta-button{ padding: 14px 22px; background: rgba(255,255,255,0.18); border: 2px solid rgba(255,255,255,0.35); border-radius: 999px; color: #fff; font-size: 1rem; font-weight: 900; cursor:pointer; transition:.2s; backdrop-filter: blur(10px); display:inline-flex; align-items:center; gap:10px }
+    .cta-button:hover{ transform: translateY(-2px) scale(1.03); background: rgba(255,255,255,0.26) }
+    .donate{ background:linear-gradient(135deg, #ff416c, #ff4757) }
+    .rojgar{ background:linear-gradient(135deg, #667eea, #764ba2) }
+    .volunteer{ background:linear-gradient(135deg, #56ab2f, #a8e6cf) }
+    .csr{ background:linear-gradient(135deg, #8360c3, #2ebf91) }
+    @media (max-width:980px){ .featureSection .section-content{ grid-template-columns:1fr } .content-right{ order:-1 } .tabsWrap{ top:66px } }
+
+    /* ===== Modern DONATION MODAL (NEW) ===== */
+    .modal{ display:none; position:fixed; z-index:9999; inset:0; align-items:center; justify-content:center; background:rgba(15,23,42,.2); backdrop-filter:blur(8px); }
+    .modalCard{ background:#fff; border-radius:20px; max-width:440px; width:92vw; padding:18px 16px; box-shadow:0 20px 60px rgba(0,0,0,0.25); position:relative; border:1px solid #eef2ff; max-height:86vh; overflow:auto; }
+    .modalClose{ position:absolute; top:12px; right:12px; background:#f8fafc; border:none; width:36px; height:36px; border-radius:10px; font-size:1.1em; cursor:pointer; color:#64748b; display:flex; align-items:center; justify-content:center; }
+    .modalClose:hover{ background:#fee2e2; color:#ef4444 }
+
+    .progress{display:flex;align-items:center;gap:6px;margin:0 0 10px}
+    .dot{width:14px;height:14px;border-radius:50%;}
+    .dot.active{background:linear-gradient(135deg,#6366f1,#8b5cf6)}
+    .bar{flex:1;height:2px;background:#e2e8f0;border-radius:1px;overflow:hidden}
+    .bar>span{display:block;height:100%;background:linear-gradient(90deg,#6366f1,#8b5cf6);width:50%;transition:width .3s}
+
+    .pill-toggle{display:flex;gap:8px;margin:10px 0 14px}
+    .pill{flex:1;text-align:center;padding:10px 12px;border:2px solid #e5e7eb;border-radius:12px;font-weight:800;cursor:pointer;user-select:none;background:#f9fafb}
+    .pill.active{border-color:#6366f1;background:linear-gradient(135deg,#eef2ff,#e0e7ff)}
+
+    .amount-chips{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}
+    .chip{padding:8px 12px;border-radius:10px;border:2px solid #e2e8f0;background:#f8fafc;font-weight:800;font-size:.9rem;cursor:pointer}
+    .chip:hover{border-color:#6366f1;background:#eef2ff}
+    .chip.selected{border-color:#4f46e5;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff}
+    .chip.other{background:linear-gradient(135deg,#fef3c7,#fde68a);border-color:#f59e0b;color:#92400e}
+
+    .fl-group{position:relative;margin:12px 0}
+    .fl-input{width:100%;border-radius:12px;border:2px solid #e2e8f0;background:#fafbff;font-size:.96rem;padding:18px 14px 10px 42px;color:#0f172a;font-weight:600;outline:0;transition:.2s}
+    .fl-input::placeholder{color:transparent}
+    .fl-input:focus{border-color:#6366f1;background:#fff;box-shadow:0 0 0 4px rgba(99,102,241,.1)}
+    .fl-label{position:absolute;left:38px;top:12px;font-weight:700;font-size:.88rem;color:#64748b;padding:0 6px;transition:.2s}
+    .fl-input:focus + .fl-label,.fl-input:not(:placeholder-shown) + .fl-label{top:-8px;left:32px;font-size:.76rem;color:#6366f1;background:#fff;box-shadow:0 0 0 6px #fff inset}
+    .fl-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#94a3b8}
+    .rupee{position:absolute;left:50px;top:50%;transform:translateY(-50%);font-weight:900;color:#64748b}
+    .amountIn{padding-left:82px}
+
+    .note-box{background:linear-gradient(135deg,#fff7ed,#fed7aa);border:1px solid #fbbf24;color:#92400e;border-radius:12px;padding:12px;font-weight:700}
+
+    .btn{width:100%;padding:12px 0;border:none;border-radius:12px;font-weight:900;color:#fff;background:linear-gradient(135deg,#16a34a,#22c55e);cursor:pointer;box-shadow:0 6px 18px rgba(34,197,94,.35)}
+    .btn:hover{transform:translateY(-1px)}
+    .btn.secondary{background:linear-gradient(135deg,#6366f1,#8b5cf6);box-shadow:0 6px 18px rgba(99,102,241,.35)}
+
+    .mini{font-size:.85rem;color:#64748b;font-weight:600;margin:6px 0 12px}
+
+    .qr{display:flex;justify-content:center;margin:8px 0 14px}
+    .qr img{width:200px;height:200px;border-radius:14px;border:3px solid #fff;box-shadow:0 8px 26px rgba(0,0,0,.18);cursor:pointer}
+    .bank{background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:12px;margin:10px 0}
+    .kv{display:flex;justify-content:space-between;font-size:.95rem}
+    .kv span:first-child{color:#64748b;font-weight:600}
+    .confirm{display:none;background:#f0fdf4;border:2px dashed #86efac;border-radius:14px;padding:12px;margin-top:12px}
+  </style>
+</head>
+<body>
+
+<header class="header" id="siteHeader">
+  <div class="H">
+    <a class="brand" href="/" aria-label="FWF Home">
+      <img src="assets/images/logo.png" alt="FWF">
+    </a>
+
+    <nav style="flex:1;display:flex;justify-content:center;">
+      <ul class="navList" id="navList" style="margin:0 auto;">
+        <li><a href="/" data-i18n="nav.home">Home</a></li>
+        <li><a href="/csr">CSR</a></li>
+        <li><a href="/projects" data-i18n="nav.projects">Projects</a></li>
+        <li><a href="/about" data-i18n="nav.about">About Us</a></li>
+      </ul>
+    </nav>
+
+    <div class="langDesktop" style="margin-left:auto;">
+      <div class="lang-switch" role="group" aria-label="Language switch">
+        <button id="btn-hi" type="button">HI</button><div class="lang-sep"></div>
+        <button id="btn-en" type="button" class="active">EN</button>
+      </div>
+    </div>
+
+    <button class="navToggle" id="navToggle" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</header>
+
+<section class="mainHero" id="home">
+  <div class="heroLayer pattern"></div>
+  <div class="heroLayer vignette"></div>
+
+  <div class="heroWrap">
+    <div class="heroLeft">
+      <div class="heroBadge"><i class="fa-solid fa-hand-holding-heart"></i><span data-i18n="hero.badge">Small gift. Big livelihood.</span></div>
+      <h1 class="heroTitle"><span class="titleText" data-i18n="hero.title">You can be the reason a family smiles</span><span class="emoji" aria-hidden="true">😊</span></h1>
+      <p class="heroDesc" data-i18n="hero.desc">Your small contribution is a new ray of hope for the unemployed.</p>
+      <a href="#involved" class="downArrow" aria-label="Scroll to involvement">
+        <i class="fa-solid fa-chevron-down"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<main id="involved" class="main-container">
+  <div class="section-header">
+    <h1 class="main-title">Get Involved</h1>
+    <p class="main-subtitle">Choose your path to make a meaningful impact</p>
+  </div>
+
+  <div class="tabsWrap" aria-label="Involved navigation">
+    <div class="tabs">
+      <button class="tabBtn active" data-target="#donate">Donate</button>
+      <button class="tabBtn" data-target="#rojgar">Employment Wing</button>
+      <button class="tabBtn" data-target="#volunteer">Volunteer</button>
+      <button class="tabBtn" data-target="#csr">CSR Partner</button>
+    </div>
+  </div>
+
+  <!-- Donate section -->
+  <section class="featureSection donate" id="donate">
+    <div class="section-content">
+      <div class="content-left">
+        <h2 class="section-title">Make a Donation</h2>
+        <p class="section-description">Every ₹ you give helps train skills, fund real projects & open a livelihood door.</p>
+        <ul class="features-list">
+          <li><i class="fa-solid fa-check"></i> 80G receipt support</li>
+          <li><i class="fa-solid fa-check"></i> Direct impact tracking</li>
+          <li><i class="fa-solid fa-check"></i> UPI / Bank transfer</li>
+        </ul>
+        <button class="cta-button" id="openDonate"><i class="fa-solid fa-heart"></i> Donate Now</button>
+      </div>
+      <div class="content-right"><div class="illustration"><i class="fa-solid fa-hand-holding-heart"></i></div></div>
+    </div>
+  </section>
+
+  <!-- Membership -->
+  <section class="featureSection rojgar" id="rojgar">
+    <div class="section-content">
+      <div class="content-left">
+        <h2 class="section-title">Membership Program</h2>
+        <p class="section-description">₹200/month: training, projects, mentoring, job-connect.</p>
+        <ul class="features-list">
+          <li><i class="fa-solid fa-check"></i> Project labs & gigs</li>
+          <li><i class="fa-solid fa-check"></i> Resume & interview help</li>
+          <li><i class="fa-solid fa-check"></i> Community support</li>
+        </ul>
+        <button class="cta-button" id="openMember2"><i class="fa-solid fa-user-plus"></i> Join Now</button>
+      </div>
+      <div class="content-right"><div class="illustration"><i class="fa-solid fa-user-graduate"></i></div></div>
+    </div>
+  </section>
+
+  <!-- Volunteer -->
+  <section class="featureSection volunteer" id="volunteer">
+    <div class="section-content">
+      <div class="content-left">
+        <h2 class="section-title">Volunteer Program</h2>
+        <p class="section-description">Teach, mentor & help set up micro-business.</p>
+        <ul class="features-list">
+          <li><i class="fa-solid fa-check"></i> Flexible time</li>
+          <li><i class="fa-solid fa-check"></i> Teach real skills</li>
+          <li><i class="fa-solid fa-check"></i> Community reach</li>
+        </ul>
+        <button class="cta-button" id="openVolunteer2"><i class="fa-solid fa-hands-helping"></i> Sign Up</button>
+      </div>
+      <div class="content-right"><div class="illustration"><i class="fa-solid fa-people-group"></i></div></div>
+    </div>
+  </section>
+
+  <!-- CSR -->
+  <section class="featureSection csr" id="csr">
+    <div class="section-content">
+      <div class="content-left">
+        <h2 class="section-title">CSR Tie-up / Corporate Partnership</h2>
+        <p class="section-description">Projects, internships, hiring या CSR से sustainable impact.</p>
+        <ul class="features-list">
+          <li><i class="fa-solid fa-check"></i> CSR alignment</li>
+          <li><i class="fa-solid fa-check"></i> Project outsourcing</li>
+          <li><i class="fa-solid fa-check"></i> Direct placements</li>
+        </ul>
+        <button class="cta-button" id="openPartner2"><i class="fa-solid fa-building-user"></i> Partner</button>
+      </div>
+      <div class="content-right"><div class="illustration"><i class="fa-solid fa-city"></i></div></div>
+    </div>
+  </section>
+</main>
+
+<section class="footer">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 40px 20px; text-align: center;">
+    <div style="border-top: 1px solid #e2e8f0; padding-top: 20px;">
+      &copy; <span id="year"></span> FWF • Built for creators, collaborators, and changemakers
+      <div style="margin-top: 10px;">
+        <a href="/privacy" style="color: #6153ff; text-decoration: none;">Privacy Policy</a> • <a href="/terms" style="color: #6153ff; text-decoration: none;">Terms & Conditions</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== New Donation Modal (Standard, Monthly + One-time) ===== -->
+<div id="donateModal" class="modal" aria-hidden="true">
+  <div class="modalCard" role="dialog" aria-modal="true" aria-labelledby="donateTitle">
+    <button class="modalClose" id="closeDonate" aria-label="Close"><i class="fa fa-times"></i></button>
+
+    <!-- Progress -->
+    <div class="progress" aria-hidden="true">
+      <div id="dot1" class="dot active"></div>
+      <div class="bar"><span id="prog"></span></div>
+      <div id="dot2" class="dot" style="background:#e2e8f0"></div>
+    </div>
+
+    <!-- STEP 1: Details -->
+    <section id="step1">
+      <div style="text-align:center;margin-bottom:8px">
+        <h2 id="donateTitle" style="margin:0 0 4px;font-size:1.25rem;font-weight:900;background:linear-gradient(135deg,#6366f1,#8b5cf6);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">Donation Details</h2>
+        <p class="mini">Fill details below to receive 80G tax receipt</p>
+      </div>
+
+      <!-- Donation Type -->
+      <div>
+        <div style="font-weight:800;color:#374151;font-size:.98rem;margin:6px 0 6px">Donation Type</div>
+        <div class="pill-toggle" role="tablist" aria-label="Donation Type">
+          <div id="pill-onetime" class="pill active" role="tab" aria-selected="true">One-time</div>
+          <div id="pill-monthly" class="pill" role="tab" aria-selected="false">Monthly</div>
+        </div>
+      </div>
+
+      <!-- Amount -->
+      <div>
+        <div style="font-weight:800;color:#374151;font-size:.98rem;margin:10px 0 8px">Select Amount</div>
+        <div class="amount-chips" id="chips">
+          <button type="button" class="chip" data-amt="51">₹51</button>
+          <button type="button" class="chip" data-amt="101">₹101</button>
+          <button type="button" class="chip" data-amt="501">₹501</button>
+          <button type="button" class="chip other" id="chipOther">Other</button>
+        </div>
+        <div class="fl-group">
+          <i class="fl-icon fa-solid fa-indian-rupee-sign"></i>
+          <span class="rupee">₹</span>
+          <input id="amount" class="fl-input amountIn" type="number" min="1" step="1" placeholder=" " required />
+          <label class="fl-label">Enter Amount</label>
+        </div>
+      </div>
+
+      <!-- Donor Info -->
+      <div>
+        <div style="font-weight:800;color:#374151;font-size:.98rem;margin:10px 0 8px">Your Information</div>
+        <div class="fl-group">
+          <i class="fl-icon fa-regular fa-user"></i>
+          <input id="name" class="fl-input" placeholder=" " required />
+          <label class="fl-label">Full Name</label>
+        </div>
+        <div class="fl-group">
+          <i class="fl-icon fa-solid fa-mobile-screen-button"></i>
+          <input id="mobile" class="fl-input" placeholder=" " pattern="[0-9]{10}" maxlength="10" required />
+          <label class="fl-label">Phone Number</label>
+        </div>
+        <div class="fl-group">
+          <i class="fl-icon fa-regular fa-envelope"></i>
+          <input id="email" class="fl-input" type="email" placeholder=" " required />
+          <label class="fl-label">Email Address</label>
+        </div>
+      </div>
+
+      <!-- Receipt + Consent -->
+      <div>
+        <label style="display:flex;gap:10px;align-items:flex-start;cursor:pointer">
+          <input id="need80g" type="checkbox" style="accent-color:#6366f1;margin-top:4px">
+          <span>
+            <b>Need 80G receipt</b><br>
+            <span class="mini" style="display:block;margin:2px 0 0">Required for tax deduction benefits</span>
+          </span>
+        </label>
+
+        <div id="panWrap" class="fl-group" style="display:none;margin-top:10px">
+          <i class="fl-icon fa-regular fa-id-card"></i>
+          <input id="pan" class="fl-input" placeholder=" " maxlength="10" />
+          <label class="fl-label">PAN Number</label>
+        </div>
+
+        <label style="display:flex;gap:10px;align-items:center;margin-top:8px;cursor:pointer">
+          <input id="consent" type="checkbox" checked style="accent-color:#6366f1">
+          <span class="mini">Send updates via WhatsApp & Email</span>
+        </label>
+
+        <div class="note-box" style="margin-top:10px">
+          Important: All donations are <strong>non-refundable</strong> and used for welfare programs.
+        </div>
+      </div>
+
+      <button id="goPay" class="btn" style="margin-top:12px">
+        <i class="fa fa-heart" style="margin-right:8px"></i> Continue to Payment
+      </button>
+      <div class="mini">256-bit SSL • UPI • Cards • NetBanking</div>
+    </section>
+
+    <!-- STEP 2: Payment -->
+    <section id="step2" style="display:none">
+      <div style="text-align:center;margin-bottom:6px">
+        <h2 id="payTitle" style="margin:0 0 4px;font-size:1.25rem;font-weight:900;color:#f97316">Complete Payment</h2>
+        <p id="paySub" class="mini">Scan UPI QR or use bank details below</p>
+      </div>
+
+      <div class="qr">
+        <img id="qr" src="assets/images/QRimg.jpg" alt="FWF UPI QR" onerror="this.style.display='none'">
+      </div>
+      <div style="text-align:center" class="mini">UPI ID: <b>fwf10@kotak</b> • Tap QR to zoom</div>
+
+      <div class="bank">
+        <div class="kv"><span>Account</span><span><b>9580118412</b></span></div>
+        <div class="kv"><span>Holder</span><span><b>FOUNDRIS WELFARE FOUNDATION</b></span></div>
+        <div class="kv"><span>IFSC</span><span><b>KKBK0005355</b></span></div>
+      </div>
+
+      <button id="paidToggle" class="btn secondary"><i class="fa fa-check-circle" style="margin-right:8px"></i> I have completed payment</button>
+
+      <div id="confirmWrap" class="confirm">
+        <div class="mini" style="color:#16a34a;font-weight:800;margin-bottom:6px">Payment Confirmation Details</div>
+        <div class="fl-group">
+          <i class="fl-icon fa-regular fa-clipboard"></i>
+          <input id="utr" class="fl-input" placeholder=" " />
+          <label class="fl-label">Transaction / UTR Number</label>
+        </div>
+        <div class="fl-group">
+          <i class="fl-icon fa-regular fa-image"></i>
+          <input id="shot" class="fl-input" type="file" accept="image/*" placeholder=" ">
+          <label class="fl-label">Upload payment screenshot (optional)</label>
+        </div>
+        <button id="submitConfirm" class="btn"><i class="fa fa-paper-plane" style="margin-right:8px"></i> Submit & Get 80G Receipt</button>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- Membership modal (unchanged) -->
+<div id="memberModal" class="modal">
+  <div class="modalCard">
+    <button class="modalClose" id="closeMember"><i class="fa fa-times"></i></button>
+    <div id="memberStep1">
+      <h2 style="margin:0 0 8px">Join Membership</h2>
+      <p class="mini">₹200/month – training, projects, mentoring & job-connect</p>
+      <form id="memberForm" autocomplete="off" novalidate>
+        <div class="fl-group"><i class="fl-icon fa-regular fa-user"></i><input class="fl-input" name="name" placeholder=" " required><label class="fl-label">Full Name</label></div>
+        <div class="fl-group"><i class="fl-icon fa-solid fa-mobile-screen-button"></i><input class="fl-input" name="mobile" placeholder=" " pattern="[0-9]{10}" maxlength="10" required><label class="fl-label">Phone</label></div>
+        <div class="fl-group"><i class="fl-icon fa-regular fa-envelope"></i><input class="fl-input" type="email" name="email" placeholder=" " required><label class="fl-label">Email</label></div>
+        <div class="fl-group"><i class="fl-icon fa-solid fa-diagram-project"></i>
+          <select class="fl-input" name="project" required style="padding-left:48px;">
+            <option value="" hidden selected></option>
+            <option>Suraksha</option><option>Swachh Bharat</option><option>Happy Meal</option>
+            <option>Green Energy</option><option>DIY Crafts</option><option>Swachh Jal</option>
+            <option>Samman</option><option>Sweet Home</option><option>Hariyali</option>
+            <option>Worship</option><option>Shiksha</option>
+          </select>
+          <label class="fl-label">Select Project</label>
+        </div>
+        <button class="btn" type="submit">Proceed to Payment</button>
+      </form>
+    </div>
+    <div id="memberStep2" style="display:none">
+      <h2 style="margin:0 0 6px">Complete Payment</h2>
+      <div class="qr"><img id="memberQR" src="assets/images/QRimg.jpg" alt="FWF UPI QR" onerror="this.style.display='none'"></div>
+      <div class="bank">
+        <div class="kv"><span>UPI ID</span><span><b>fwf10@kotak</b></span></div>
+        <div class="kv"><span>Account</span><span><b>9580118412</b></span></div>
+        <div class="kv"><span>IFSC</span><span><b>KKBK0005355</b></span></div>
+      </div>
+      <p class="mini">Pay ₹200 and click below.</p>
+      <button id="memberPaid" class="btn secondary"><i class="fa-solid fa-check" style="margin-right:8px"></i> I have paid</button>
+      <div class="confirm" id="memberDone">
+        <div class="fl-group"><i class="fl-icon fa-regular fa-clipboard"></i><input type="text" id="memberTxn" class="fl-input" placeholder=" "><label class="fl-label">Transaction / UTR Number</label></div>
+        <div class="fl-group"><i class="fl-icon fa-regular fa-image"></i><input type="file" id="memberShot" class="fl-input" accept="image/*" placeholder=" "><label class="fl-label">Upload screenshot (optional)</label></div>
+        <button id="memberFinish" class="btn"><i class="fa fa-paper-plane" style="margin-right:8px"></i> Submit & Get Member ID</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Volunteer -->
+<div id="volModal" class="modal">
+  <div class="modalCard">
+    <button class="modalClose" id="closeVol"><i class="fa fa-times"></i></button>
+    <h2 style="margin:0 0 8px">Volunteer Sign Up</h2>
+    <p class="mini">Tell us how you’d like to help</p>
+    <form id="volForm" autocomplete="off" novalidate>
+      <div class="fl-group"><i class="fl-icon fa-regular fa-user"></i><input class="fl-input" name="name" placeholder=" " required><label class="fl-label">Full Name</label></div>
+      <div class="fl-group"><i class="fl-icon fa-solid fa-mobile-screen-button"></i><input class="fl-input" name="mobile" placeholder=" " pattern="[0-9]{10}" maxlength="10" required><label class="fl-label">Phone</label></div>
+      <div class="fl-group"><i class="fl-icon fa-regular fa-envelope"></i><input class="fl-input" type="email" name="email" placeholder=" " required><label class="fl-label">Email</label></div>
+      <div class="fl-group"><i class="fl-icon fa-solid fa-diagram-project"></i>
+        <select class="fl-input" name="project" required style="padding-left:48px;">
+          <option value="" hidden selected></option>
+          <option>Teaching</option><option>Mentoring</option><option>Admin/Operations</option>
+          <option>Social Media</option><option>Fundraising</option><option>Other</option>
+        </select>
+        <label class="fl-label">Choose Project</label>
+      </div>
+      <div class="fl-group"><i class="fl-icon fa-regular fa-message"></i><textarea class="fl-input" name="message" placeholder=" " rows="4" style="height:120px;padding-top:18px"></textarea><label class="fl-label">How would you like to help?</label></div>
+      <button class="btn" type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+
+<!-- CSR -->
+<div id="partnerModal" class="modal">
+  <div class="modalCard">
+    <button class="modalClose" id="closePartner"><i class="fa fa-times"></i></button>
+    <h2 style="margin:0 0 8px">CSR Partnership</h2>
+    <p class="mini">Projects, internships, hiring or CSR programs</p>
+    <form id="partnerForm" autocomplete="off" novalidate>
+      <div class="fl-group"><i class="fl-icon fa-solid fa-building"></i><input class="fl-input" name="company" placeholder=" " required><label class="fl-label">Company / Org</label></div>
+      <div class="fl-group"><i class="fl-icon fa-regular fa-user"></i><input class="fl-input" name="contact" placeholder=" " required><label class="fl-label">Contact Person</label></div>
+      <div class="fl-group"><i class="fl-icon fa-solid fa-mobile-screen-button"></i><input class="fl-input" name="mobile" placeholder=" " pattern="[0-9]{10}" maxlength="10" required><label class="fl-label">Phone</label></div>
+      <div class="fl-group"><i class="fl-icon fa-regular fa-envelope"></i><input class="fl-input" type="email" name="email" placeholder=" " required><label class="fl-label">Email</label></div>
+      <div class="fl-group"><i class="fl-icon fa-solid fa-message"></i><input class="fl-input" name="message" placeholder=" "><label class="fl-label">Message / Need</label></div>
+      <button class="btn" type="submit">Send Request</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  // Basics
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const header = document.getElementById('siteHeader');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 6);
+  window.addEventListener('scroll', onScroll); onScroll();
+
+  const navToggle = document.getElementById('navToggle'), navList = document.getElementById('navList');
+  if(navToggle) navToggle.addEventListener('click', () => navList.classList.toggle('open'));
+
+  // i18n demo
+  const dict={en:{"nav.home":"Home","nav.projects":"Projects","nav.about":"About Us","hero.badge":"Small gift. Big livelihood.","hero.title":"You can be the reason a family smiles","hero.desc":"Your small contribution is a new ray of hope for the unemployed."},hi:{"nav.home":"होम","nav.projects":"प्रोजेक्ट्स","nav.about":"हमारे बारे में","hero.badge":"छोटा योगदान, बड़ा रोज़गार","hero.title":"आप किसी परिवार की मुस्कान की वजह बन सकते हैं","hero.desc":"आपका छोटा सा सहयोग बेरोज़गारों के लिए नई उम्मीद है।"}};
+  function applyLang(lang){document.documentElement.setAttribute('data-lang',lang==='hi'?'hi':'en');document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(dict[lang]&&dict[lang][k]) el.textContent=dict[lang][k];});const enBtn=document.getElementById('btn-en'),hiBtn=document.getElementById('btn-hi');if(enBtn) enBtn.classList.toggle('active',lang==='en');if(hiBtn) hiBtn.classList.toggle('active',lang==='hi');}
+  const enBtn=document.getElementById('btn-en'), hiBtn=document.getElementById('btn-hi');
+  if(enBtn) enBtn.addEventListener('click', ()=>applyLang('en'));
+  if(hiBtn) hiBtn.addEventListener('click', ()=>applyLang('hi'));
+  applyLang('en');
+
+  // Tab scroll
+  const tabBtns = document.querySelectorAll('.tabBtn');
+  function setActive(btn){ tabBtns.forEach(b=>b.classList.toggle('active', b===btn)); }
+  tabBtns.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const target = document.querySelector(btn.dataset.target);
+      if(target){ setActive(btn); const y = target.getBoundingClientRect().top + window.pageYOffset - 90; window.scrollTo({ top: y, behavior:'smooth' }); }
+    });
+  });
+  const sections = ['#donate','#rojgar','#volunteer','#csr'].map(s=>document.querySelector(s));
+  const spy = new IntersectionObserver((entries)=>{ entries.forEach(entry=>{ if(entry.isIntersecting){ const id = '#'+entry.target.id; tabBtns.forEach(b=> b.classList.toggle('active', b.dataset.target===id)); } }); }, { rootMargin:'-55% 0px -40% 0px', threshold:0 });
+  sections.forEach(s=>s && spy.observe(s));
+
+  /* ===== Donation Modal (NEW) ===== */
+  const donateModal = document.getElementById('donateModal');
+  const openDonate = document.getElementById('openDonate');
+  const closeDonate = document.getElementById('closeDonate');
+  const step1 = document.getElementById('step1');
+  const step2 = document.getElementById('step2');
+  const prog = document.getElementById('prog');
+  const dot1 = document.getElementById('dot1');
+  const dot2 = document.getElementById('dot2');
+
+  let donationType = 'onetime';
+
+  function openModal(el){ el.style.display='flex'; }
+  function closeModal(el){ el.style.display='none'; }
+
+  openDonate.addEventListener('click', ()=>{ resetDonation(); openModal(donateModal); });
+  closeDonate.addEventListener('click', ()=> closeModal(donateModal));
+  donateModal.addEventListener('click', (e)=>{ if(e.target===donateModal) closeModal(donateModal); });
+
+  // Type toggle
+  const pillOne = document.getElementById('pill-onetime');
+  const pillMon = document.getElementById('pill-monthly');
+  pillOne.addEventListener('click', ()=>{ donationType='onetime'; pillOne.classList.add('active'); pillMon.classList.remove('active'); });
+  pillMon.addEventListener('click', ()=>{ donationType='monthly'; pillMon.classList.add('active'); pillOne.classList.remove('active'); });
+
+  // Amount chips
+  const chips = document.getElementById('chips');
+  const amount = document.getElementById('amount');
+  const chipOther = document.getElementById('chipOther');
+  chips.addEventListener('click', (e)=>{
+    const b = e.target.closest('.chip'); if(!b) return;
+    document.querySelectorAll('#chips .chip').forEach(c=>c.classList.remove('selected'));
+    if(b===chipOther){ amount.focus(); return; }
+    b.classList.add('selected'); amount.value = b.dataset.amt || ''; amount.dispatchEvent(new Event('input',{bubbles:true}));
+  });
+
+  // 80G PAN toggle
+  const need80g = document.getElementById('need80g');
+  const panWrap = document.getElementById('panWrap');
+  const pan = document.getElementById('pan');
+  need80g.addEventListener('change', ()=>{ panWrap.style.display = need80g.checked ? 'block':'none'; pan.required = need80g.checked; if(!need80g.checked){ pan.value=''; } });
+
+  // Continue to payment
+  const goPay = document.getElementById('goPay');
+  const payTitle = document.getElementById('payTitle');
+  const paySub = document.getElementById('paySub');
+
+  goPay.addEventListener('click', ()=>{
+    // simple validation
+    if(!amount.value || parseInt(amount.value,10) < 1){ amount.focus(); return; }
+    if(!document.getElementById('name').value.trim()) return;
+    const mob = document.getElementById('mobile');
+    if(!mob.checkValidity()){ mob.reportValidity(); return; }
+    const mail = document.getElementById('email');
+    if(!mail.checkValidity()){ mail.reportValidity(); return; }
+    if(need80g.checked && !pan.value.trim()){ pan.focus(); return; }
+
+    // set header/subtitle
+    const t = donationType==='monthly' ? 'Monthly' : 'One-time';
+    const rec = need80g.checked ? ' (80G Receipt)' : '';
+    payTitle.textContent = `Complete ${t} Payment`;
+    paySub.textContent = `${t} donation of ₹${amount.value}${rec} • Scan QR or use bank details`;
+
+    // progress
+    prog.style.width = '100%';
+    dot1.classList.remove('active');
+    dot2.classList.add('active');
+
+    // show step 2
+    step1.style.display='none';
+    step2.style.display='block';
+  });
+
+  // QR zoom
+  const qr = document.getElementById('qr');
+  if(qr){ qr.addEventListener('click', ()=>{ qr.style.transform = qr.style.transform ? '' : 'scale(1.05)'; }); }
+
+  // Payment confirm
+  const paidToggle = document.getElementById('paidToggle');
+  const confirmWrap = document.getElementById('confirmWrap');
+  paidToggle.addEventListener('click', ()=>{ confirmWrap.style.display = confirmWrap.style.display==='block' ? 'none' : 'block'; });
+
+  document.getElementById('submitConfirm').addEventListener('click', ()=>{
+    const utr = document.getElementById('utr').value.trim();
+    if(!utr){ alert('Please enter the Transaction / UTR Number.'); return; }
+    const t = donationType==='monthly' ? 'monthly' : 'one-time';
+    alert(`🙏 Thank you! Your ${t} donation of ₹${amount.value} has been submitted.\n\n` +
+          `${need80g.checked ? '📧 80G receipt will be emailed soon.\n\n' : ''}` +
+          `📱 You will receive updates on your registered details.\n\n` +
+          `🌟 Your support powers livelihoods!`);
+    closeModal(donateModal); resetDonation();
+  });
+
+  function resetDonation(){
+    // reset fields
+    ['amount','name','mobile','email','pan','utr'].forEach(id=>{ const el=document.getElementById(id); if(el) el.value=''; });
+    document.getElementById('consent').checked = true;
+    need80g.checked = false; panWrap.style.display='none'; pan.required=false;
+
+    // chips
+    document.querySelectorAll('#chips .chip').forEach(c=>c.classList.remove('selected'));
+
+    // type default
+    donationType='onetime'; pillOne.classList.add('active'); pillMon.classList.remove('active');
+
+    // steps
+    step2.style.display='none'; step1.style.display='block';
+    prog.style.width='50%'; dot1.classList.add('active'); dot2.classList.remove('active');
+
+    // confirm
+    confirmWrap.style.display='none';
+  }
+
+  // Open/close helpers for other modals
+  function openAny(modal){ modal.style.display='flex'; }
+  function closeAny(modal){ modal.style.display='none'; }
+
+  /* MEMBERSHIP */
+  const memberModal=document.getElementById('memberModal');
+  const memberForm=document.getElementById('memberForm');
+  const memberStep1=document.getElementById('memberStep1');
+  const memberStep2=document.getElementById('memberStep2');
+  document.getElementById('openMember2').addEventListener('click', ()=>{ memberForm.reset(); memberStep2.style.display='none'; memberStep1.style.display='block'; openAny(memberModal); });
+  document.getElementById('closeMember').addEventListener('click', ()=> closeAny(memberModal));
+  memberModal.addEventListener('click', (e)=>{ if(e.target===memberModal) closeAny(memberModal); });
+  memberForm.addEventListener('submit', (e)=>{ e.preventDefault(); if(!memberForm.checkValidity()){ memberForm.reportValidity(); return; } memberStep1.style.display='none'; memberStep2.style.display='block'; });
+  const memberQR=document.getElementById('memberQR'); if(memberQR){ memberQR.addEventListener('click', ()=>{ memberQR.style.transform = memberQR.style.transform ? '' : 'scale(1.05)'; }); }
+  document.getElementById('memberPaid').addEventListener('click', ()=>{ const box=document.getElementById('memberDone'); box.style.display = (box.style.display==='block') ? 'none':'block'; });
+  document.getElementById('memberFinish').addEventListener('click', ()=>{ const txn=document.getElementById('memberTxn').value.trim(); if(!txn){ alert('Please enter the Transaction / UTR Number.'); return; } const mid='FWF'+Math.floor(100000+Math.random()*900000); const pwd=Math.random().toString(36).slice(-8); alert(`Payment received!\nMember ID: ${mid}\nTemp Password: ${pwd}`); closeAny(memberModal); });
+
+  /* VOLUNTEER */
+  const volModal=document.getElementById('volModal');
+  document.getElementById('openVolunteer2').addEventListener('click', ()=>{ document.getElementById('volForm').reset(); openAny(volModal); });
+  document.getElementById('closeVol').addEventListener('click', ()=> closeAny(volModal));
+  volModal.addEventListener('click', (e)=>{ if(e.target===volModal) closeAny(volModal); });
+  document.getElementById('volForm').addEventListener('submit', (e)=>{ e.preventDefault(); if(!e.target.checkValidity()){ e.target.reportValidity(); return; } alert('Thanks! Your volunteer request has been received.'); closeAny(volModal); });
+
+  /* PARTNER */
+  const partnerModal=document.getElementById('partnerModal');
+  document.getElementById('openPartner2').addEventListener('click', ()=>{ document.getElementById('partnerForm').reset(); openAny(partnerModal); });
+  document.getElementById('closePartner').addEventListener('click', ()=> closeAny(partnerModal));
+  partnerModal.addEventListener('click', (e)=>{ if(e.target===partnerModal) closeAny(partnerModal); });
+  document.getElementById('partnerForm').addEventListener('submit', (e)=>{ e.preventDefault(); if(!e.target.checkValidity()){ e.target.reportValidity(); return;} alert('Thanks! CSR partnership request received. Our team will contact you.'); closeAny(partnerModal); });
+</script>
+
+</body>
+</html>

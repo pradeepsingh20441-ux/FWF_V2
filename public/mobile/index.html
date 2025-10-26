@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>  
+  <!-- Desktop Detection & Redirect -->
+  <script>
+    (function() {
+      // Check if already on desktop site
+      if (window.location.pathname.includes('/desktop')) return;
+      
+      // Detect desktop (not mobile/tablet)
+      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      const isTablet = /(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(navigator.userAgent);
+      
+      if (!isMobile && !isTablet) {
+        // Get current page name
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        // Redirect to desktop site
+        window.location.href = '/desktop/' + currentPage;
+      }
+    })();
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+  <title>FWF — Skills to Livelihood</title>
+  <meta name="description" content="From Skills to Stable Income - Training, Livelihood, Direct Earning Pipeline" />
+  <link rel="manifest" href="/mobile/manifest.json">
+  <meta name="theme-color" content="#8B5CF6">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="/mobile/assets/icons/icon-192.png">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* ---------- Reset & Base ---------- */
+    *,*::before,*::after{box-sizing:border-box}html,body{height:100%}
+    body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;-webkit-font-smoothing:antialiased;background:var(--bg);color:var(--text);overflow-x:hidden;min-height:100dvh;padding-bottom:calc(64px + env(safe-area-inset-bottom,0px));transition:background .25s ease,color .25s ease}
+    :root{
+      --primary:#8B5CF6; --primary-dark:#7C3AED; --primary-light:#A78BFA;
+      --accent:#3B82F6; --cyan:#06B6D4; --green:#10B981; --orange:#F97316; --red:#EF4444;
+      --bg:#0B0B10; --bg-card:#14141A; --bg-elevated:#1C1C22;
+      --text:#FFFFFF; --text-secondary:#A1A1AA; --divider:#26262C;
+      --radius:18px; --radius-sm:12px; --shadow:0 8px 28px rgba(0,0,0,.35);
+      --wrap:1100px;
+    }
+    [data-theme="light"]{
+      --bg:#F5F7FB; --bg-card:#FFFFFF; --bg-elevated:#FFFFFF;
+      --text:#0B0B10; --text-secondary:#52525B; --divider:#E5E7EB;
+    }
+    .container{max-width:var(--wrap);margin:0 auto;padding-inline:20px}
+
+    /* ---------- Splash ---------- */
+    .splash-screen{position:fixed;inset:0;display:grid;place-items:center;background:linear-gradient(135deg,var(--primary),var(--accent));z-index:9999;animation:fadeOut .45s ease 1.8s forwards}
+    .splash-wrap{display:flex;flex-direction:column;align-items:center;gap:14px}
+    .splash-logo{width:110px;height:110px;border-radius:28px;display:grid;place-items:center;background:#fff;color:var(--primary);font-weight:800;font-size:42px;box-shadow:var(--shadow);overflow:hidden}
+    .splash-logo img{width:40px;height:40px;object-fit:contain}
+    .splash-text{color:#fff;font-weight:800;font-size:26px;letter-spacing:.2px}
+    .splash-sub{color:rgba(255,255,255,.85);font-size:14px}
+    .splash-loader{margin-top:8px;width:36px;height:36px;border:3px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:spin 1s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    @keyframes fadeOut{to{opacity:0;visibility:hidden}}
+
+    /* ---------- Navigation Fixed Position Override ---------- */
+    nav {
+      position: fixed !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      transform: none !important;
+      will-change: auto !important;
+    }
+
+    /* Prevent any movement on navigation elements */
+    nav * {
+      will-change: auto !important;
+    }
+
+    /* Ensure logo stays centered */
+    .bn-center {
+      position: absolute !important;
+      top: -35px !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      z-index: 10 !important;
+    }
+
+    /* ---------- Hero ---------- */
+    .app-content{padding-top:0px}
+    .hero{position:relative;display:grid;place-items:center;text-align:center;min-height:56vh;overflow:hidden}
+    .hero::before{content:"";position:absolute;inset:-40% -20% auto -20%;height:120%;background:
+      radial-gradient(60% 60% at 50% 40%, rgba(139,92,246,.25), transparent 60%),
+      radial-gradient(50% 50% at 70% 60%, rgba(59,130,246,.15), transparent 60%);transform:translateZ(0)}
+    .hero > .container{position:relative;z-index:1;padding-block:42px}
+    .badge{display:inline-block;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;padding:7px 14px;border-radius:999px;font-weight:700;font-size:13px}
+    .hero-title{font-size:clamp(26px,6.8vw,36px);font-weight:900;margin:12px 0 10px}
+    .highlight{background:linear-gradient(135deg,var(--cyan),var(--green));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .hero-desc{max-width:560px;margin:0 auto;color:var(--text-secondary);font-size:15px;line-height:1.6}
+    .hero-sub{margin-top:10px;color:var(--text-secondary);font-weight:700;font-size:13px;letter-spacing:.2px}
+    .hero-btn{margin-top:20px;background:linear-gradient(135deg,var(--green),var(--cyan));color:#fff;border:0;border-radius:14px;padding:14px 30px;font-weight:800;font-size:15px;box-shadow:0 10px 28px rgba(16,185,129,.32);cursor:pointer}
+
+    /* ---------- Sections ---------- */
+    section{padding:36px 0}
+    .section-header{text-align:center;margin-bottom:18px}
+    .section-title{font-size:22px;font-weight:900}
+    .section-sub{color:var(--text-secondary);font-size:13px;margin-top:6px}
+
+    /* ---------- Generic tile grid (used by Steps + Support) ---------- */
+    .tiles-wrap{background:var(--bg-card);border:1px solid var(--divider);border-radius:var(--radius);padding:18px;box-shadow:0 4px 20px rgba(0,0,0,0.08)}
+    .tiles-grid{display:grid;gap:10px;grid-template-columns: repeat(2, minmax(0, 1fr))}
+    .tile{text-decoration:none;background:var(--bg-elevated);border:1px solid var(--divider);border-radius:var(--radius-sm);padding:14px 12px;display:flex;flex-direction:column;align-items:center;gap:6px;transition:transform .2s, box-shadow .2s, border-color .2s;color:var(--text);text-align:center}
+    .tile:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(139,92,246,.12);border-color: rgba(139,92,246,.4)}
+    .pill{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;color:#fff;font-size:16px;margin-bottom:2px}
+    .pill.red{background:linear-gradient(135deg,#EF4444,#DC2626)}
+    .pill.cyan{background:linear-gradient(135deg,#06B6D4,#0891B2)}
+    .pill.purple{background:linear-gradient(135deg,#8B5CF6,#7C3AED)}
+    .pill.blue{background:linear-gradient(135deg,#3B82F6,#2563EB)}
+    .pill.green{background:linear-gradient(135deg,#10B981,#059669)}
+    .pill.accent{background:linear-gradient(135deg,#3B82F6,#2563EB)}
+    .tile-title{font-size:13px;font-weight:800;margin-top:2px}
+    .tile-sub{color:var(--text-secondary);font-size:11.5px;line-height:1.45;margin:0}
+
+    /* ---------- Hide horizontal scrollbar UI (for carousels) ---------- */
+    .no-scrollbar{scrollbar-width:none}
+    .no-scrollbar::-webkit-scrollbar{display:none}
+
+    /* ---------- Our Focus Areas: COMPACT CAROUSEL (no visible controls) ---------- */
+    .carousel{position:relative}
+    .carousel-viewport{
+      overflow:auto hidden; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;
+      padding:6px 2px 6px; scroll-behavior:smooth;
+    }
+    .carousel-viewport.no-scrollbar{} /* (just marker class) */
+    .carousel-row{display:flex;gap:10px}
+    .carousel-card{
+      scroll-snap-align:center;
+      min-width:180px;                /* smaller cards for mobile */
+      background:linear-gradient(180deg, rgba(139,92,246,.10), rgba(59,130,246,.06));
+      border:1px solid rgba(139,92,246,.24);
+      border-radius:12px;
+      padding:10px;
+      position:relative; overflow:hidden;
+      transition:transform .2s, box-shadow .2s, border-color .2s;
+    }
+    .carousel-card:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(139,92,246,.18);border-color:rgba(139,92,246,.45)}
+    .c-ico{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;background:linear-gradient(135deg,#6366F1,#8B5CF6);color:#fff;font-size:16px}
+    .c-title{margin:6px 0 2px;font-size:14px;font-weight:800}
+    .c-sub{margin:0;color:var(--text-secondary);font-size:12px}
+    .c-tags{display:none}
+
+    /* ---------- About: ultra compact 3-up on mobile ---------- */
+    .about{display:grid;gap:10px}
+    .about-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:12px;
+      padding:12px;
+      overflow:hidden;
+      transition:transform .2s, box-shadow .2s, border-color .2s;
+    }
+    .about-card:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(139,92,246,.14);border-color:rgba(139,92,246,.45)}
+    .about-head{display:flex;gap:8px;align-items:center;margin-bottom:6px}
+    .about-ico{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;display:grid;place-items:center;font-size:16px}
+    .about-card h3{margin:0;font-size:14px}
+    .about-card ul{margin:4px 0 0;padding:0;list-style:none}
+    .about-card li{display:flex;gap:6px;align-items:flex-start;margin:6px 0;color:var(--text-secondary);font-size:11.5px;line-height:1.35}
+    .about-card li i{color:var(--primary);margin-top:1px;font-size:11px}
+
+    /* ---------- Success Stories: carousel + safe space at bottom ---------- */
+    .stories-wrap{position:relative}
+    .stories-viewport{
+      overflow:auto hidden; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;
+      padding:6px 2px 6px; scroll-behavior:smooth;
+    }
+    .stories-row{display:flex;gap:10px}
+    .story-card{
+      scroll-snap-align:center;
+      min-width:220px;
+      background:radial-gradient(120% 120% at 0% 0%, rgba(139,92,246,.10), transparent 60%),
+                 radial-gradient(120% 120% at 100% 100%, rgba(59,130,246,.08), transparent 60%),
+                 var(--bg-card);
+      border:1px solid rgba(139,92,246,.25);
+      border-radius:12px;
+      padding:12px;
+      transition:transform .2s, box-shadow .2s, border-color .2s;
+    }
+    .story-card:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(139,92,246,.18);border-color:rgba(139,92,246,.45)}
+    .story-head{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+    .avatar{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,#6366F1,#8B5CF6);font-size:18px}
+    .name{font-weight:900;font-size:13px}
+    .biz{font-size:11px;color:var(--text-secondary)}
+    .quote{margin:0;color:var(--text-secondary);font-size:12.5px;line-height:1.5}
+    .stars{color:#FBBF24;font-size:11px;margin-left:auto}
+
+    /* ---------- Footer / FAB ---------- */
+    .app-footer{margin-top:36px;background:var(--bg-card);border-top:1px solid var(--divider);padding:28px 0 calc(28px + env(safe-area-inset-bottom,0px))}
+    .footer-grid{display:grid;gap:22px}
+    .footer-logo{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--accent));display:grid;place-items:center;color:#fff;font-weight:900}
+    .footer-title{font-weight:800;margin:0 0 10px}
+    .footer-links{list-style:none;margin:0;padding:0}
+    .footer-links li{margin:8px 0}
+    .footer-links a{color:var(--text-secondary);text-decoration:none;font-size:14px}
+    .footer-contact p{margin:6px 0;color:var(--text-secondary);font-size:14px;display:flex;gap:8px;align-items:flex-start}
+    .social{display:flex;gap:10px;margin-top:10px}
+    .social a{width:38px;height:38px;border-radius:50%;background:var(--bg-elevated);display:grid;place-items:center;text-decoration:none;color:var(--text)}
+    .footer-bottom{text-align:center;margin-top:14px;padding-top:14px;border-top:1px solid var(--divider);color:var(--text-secondary);font-size:12px}
+
+    .fab-container{position:fixed;bottom:90px;right:20px;z-index:1000}
+    .fab-main{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));border:none;box-shadow:0 8px 24px rgba(139,92,246,0.4);cursor:pointer;transition:all .3s cubic-bezier(.175,.885,.32,1.275);display:flex;align-items:center;justify-content:center;position:relative;z-index:1001}
+    .fab-main:hover{transform:scale(1.1);box-shadow:0 12px 32px rgba(139,92,246,0.6)}
+    .fab-main.active{transform:rotate(45deg)}
+    .fab-icon{color:#fff;font-size:20px;transition:transform .3s ease}
+    .fab-menu{position:absolute;bottom:70px;right:0;display:flex;flex-direction:column;gap:12px;opacity:0;visibility:hidden;transform:translateY(20px);transition:all .3s cubic-bezier(.175,.885,.32,1.275)}
+    .fab-menu.active{opacity:1;visibility:visible;transform:translateY(0)}
+    .fab-item{display:flex;align-items:center;text-decoration:none;transform:scale(0);transition:all .3s cubic-bezier(.175,.885,.32,1.275)}
+    .fab-menu.active .fab-item{transform:scale(1)}
+    .fab-menu.active .fab-item:nth-child(1){transition-delay:.1s}
+    .fab-menu.active .fab-item:nth-child(2){transition-delay:.2s}
+    .fab-menu.active .fab-item:nth-child(3){transition-delay:.3s}
+    .fab-item-content{display:flex;align-items:center;gap:12px;background:var(--bg-card);border:1px solid var(--divider);border-radius:28px;padding:12px 16px;box-shadow:0 8px 24px rgba(0,0,0,.15);transition:all .3s ease;min-width:120px}
+    .fab-item:hover .fab-item-content{background:var(--primary);border-color:var(--primary);transform:translateX(-8px);box-shadow:0 12px 32px rgba(139,92,246,.3)}
+    .fab-item i{color:var(--primary);font-size:18px;transition:color .3s ease;width:20px;text-align:center}
+    .fab-item:hover i{color:#fff}
+    .fab-label{color:var(--text);font-weight:600;font-size:14px;transition:color .3s ease}
+    .fab-item:hover .fab-label{color:#fff}
+    .fab-overlay{position:fixed;inset:0;background:rgba(0,0,0,.1);opacity:0;visibility:hidden;transition:all .3s ease;z-index:999}
+    .fab-overlay.active{opacity:1;visibility:visible}
+
+    /* ---------- Responsive ---------- */
+    @media (min-width:900px){
+      .tiles-grid{grid-template-columns: repeat(3, minmax(0,1fr))}
+      .about{grid-template-columns:repeat(3,minmax(0,1fr))}
+      .stories-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+    }
+    @media (max-width:599px){
+      /* Mobile: About = 3 compact columns */
+      .about{grid-template-columns:repeat(3,minmax(0,1fr))}
+    }
+    @media (min-width:600px) and (max-width:899px){
+      .about{grid-template-columns:repeat(3,minmax(0,1fr))}
+    }
+  </style>
+</head>
+<body>
+
+<!-- Splash -->
+<div class="splash-screen" id="splash" aria-hidden="true">
+  <div class="splash-wrap">
+    <div class="splash-logo" aria-label="FWF"><img src="assets/icons/logo.png" alt="FWF Logo" loading="eager" decoding="async"></div>
+    <div class="splash-text">FWF</div>
+    <div class="splash-sub">Skills to Livelihood</div>
+    <div class="splash-loader" role="progressbar" aria-label="Loading"></div>
+  </div>
+</div>
+
+<main id="main" class="app-content" role="main">
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <span class="badge">FWF — Skills to Livelihood</span>
+      <h1 class="hero-title">From Skills to <span class="highlight">Stable Income</span></h1>
+      <p class="hero-desc">We connect people with market-ready training and real business projects, so you can earn with dignity.</p>
+      <p class="hero-sub">Training → Livelihood → Direct Earning Pipeline</p>
+      <button class="hero-btn" onclick="location.href='/join.html'">Start Your Journey</button>
+    </div>
+  </section>
+
+  <!-- Steps (Quick Links style tiles) -->
+  <section>
+    <div class="container">
+      <div class="tiles-wrap">
+        <div class="section-header">
+          <h2 class="section-title">Get Started in <span class="highlight">4 Easy Steps</span></h2>
+          <p class="section-sub">We guide you — you stay worry-free.</p>
+        </div>
+        <div class="tiles-grid" role="list">
+          <div class="tile" role="listitem" aria-label="Enter Basic Details">
+            <div class="pill accent"><i class="fa-solid fa-clipboard-list"></i></div>
+            <div class="tile-title">Enter Basic Details</div>
+            <p class="tile-sub">Quick sign-up and KYC</p>
+          </div>
+          <div class="tile" role="listitem" aria-label="Compare & Choose Project">
+            <div class="pill cyan"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+            <div class="tile-title">Compare &amp; Choose Project</div>
+            <p class="tile-sub">Pick what suits your time &amp; interest</p>
+          </div>
+          <div class="tile" role="listitem" aria-label="Join Training">
+            <div class="pill green"><i class="fa-solid fa-chalkboard-user"></i></div>
+            <div class="tile-title">Join Training</div>
+            <p class="tile-sub">Hands-on, task-based learning</p>
+          </div>
+          <div class="tile" role="listitem" aria-label="Start Earning">
+            <div class="pill purple"><i class="fa-solid fa-briefcase"></i></div>
+            <div class="tile-title">Start Earning</div>
+            <p class="tile-sub">Work-time &amp; project allotment</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Support (Quick Links style tiles) -->
+  <section style="background:var(--bg-card)">
+    <div class="container">
+      <div class="tiles-wrap" id="support">
+        <div class="section-header">
+          <h2 class="section-title">Your support creates <span class="highlight">real change</span></h2>
+          <p class="section-sub">Choose your next step</p>
+        </div>
+        <div class="tiles-grid">
+          <div class="tile" aria-label="Donate Now">
+            <div class="pill red"><i class="fa-solid fa-heart"></i></div>
+            <div class="tile-title">Donate Now</div>
+            <p class="tile-sub">Your donation helps fund startup kits, training and projects to benefit families.</p>
+          </div>
+          <div class="tile" aria-label="Join as Volunteer">
+            <div class="pill cyan"><i class="fa-solid fa-hands-helping"></i></div>
+            <div class="tile-title">Join as Volunteer</div>
+            <p class="tile-sub">Mentor, teach or support events and see the impact.</p>
+          </div>
+          <div class="tile" aria-label="Partner With Us">
+            <div class="pill purple"><i class="fa-solid fa-handshake"></i></div>
+            <div class="tile-title">Partner With Us</div>
+            <p class="tile-sub">CSR &amp; scholarship partners — create jobs where they matter.</p>
+          </div>
+          <div class="tile" aria-label="Become a Member">
+            <div class="pill blue"><i class="fa-solid fa-user-group"></i></div>
+            <div class="tile-title">Become a Member</div>
+            <p class="tile-sub">Get exclusive project access and business support.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Focus Areas (Compact autoplay, scrollbar hidden) -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Our Focus Areas</h2>
+        <p class="section-sub">Key themes where we drive impact</p>
+      </div>
+
+      <div class="carousel" id="focusCarousel">
+        <div class="carousel-viewport no-scrollbar" aria-label="Focus Areas" role="region">
+          <div class="carousel-row">
+            <article class="carousel-card">
+              <div class="c-ico">🛠️</div>
+              <h3 class="c-title">Skill Builds</h3>
+              <p class="c-sub">NSDC/SSC aligned training programs</p>
+            </article>
+            <article class="carousel-card">
+              <div class="c-ico">👩</div>
+              <h3 class="c-title">Women Empowerment</h3>
+              <p class="c-sub">Micro-units &amp; SHGs support</p>
+            </article>
+            <article class="carousel-card">
+              <div class="c-ico">🌱</div>
+              <h3 class="c-title">Youth Employment</h3>
+              <p class="c-sub">Job-linked training &amp; apprenticeship</p>
+            </article>
+            <article class="carousel-card">
+              <div class="c-ico">🏥</div>
+              <h3 class="c-title">Healthcare Access</h3>
+              <p class="c-sub">Community health initiatives</p>
+            </article>
+            <article class="carousel-card">
+              <div class="c-ico">📈</div>
+              <h3 class="c-title">Micro-Enterprise</h3>
+              <p class="c-sub">Startup kits &amp; market linkages</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About (ultra-compact 3-up on mobile) -->
+  <section>
+    <div class="container">
+      <div class="section-header"><h2 class="section-title">About Us</h2></div>
+      <div class="about">
+        <article class="about-card">
+          <div class="about-head">
+            <div class="about-ico"><i class="fa-solid fa-bullseye"></i></div>
+            <h3>Mission</h3>
+          </div>
+          <ul>
+            <li><i class="fa-solid fa-circle-check"></i> Link Skills → Work → Income with a clear pathway</li>
+            <li><i class="fa-solid fa-circle-check"></i> Low-cost training opportunities nationwide</li>
+            <li><i class="fa-solid fa-circle-check"></i> Data-assisted transparency &amp; tracking</li>
+            <li><i class="fa-solid fa-circle-check"></i> Low-cost, high-impact livelihood models</li>
+          </ul>
+        </article>
+
+        <article class="about-card">
+          <div class="about-head">
+            <div class="about-ico"><i class="fa-solid fa-eye"></i></div>
+            <h3>Vision</h3>
+          </div>
+          <ul>
+            <li><i class="fa-solid fa-circle-check"></i> Training + Project hubs in every district</li>
+            <li><i class="fa-solid fa-circle-check"></i> Inclusive &amp; gender-neutral ecosystem</li>
+            <li><i class="fa-solid fa-circle-check"></i> Data-assisted transparency &amp; tracking</li>
+          </ul>
+        </article>
+
+        <article class="about-card">
+          <div class="about-head">
+            <div class="about-ico"><i class="fa-solid fa-heart"></i></div>
+            <h3>Values</h3>
+          </div>
+          <ul>
+            <li><i class="fa-solid fa-circle-check"></i> Self-reliance, dignity and inclusion</li>
+            <li><i class="fa-solid fa-circle-check"></i> Corporate–NGO–Community partnerships</li>
+            <li><i class="fa-solid fa-circle-check"></i> Impact-first, sustainable decisions</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Success Stories (autoplay carousel + extra bottom padding to avoid nav overlap) -->
+  <section style="background:var(--bg-card); padding-bottom: 96px;">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title"><span class="highlight">Success Stories</span></h2>
+        <p class="section-sub">Changing lives, one entrepreneur at a time</p>
+      </div>
+
+      <div class="stories-wrap" id="storiesCarousel">
+        <div class="stories-viewport no-scrollbar" aria-label="Success Stories" role="region">
+          <div class="stories-row">
+            <article class="story-card">
+              <div class="story-head">
+                <div class="avatar">🚚</div>
+                <div>
+                  <div class="name">Rahul</div>
+                  <div class="biz">Delivery Service</div>
+                </div>
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+              </div>
+              <p class="quote">“Rahul provided jobs to 3 youth in his area. FWF-supported startup — growth that uplifted his whole community.”</p>
+            </article>
+
+            <article class="story-card">
+              <div class="story-head">
+                <div class="avatar">🧼</div>
+                <div>
+                  <div class="name">Rani</div>
+                  <div class="biz">Handmade Soaps</div>
+                </div>
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
+              </div>
+              <p class="quote">“With FWF's micro-investment, Rani's soaps are now sold in 3 cities. Her salary's tripled.”</p>
+            </article>
+
+            <article class="story-card">
+              <div class="story-head">
+                <div class="avatar">🍰</div>
+                <div>
+                  <div class="name">Kirti</div>
+                  <div class="biz">Home Bakery</div>
+                </div>
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
+              </div>
+              <p class="quote">“Kirti made her dream a reality with FWF. ‘They believed in me and I achieved my dreams!’”</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- FAB -->
+<div class="fab-container">
+  <button class="fab-main" id="fabMain" aria-label="Quick Actions">
+    <i class="fa-solid fa-plus fab-icon" id="fabIcon"></i>
+  </button>
+  <div class="fab-menu" id="fabMenu">
+    <a href="donate.html" class="fab-item" aria-label="Donate">
+      <div class="fab-item-content">
+        <i class="fa-solid fa-hand-holding-heart"></i>
+        <span class="fab-label">Donate</span>
+      </div>
+    </a>
+    <a href="join.html" class="fab-item" aria-label="Join">
+      <div class="fab-item-content">
+        <i class="fa-solid fa-user-plus"></i>
+        <span class="fab-label">Join</span>
+      </div>
+    </a>
+    <a href="about.html#volunteer" class="fab-item" aria-label="Volunteer">
+      <div class="fab-item-content">
+        <i class="fa-solid fa-hands-helping"></i>
+        <span class="fab-label">Volunteer</span>
+      </div>
+    </a>
+  </div>
+  <div class="fab-overlay" id="fabOverlay"></div>
+</div>
+
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 right-0 backdrop-blur-lg shadow-xl" style="background: white; border: 1px solid var(--divider); z-index: 1001; padding: 8px;">
+  
+  <div class="flex items-center justify-around px-2 py-2">
+    <a href="index.html" class="flex flex-col items-center space-y-1" style="color: var(--primary);" data-tab="home">
+      <i data-lucide="home" class="w-6 h-6"></i>
+      <span class="text-xs font-medium">Home</span>
+    </a>
+    <a href="csr.html" class="flex flex-col items-center space-y-1" style="color: var(--text-secondary);" data-tab="csr">
+      <i data-lucide="heart" class="w-6 h-6"></i>
+      <span class="text-xs font-medium">CSR</span>
+    </a>
+    <div class="flex flex-col items-center bn-center select-none" style="position: absolute; top: -35px; left: 50%; transform: translateX(-50%); z-index: 10;">
+      <!-- Black/dark background spacer -->
+      <div class="w-18 h-18 rounded-full flex items-center justify-center" style="background: var(--bg); width: 72px; height: 72px;">
+        <!-- Actual logo container -->
+        <div class="w-16 h-16 rounded-full flex items-center justify-center shadow-xl border-4" style="background: linear-gradient(135deg, var(--primary), var(--accent)); border-color: var(--bg);">
+          <img src="assets/icons/logo.png" alt="FWF" class="w-10 h-10 object-contain" style="filter: brightness(0) invert(1);" />
+        </div>
+      </div>
+    </div>
+    <a href="projects.html" class="flex flex-col items-center space-y-1" style="color: var(--text-secondary);" data-tab="projects">
+      <i data-lucide="briefcase" class="w-6 h-6"></i>
+      <span class="text-xs font-medium">Projects</span>
+    </a>
+    <button class="flex flex-col items-center space-y-1" style="color: var(--text-secondary);" id="moreBtn" data-tab="more">
+      <i data-lucide="menu" class="w-6 h-6"></i>
+      <span class="text-xs font-medium">More</span>
+    </button>
+  </div>
+</nav>
+
+<!-- Horizontal Menu + Contact Modal -->
+<div id="horizontalMenu" class="fixed bottom-20 left-0 right-0 backdrop-blur-lg border-t shadow-lg transform translate-y-full transition-transform duration-300 ease-in-out" style="background: var(--bg-card); border-color: var(--divider); z-index: 1000;">
+  <div class="flex items-center justify-around px-4 py-3">
+    <a href="about.html" class="flex flex-col items-center space-y-1 transition-colors" style="color: var(--text-secondary);" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-secondary)'">
+      <i data-lucide="users" class="w-5 h-5"></i><span class="text-xs font-medium">About</span>
+    </a>
+    <a href="join.html" class="flex flex-col items-center space-y-1 transition-colors" style="color: var(--text-secondary);" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-secondary)'">
+      <i data-lucide="user-plus" class="w-5 h-5"></i><span class="text-xs font-medium">Join</span>
+    </a>
+    <a href="donate.html" class="flex flex-col items-center space-y-1 transition-colors" style="color: var(--text-secondary);" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-secondary)'">
+      <i data-lucide="heart" class="w-5 h-5"></i><span class="text-xs font-medium">Donate</span>
+    </a>
+    <button id="contactBtn" class="flex flex-col items-center space-y-1 transition-colors" style="color: var(--text-secondary); background: none; border: none; cursor: pointer;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-secondary)'">
+      <i data-lucide="phone" class="w-5 h-5"></i><span class="text-xs font-medium">Contact</span>
+    </button>
+  </div>
+</div>
+
+<!-- Contact Modal -->
+<div id="contactModal" class="fixed inset-0 backdrop-blur-lg flex items-center justify-center transform scale-0 transition-transform duration-300 ease-out" style="background: rgba(0,0,0,0.5); z-index: 2000;">
+  <div class="max-w-sm w-full mx-4 rounded-3xl shadow-2xl transform transition-all duration-300" style="background: var(--bg-card); border: 1px solid var(--divider);">
+    <div class="p-6 text-center">
+      <div class="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center" style="background: linear-gradient(135deg, var(--primary), var(--accent));">
+        <i data-lucide="phone" class="w-8 h-8 text-white"></i>
+      </div>
+      <h3 class="text-xl font-bold mb-2" style="color: var(--text);">Contact FWF</h3>
+      <p class="mb-6" style="color: var(--text-secondary);">Get in touch with us for partnerships, volunteering, or queries</p>
+      
+      <div class="space-y-3">
+        <a href="tel:+919876543210" class="block w-full py-3 px-4 rounded-xl font-medium transition-colors" style="background: var(--primary); color: white;">
+          <i data-lucide="phone" class="w-4 h-4 inline mr-2"></i>Call Us
+        </a>
+        <a href="mailto:info@fwfindia.org" class="block w-full py-3 px-4 rounded-xl font-medium transition-colors" style="background: var(--bg-elevated); color: var(--text); border: 1px solid var(--divider);">
+          <i data-lucide="mail" class="w-4 h-4 inline mr-2"></i>Email Us
+        </a>
+        <a href="https://wa.me/919876543210" class="block w-full py-3 px-4 rounded-xl font-medium transition-colors" style="background: #10B981; color: white;">
+          <i data-lucide="message-circle" class="w-4 h-4 inline mr-2"></i>WhatsApp
+        </a>
+      </div>
+      
+      <button id="closeModal" class="mt-4 w-full py-2 text-sm font-medium" style="color: var(--text-secondary);">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  lucide.createIcons();
+  const haptic = () => navigator.vibrate && navigator.vibrate(10);
+
+  window.addEventListener('load', () => {
+    setTimeout(() => { const s=document.getElementById('splash'); if(s) s.style.display='none'; }, 2200);
+  });
+
+  // Navigation functionality
+  const moreBtn = document.getElementById('moreBtn');
+  const horizontalMenu = document.getElementById('horizontalMenu');
+  const contactBtn = document.getElementById('contactBtn');
+  const contactModal = document.getElementById('contactModal');
+  const closeModal = document.getElementById('closeModal');
+
+  // Toggle horizontal menu
+  moreBtn?.addEventListener('click', () => {
+    horizontalMenu.classList.toggle('translate-y-full');
+  });
+
+  // Show contact modal
+  contactBtn?.addEventListener('click', () => {
+    contactModal.classList.remove('scale-0');
+    contactModal.classList.add('scale-100');
+  });
+
+  // Close contact modal
+  closeModal?.addEventListener('click', () => {
+    contactModal.classList.remove('scale-100');
+    contactModal.classList.add('scale-0');
+  });
+
+  // Close modal on backdrop click
+  contactModal?.addEventListener('click', (e) => {
+    if (e.target === contactModal) {
+      contactModal.classList.remove('scale-100');
+      contactModal.classList.add('scale-0');
+    }
+  });
+
+  // Close horizontal menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!moreBtn?.contains(e.target) && !horizontalMenu?.contains(e.target)) {
+      horizontalMenu?.classList.add('translate-y-full');
+    }
+  });
+
+  // FAB logic
+  document.addEventListener('DOMContentLoaded', function() {
+    const fabMain = document.getElementById('fabMain');
+    const fabMenu = document.getElementById('fabMenu');
+    const fabOverlay = document.getElementById('fabOverlay');
+    const fabIcon = document.getElementById('fabIcon');
+    if (fabMain && fabMenu && fabOverlay && fabIcon) {
+      let fabOpen = false;
+      const toggleFAB = () => {
+        fabOpen = !fabOpen;
+        fabMain.classList.toggle('active', fabOpen);
+        fabMenu.classList.toggle('active', fabOpen);
+        fabOverlay.classList.toggle('active', fabOpen);
+        fabIcon.style.transform = fabOpen ? 'rotate(45deg)' : 'rotate(0deg)';
+      };
+      fabMain.addEventListener('click', () => { haptic(); toggleFAB(); });
+      fabOverlay.addEventListener('click', () => { if (fabOpen) toggleFAB(); });
+      document.querySelectorAll('.fab-item').forEach(item => {
+        item.addEventListener('click', () => {
+          haptic();
+          setTimeout(() => { if (fabOpen) toggleFAB(); }, 150);
+        });
+      });
+    }
+  });
+
+  /* ------ Autoplay helpers (shared) ------ */
+  function makeAutoplayScroller(viewport, itemWidthFn, intervalMs=3000){
+    let index = 0, timer;
+    const clamp = (v,min,max)=>Math.max(min,Math.min(max,v));
+    const goTo = (i, behavior='smooth') => {
+      const count = Math.round(viewport.scrollWidth / itemWidthFn());
+      index = (i + count) % count;
+      viewport.scrollTo({ left: index * itemWidthFn(), behavior });
+    };
+    const start = ()=> timer = setInterval(()=> goTo(index+1), intervalMs);
+    const stop  = ()=> timer && clearInterval(timer);
+
+    // sync with manual scroll
+    let t;
+    viewport.addEventListener('scroll', ()=>{
+      clearTimeout(t);
+      t = setTimeout(()=>{
+        const pos = viewport.scrollLeft / itemWidthFn();
+        const maxIndex = Math.round(viewport.scrollWidth / itemWidthFn());
+        index = clamp(Math.round(pos), 0, maxIndex-1);
+      }, 80);
+    });
+
+    viewport.addEventListener('mouseenter', stop);
+    viewport.addEventListener('mouseleave', ()=>{ stop(); start(); });
+    viewport.addEventListener('touchstart', stop, {passive:true});
+    viewport.addEventListener('touchend',   ()=>{ stop(); start(); }, {passive:true});
+
+    // init
+    goTo(0,'auto'); start();
+    window.addEventListener('resize', ()=>{ stop(); goTo(index,'auto'); start(); });
+  }
+
+  /* ------ Focus Areas: AUTOPLAY + scrollbar hidden ------ */
+  (function(){
+    const root = document.getElementById('focusCarousel');
+    if (!root) return;
+    const viewport = root.querySelector('.carousel-viewport');
+    const firstCard = root.querySelector('.carousel-card');
+    const gap = 10;
+    const itemW = ()=> firstCard.getBoundingClientRect().width + gap;
+    makeAutoplayScroller(viewport, itemW, 2800);
+  })();
+
+  /* ------ Success Stories: AUTOPLAY + scrollbar hidden ------ */
+  (function(){
+    const root = document.getElementById('storiesCarousel');
+    if (!root) return;
+    const viewport = root.querySelector('.stories-viewport');
+    const first = root.querySelector('.story-card');
+    const gap = 10;
+    const itemW = ()=> first.getBoundingClientRect().width + gap;
+    makeAutoplayScroller(viewport, itemW, 3200);
+  })();
+
+  // Prevent zoom on double tap (mobile)
+  let lastTouchEnd = 0;
+  document.addEventListener('touchend', (e) => {
+    const now = Date.now();
+    if (now - lastTouchEnd <= 300) e.preventDefault();
+    lastTouchEnd = now;
+  }, false);
+</script>
+
+</body>
+</html>
