@@ -1,0 +1,49 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/(.*\\.(js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot|webp))",
+      "dest": "/$1"
+    },
+    {
+      "src": "/",
+      "dest": "/public/desktop/index.html"
+    },
+    {
+      "src": "/mobile/(.*)",
+      "dest": "/public/mobile/$1"
+    },
+    {
+      "src": "/admin/(.*)",
+      "dest": "/public/admin/$1"
+    },
+    {
+      "src": "/member/(.*)",
+      "dest": "/public/member/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/public/desktop/$1"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/public/desktop/index.html"
+    },
+    {
+      "source": "/index.html",
+      "destination": "/public/desktop/index.html"
+    }
+  ]
+}
