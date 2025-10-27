@@ -321,15 +321,15 @@
       <a class="brand" href="#home"><img src="assets/images/logo.png" alt="FWF"/></a>
       <nav class="mainNavCenter">
         <ul>
-          <li><a href="index.html" data-i18n="nav.home">Home</a></li>
-          <li><a href="csr.html">CSR</a></li>
-          <li><a href="projects.html" data-i18n="nav.projects">Projects</a></li>
-          <li><a href="about.html" data-i18n="nav.about">About Us</a></li>
+          <li><a href="/" data-i18n="nav.home">Home</a></li>
+          <li><a href="/csr">CSR</a></li>
+          <li><a href="/projects" data-i18n="nav.projects">Projects</a></li>
+          <li><a href="/about" data-i18n="nav.about">About Us</a></li>
         </ul>
         <!-- CTA buttons and language switch remain right aligned -->
         <div class="navRight">
-          <a class="btn-join" href="join.html" data-i18n="nav.join">Join</a>
-          <a class="btn-donate" href="donation.html" data-i18n="nav.donate">Donate</a>
+          <a class="btn-join" href="/join" data-i18n="nav.join">Join</a>
+          <a class="btn-donate" href="/donate" data-i18n="nav.donate">Donate</a>
           <div class="lang-switch" role="group" aria-label="Language switch">
             <button id="btn-hi" type="button">HI</button><div class="lang-sep"></div>
             <button id="btn-en" type="button" class="active">EN</button>
@@ -347,7 +347,7 @@
       <p class="lead" data-i18n-html="hero.lead">We connect people with market-ready training and real business projects, so you can earn with dignity.<br><b>Training → Livelihood → Direct Earning Pipeline</b></p>
       <div class="cta-row">
         <!-- Hero CTA → donation.html -->
-        <a class="btn journey" href="projects.html" data-i18n="hero.journeyBtn">Start Your Journey</a>
+        <a class="btn journey" href="/projects" data-i18n="hero.journeyBtn">Start Your Journey</a>
       </div>
     </div>
   </section>
@@ -401,7 +401,7 @@
         <div class="acContent">
           <h3 class="acTitle" data-i18n="cta.cards.donate.title">Donate Now</h3>
           <p class="acDesc" data-i18n="cta.cards.donate.desc">Your donation helps people access training and projects to earn their livelihood.</p>
-          <div class="acActions"><a class="primaryBtn b-donate" href="donation.html" data-i18n="cta.cards.donate.btn">Donate</a></div>
+          <div class="acActions"><a class="primaryBtn b-donate" href="/donate" data-i18n="cta.cards.donate.btn">Donate</a></div>
         </div>
       </article>
 
@@ -412,7 +412,7 @@
         <div class="acContent">
           <h3 class="acTitle" data-i18n="cta.cards.vol.title">Join as Volunteer</h3>
           <p class="acDesc" data-i18n="cta.cards.vol.desc">Mentor trainees, support events and help run local projects.</p>
-          <div class="acActions"><a class="primaryBtn b-vol" href="join.html" data-i18n="cta.cards.vol.btn">Join</a></div>
+          <div class="acActions"><a class="primaryBtn b-vol" href="/join" data-i18n="cta.cards.vol.btn">Join</a></div>
         </div>
       </article>
 
@@ -423,7 +423,7 @@
         <div class="acContent">
           <h3 class="acTitle" data-i18n="cta.cards.partner.title">Partner With Us</h3>
           <p class="acDesc" data-i18n="cta.cards.partner.desc">CSR & outsourcing partnerships that create jobs where they matter.</p>
-          <div class="acActions"><a class="primaryBtn b-part" href="csr.html" data-i18n="cta.cards.partner.btn">Partner</a></div>
+          <div class="acActions"><a class="primaryBtn b-part" href="/csr" data-i18n="cta.cards.partner.btn">Partner</a></div>
         </div>
       </article>
 
@@ -434,7 +434,7 @@
         <div class="acContent">
           <h3 class="acTitle" data-i18n="cta.cards.member.title">Become a Member</h3>
           <p class="acDesc" data-i18n="cta.cards.member.desc">Get priority training, project access and business support.</p>
-          <div class="acActions"><a class="primaryBtn b-mem" href="join.html" data-i18n="cta.cards.member.btn">Apply</a></div>
+          <div class="acActions"><a class="primaryBtn b-mem" href="/join" data-i18n="cta.cards.member.btn">Apply</a></div>
         </div>
       </article>
     </div>
@@ -531,10 +531,10 @@
       <div class="foot-links">
         <h4 data-i18n="footer.quick">Quick Links</h4>
         <ul>
-          <li><a href="projects.html" data-i18n="footer.links.projects">Projects</a></li>
-          <li><a href="join.html" data-i18n="footer.links.join">Join</a></li>
-          <li><a href="donation.html" data-i18n="footer.links.donate">Donate</a></li>
-          <li><a href="about.html" data-i18n="footer.links.about">About</a></li>
+          <li><a href="/projects" data-i18n="footer.links.projects">Projects</a></li>
+          <li><a href="/join" data-i18n="footer.links.join">Join</a></li>
+          <li><a href="/donate" data-i18n="footer.links.donate">Donate</a></li>
+          <li><a href="/about" data-i18n="footer.links.about">About</a></li>
         </ul>
       </div>
       <div class="foot-links support-links">
@@ -550,7 +550,7 @@
     </div>
     <div class="footbar">
       <div>© <span id="year"></span> <span data-i18n="footer.rights">FWF – All Rights Reserved</span></div>
-      <div><a href="privacy-policy.html" data-i18n="footer.privacy">Privacy Policy</a> • <a href="terms-conditions.html" data-i18n="footer.terms">Terms & Conditions</a></div>
+      <div><a href="/privacy" data-i18n="footer.privacy">Privacy Policy</a> • <a href="/terms" data-i18n="footer.terms">Terms & Conditions</a></div>
 
     </div>
   </footer>
@@ -1440,26 +1440,30 @@
         
         <div style="margin-bottom: 15px;">
           <label style="display: block; color: #e2e8f0; margin-bottom: 6px; font-weight: 600; font-size: 14px;">Name *</label>
-          <input type="text" name="name" required style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: #fff; font-size: 14px;" placeholder="Your name">
+          <input type="text" name="name" required minlength="2" maxlength="50" style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: #fff; font-size: 14px; transition: all 0.3s;" placeholder="Your full name" onfocus="this.style.borderColor='rgba(255,255,255,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.2)'">
         </div>
 
         <div style="margin-bottom: 15px;">
           <label style="display: block; color: #e2e8f0; margin-bottom: 6px; font-weight: 600; font-size: 14px;">Email *</label>
-          <input type="email" name="email" required style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: #fff; font-size: 14px;" placeholder="your@email.com">
+          <input type="email" name="email" required style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: #fff; font-size: 14px; transition: all 0.3s;" placeholder="your@email.com" onfocus="this.style.borderColor='rgba(255,255,255,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.2)'">
         </div>
 
         <div style="margin-bottom: 15px;">
-          <label style="display: block; color: #e2e8f0; margin-bottom: 6px; font-weight: 600; font-size: 14px;">Phone</label>
-          <input type="tel" name="phone" style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: #fff; font-size: 14px;" placeholder="+91 98765 43210">
+          <label style="display: block; color: #e2e8f0; margin-bottom: 6px; font-weight: 600; font-size: 14px;">Phone (Optional)</label>
+          <input type="tel" name="phone" pattern="[0-9+\-\s]{10,15}" style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: #fff; font-size: 14px; transition: all 0.3s;" placeholder="+91 98765 43210" onfocus="this.style.borderColor='rgba(255,255,255,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.2)'">
         </div>
 
         <div style="margin-bottom: 20px;">
           <label style="display: block; color: #e2e8f0; margin-bottom: 6px; font-weight: 600; font-size: 14px;" id="messageLabel">Message *</label>
-          <textarea name="message" required rows="4" style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: #fff; font-size: 14px; resize: vertical;" placeholder="Write your message here..."></textarea>
+          <textarea name="message" required rows="5" style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: #fff; font-size: 14px; resize: vertical; line-height: 1.5; font-family: inherit;" placeholder="Write your message here..."></textarea>
+          <div style="font-size: 12px; color: #64748b; margin-top: 4px; text-align: right;">
+            <span id="charCount">0</span>/500 characters
+          </div>
         </div>
 
-        <button type="submit" style="width: 100%; padding: 14px; border-radius: 12px; border: none; background: linear-gradient(135deg, #3b82f6, #8b5cf6); color: #fff; font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(59, 130, 246, 0.6)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(59, 130, 246, 0.4)'">
+        <button type="submit" style="width: 100%; padding: 14px 20px; border-radius: 12px; border: none; background: linear-gradient(135deg, #3b82f6, #8b5cf6); color: #fff; font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); display: flex; align-items: center; justify-content: center; gap: 8px;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(59, 130, 246, 0.6)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(59, 130, 246, 0.4)'">
           <span id="submitBtnText">Submit</span>
+          <span id="submitIcon" style="display: none;">✓</span>
         </button>
       </form>
 
@@ -1472,30 +1476,38 @@
       feedback: {
         icon: '💬',
         iconColor: '#22c55e',
+        gradient: 'linear-gradient(135deg, #22c55e, #16a34a)',
         title: 'Share Your Feedback',
-        subtitle: 'Help us improve our services',
-        messageLabel: 'Your Feedback *'
+        subtitle: 'Help us improve our services and user experience',
+        messageLabel: 'Your Valuable Feedback *',
+        placeholder: 'Share your thoughts, suggestions or appreciation...'
       },
       query: {
         icon: '❓',
         iconColor: '#3b82f6',
+        gradient: 'linear-gradient(135deg, #3b82f6, #1d4ed8)',
         title: 'Ask Your Query',
-        subtitle: 'We\'re here to help you',
-        messageLabel: 'Your Question *'
+        subtitle: 'We\'re here to help you with any questions',
+        messageLabel: 'Your Question *',
+        placeholder: 'Describe your question or concern in detail...'
       },
       complaint: {
         icon: '⚠️',
         iconColor: '#f59e0b',
+        gradient: 'linear-gradient(135deg, #f59e0b, #d97706)',
         title: 'Register Complaint',
-        subtitle: 'We take your concerns seriously',
-        messageLabel: 'Describe the Issue *'
+        subtitle: 'We take your concerns seriously and will address them',
+        messageLabel: 'Describe the Issue *',
+        placeholder: 'Please provide details about the issue you faced...'
       },
       contact: {
         icon: '📞',
         iconColor: '#ef4444',
+        gradient: 'linear-gradient(135deg, #ef4444, #dc2626)',
         title: 'Get in Touch',
-        subtitle: 'We\'d love to hear from you',
-        messageLabel: 'Your Message *'
+        subtitle: 'We\'d love to hear from you and assist you',
+        messageLabel: 'Your Message *',
+        placeholder: 'Tell us how we can help you...'
       }
     };
 
@@ -1503,14 +1515,30 @@
       const config = supportConfig[type];
       const modal = document.getElementById('supportModal');
       
+      // Update modal content
       document.getElementById('modalIcon').textContent = config.icon;
+      document.getElementById('modalIcon').style.color = config.iconColor;
       document.getElementById('modalTitle').textContent = config.title;
       document.getElementById('modalSubtitle').textContent = config.subtitle;
       document.getElementById('messageLabel').textContent = config.messageLabel;
       document.getElementById('supportType').value = type;
       
+      // Update button gradient based on type
+      const submitBtn = document.querySelector('#supportForm button[type="submit"]');
+      submitBtn.style.background = config.gradient;
+      
+      // Update message placeholder
+      const messageField = document.querySelector('textarea[name="message"]');
+      messageField.placeholder = config.placeholder;
+      
+      // Show modal
       modal.style.display = 'flex';
       document.body.style.overflow = 'hidden';
+      
+      // Focus first input
+      setTimeout(() => {
+        document.querySelector('input[name="name"]').focus();
+      }, 100);
     }
 
     function closeSupportModal() {
@@ -1527,13 +1555,26 @@
       const form = event.target;
       const submitBtn = form.querySelector('button[type="submit"]');
       const btnText = document.getElementById('submitBtnText');
+      const submitIcon = document.getElementById('submitIcon');
       const messageDiv = document.getElementById('formMessage');
       
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());
       
+      // Add subject based on type
+      const type = data.type;
+      const typeMap = {
+        'feedback': 'User Feedback',
+        'query': 'User Query',
+        'complaint': 'User Complaint', 
+        'contact': 'General Contact'
+      };
+      data.subject = typeMap[type] || 'Contact Form Submission';
+      
+      // Update button state
       btnText.textContent = 'Sending...';
       submitBtn.disabled = true;
+      submitBtn.style.opacity = '0.7';
       
       try {
         const response = await fetch('/api/contact', {
@@ -1545,28 +1586,77 @@
         const result = await response.json();
         
         if (result.ok) {
+          // Success state
+          btnText.textContent = 'Sent';
+          submitIcon.style.display = 'inline';
+          submitBtn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+          submitBtn.style.opacity = '1';
+          
           messageDiv.style.display = 'block';
-          messageDiv.style.background = 'rgba(34, 197, 94, 0.2)';
+          messageDiv.style.background = 'rgba(34, 197, 94, 0.15)';
           messageDiv.style.color = '#22c55e';
-          messageDiv.style.border = '1px solid #22c55e';
-          messageDiv.textContent = '✓ Message sent successfully!';
+          messageDiv.style.border = '1px solid rgba(34, 197, 94, 0.3)';
+          messageDiv.style.borderRadius = '8px';
+          messageDiv.style.padding = '12px';
+          messageDiv.style.marginTop = '15px';
+          messageDiv.textContent = '✓ Message sent successfully! We will respond soon.';
           
           form.reset();
-          setTimeout(closeSupportModal, 2000);
+          document.getElementById('charCount').textContent = '0';
+          setTimeout(closeSupportModal, 3000);
         } else {
           throw new Error(result.error || 'Failed to send');
         }
       } catch (error) {
+        // Error state
         messageDiv.style.display = 'block';
-        messageDiv.style.background = 'rgba(239, 68, 68, 0.2)';
+        messageDiv.style.background = 'rgba(239, 68, 68, 0.15)';
         messageDiv.style.color = '#ef4444';
-        messageDiv.style.border = '1px solid #ef4444';
-        messageDiv.textContent = '✗ Failed to send. Please try again.';
+        messageDiv.style.border = '1px solid rgba(239, 68, 68, 0.3)';
+        messageDiv.style.borderRadius = '8px';
+        messageDiv.style.padding = '12px';
+        messageDiv.style.marginTop = '15px';
+        messageDiv.textContent = '✗ Failed to send. Please check your connection and try again.';
       } finally {
-        btnText.textContent = 'Submit';
-        submitBtn.disabled = false;
+        setTimeout(() => {
+          btnText.textContent = 'Submit';
+          submitIcon.style.display = 'none';
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = '1';
+          const config = supportConfig[data.type];
+          if (config) {
+            submitBtn.style.background = config.gradient;
+          }
+        }, 2000);
       }
     }
+
+    // Character counter for message textarea
+    document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('input', function(e) {
+        if (e.target.name === 'message') {
+          const charCount = document.getElementById('charCount');
+          const length = e.target.value.length;
+          charCount.textContent = length;
+          
+          // Change color based on character count
+          if (length > 450) {
+            charCount.style.color = '#ef4444';
+          } else if (length > 400) {
+            charCount.style.color = '#f59e0b';
+          } else {
+            charCount.style.color = '#64748b';
+          }
+          
+          // Limit to 500 characters
+          if (length > 500) {
+            e.target.value = e.target.value.substring(0, 500);
+            charCount.textContent = '500';
+            charCount.style.color = '#ef4444';
+          }
+        }
+      });
+    });
 
     // Close modal on outside click
     document.getElementById('supportModal')?.addEventListener('click', function(e) {
