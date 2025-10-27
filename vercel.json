@@ -1,12 +1,6 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": false,
   "rewrites": [
-    { "source": "/mobile/(.*)", "destination": "/public/mobile/$1" },
-    { "source": "/admin/(.*)", "destination": "/public/admin/$1" },
-    { "source": "/member/(.*)", "destination": "/public/member/$1" },
-    { "source": "/shared/(.*)", "destination": "/public/shared/$1" },
-    { "source": "/assets/(.*)", "destination": "/public/desktop/assets/$1" },
+    { "source": "/", "destination": "/public/desktop/index.html" },
     { "source": "/about", "destination": "/public/desktop/about.html" },
     { "source": "/projects", "destination": "/public/desktop/projects.html" },
     { "source": "/csr", "destination": "/public/desktop/csr.html" },
@@ -14,9 +8,11 @@
     { "source": "/join", "destination": "/public/mobile/join.html" },
     { "source": "/privacy", "destination": "/public/desktop/privacy.html" },
     { "source": "/terms", "destination": "/public/desktop/terms.html" },
-    { "source": "/payment-success", "destination": "/public/desktop/payment-success.html" },
-    { "source": "/(.*\\.html)", "destination": "/public/desktop/$1" },
-    { "source": "/", "destination": "/public/desktop/index.html" }
+    { "source": "/mobile/(.*)", "destination": "/public/mobile/$1" },
+    { "source": "/admin/(.*)", "destination": "/public/admin/$1" },
+    { "source": "/member/(.*)", "destination": "/public/member/$1" },
+    { "source": "/shared/(.*)", "destination": "/public/shared/$1" },
+    { "source": "/assets/(.*)", "destination": "/public/desktop/assets/$1" }
   ],
   "headers": [
     {
