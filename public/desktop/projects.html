@@ -378,6 +378,56 @@ footer .container{max-width:var(--max-width);margin:0 auto;padding:0 24px}
 .foot-links a:hover{color:var(--footer-text)}
 .foot-contact div{margin-bottom:8px;display:flex;gap:8px;align-items:center;color:var(--footer-text)}
 
+/* Modern Support Links Styling */
+.support-links .support-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: all 0.3s ease;
+  text-decoration: none !important;
+}
+.support-links .support-link:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.15);
+  transform: translateX(4px);
+}
+.support-links .support-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 16px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.support-links .support-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.support-links .support-text strong {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  display: block;
+}
+.support-links .support-text small {
+  color: #94a3b8;
+  font-size: 11px;
+  font-weight: 500;
+  display: block;
+}
+.support-links .support-link:hover .support-text strong {
+  color: #a78bfa;
+}
+
 /* contact row layout */
 .foot-contact .item{
   display:flex; align-items:flex-start; gap:10px; margin-bottom:10px;
@@ -609,13 +659,44 @@ footer .container{max-width:var(--max-width);margin:0 auto;padding:0 24px}
             </div>
 
             <div class="foot-links support-links">
-              <h4 id="supportHd">Support</h4>
-              <ul>
-                <li><a href="#" onclick="openSupportModal('feedback'); return false;"><i class="fa-solid fa-comment-dots" style="color: #22c55e;"></i> <span id="lnkFeedback">Feedback</span></a></li>
-                <li><a href="#" onclick="openSupportModal('query'); return false;"><i class="fa-solid fa-circle-question" style="color: #3b82f6;"></i> <span id="lnkQuery">Query</span></a></li>
-                <li><a href="#" onclick="openSupportModal('complaint'); return false;"><i class="fa-solid fa-triangle-exclamation" style="color: #f59e0b;"></i> <span id="lnkComplaint">Complaint</span></a></li>
-                <li><a href="#" onclick="openSupportModal('contact'); return false;"><i class="fa-solid fa-phone" style="color: #ef4444;"></i> <span id="lnkContact">Contact</span></a></li>
-                <li style="margin-top: 10px; font-size: 13px; color: var(--footer-muted);"><i class="fa-solid fa-certificate" style="color: #f59e0b;"></i> Reg: 12A � 80G � CSR-1</li>
+              <h4 id="supportHd">Get in Touch</h4>
+              <ul style="display: grid; gap: 8px;">
+                <li><a href="#" onclick="openSupportModal('feedback'); return false;" class="support-link" data-type="feedback">
+                  <span class="support-icon" style="background: linear-gradient(135deg, #22c55e, #16a34a);"><i class="fas fa-comment-dots"></i></span>
+                  <span class="support-text">
+                    <strong id="lnkFeedback">Feedback</strong>
+                    <small>Share your thoughts</small>
+                  </span>
+                </a></li>
+                
+                <li><a href="#" onclick="openSupportModal('query'); return false;" class="support-link" data-type="query">
+                  <span class="support-icon" style="background: linear-gradient(135deg, #3b82f6, #2563eb);"><i class="fas fa-circle-question"></i></span>
+                  <span class="support-text">
+                    <strong id="lnkQuery">Query</strong>
+                    <small>Ask us anything</small>
+                  </span>
+                </a></li>
+                
+                <li><a href="#" onclick="openSupportModal('complaint'); return false;" class="support-link" data-type="complaint">
+                  <span class="support-icon" style="background: linear-gradient(135deg, #f59e0b, #d97706);"><i class="fas fa-triangle-exclamation"></i></span>
+                  <span class="support-text">
+                    <strong id="lnkComplaint">Complaint</strong>
+                    <small>Report an issue</small>
+                  </span>
+                </a></li>
+                
+                <li><a href="#" onclick="openSupportModal('contact'); return false;" class="support-link" data-type="contact">
+                  <span class="support-icon" style="background: linear-gradient(135deg, #ef4444, #dc2626);"><i class="fas fa-phone"></i></span>
+                  <span class="support-text">
+                    <strong id="lnkContact">Contact</strong>
+                    <small>Reach out to us</small>
+                  </span>
+                </a></li>
+                
+                <li style="margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 12px; color: #94a3b8; display: flex; align-items: center; gap: 6px;">
+                  <i class="fas fa-certificate" style="color: #f59e0b; font-size: 14px;"></i> 
+                  <span>Reg: 12A • 80G • CSR-1</span>
+                </li>
               </ul>
             </div>
           </div>
