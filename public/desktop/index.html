@@ -572,13 +572,41 @@
         </ul>
       </div>
       <div class="foot-links">
-        <h4 data-i18n="footer.support">Support</h4>
-        <ul>
-          <li><a href="#" onclick="openSupportModal('feedback'); return false;"><i class="fas fa-comment-dots" style="color: #22c55e;"></i> <span data-i18n="footer.links.feedback">Feedback</span></a></li>
-          <li><a href="#" onclick="openSupportModal('query'); return false;"><i class="fas fa-circle-question" style="color: #3b82f6;"></i> <span data-i18n="footer.links.query">Query</span></a></li>
-          <li><a href="#" onclick="openSupportModal('complaint'); return false;"><i class="fas fa-triangle-exclamation" style="color: #f59e0b;"></i> <span data-i18n="footer.links.complaint">Complaint</span></a></li>
-          <li><a href="#" onclick="openSupportModal('contact'); return false;"><i class="fas fa-phone" style="color: #ef4444;"></i> <span data-i18n="footer.links.contact">Contact</span></a></li>
-          <li style="margin-top: 10px; font-size: 13px; color: #94a3b8;"><i class="fas fa-certificate" style="color: #f59e0b;"></i> <span data-i18n="footer.reg">Reg: 12A • 80G • CSR-1</span></li>
+        <h4 data-i18n="footer.support" style="margin-bottom: 20px; font-size: 18px; font-weight: 700; color: #fff; position: relative; padding-bottom: 12px;">
+          Support
+          <span style="position: absolute; bottom: 0; left: 0; width: 40px; height: 3px; background: linear-gradient(90deg, #22c55e, #3b82f6); border-radius: 2px;"></span>
+        </h4>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 12px;">
+            <a href="#" onclick="openSupportModal('feedback'); return false;" style="display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-radius: 10px; background: rgba(34, 197, 94, 0.08); border: 1px solid rgba(34, 197, 94, 0.2); transition: all 0.3s ease; text-decoration: none;" onmouseover="this.style.background='rgba(34, 197, 94, 0.15)'; this.style.transform='translateX(5px)'; this.style.borderColor='rgba(34, 197, 94, 0.4)'" onmouseout="this.style.background='rgba(34, 197, 94, 0.08)'; this.style.transform='translateX(0)'; this.style.borderColor='rgba(34, 197, 94, 0.2)'">
+              <i class="fas fa-comment-dots" style="color: #22c55e; font-size: 16px; width: 20px; text-align: center;"></i>
+              <span data-i18n="footer.links.feedback" style="color: #cbd5e1; font-weight: 500; font-size: 14px;">Feedback</span>
+            </a>
+          </li>
+          <li style="margin-bottom: 12px;">
+            <a href="#" onclick="openSupportModal('query'); return false;" style="display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-radius: 10px; background: rgba(59, 130, 246, 0.08); border: 1px solid rgba(59, 130, 246, 0.2); transition: all 0.3s ease; text-decoration: none;" onmouseover="this.style.background='rgba(59, 130, 246, 0.15)'; this.style.transform='translateX(5px)'; this.style.borderColor='rgba(59, 130, 246, 0.4)'" onmouseout="this.style.background='rgba(59, 130, 246, 0.08)'; this.style.transform='translateX(0)'; this.style.borderColor='rgba(59, 130, 246, 0.2)'">
+              <i class="fas fa-circle-question" style="color: #3b82f6; font-size: 16px; width: 20px; text-align: center;"></i>
+              <span data-i18n="footer.links.query" style="color: #cbd5e1; font-weight: 500; font-size: 14px;">Query</span>
+            </a>
+          </li>
+          <li style="margin-bottom: 12px;">
+            <a href="#" onclick="openSupportModal('complaint'); return false;" style="display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-radius: 10px; background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.2); transition: all 0.3s ease; text-decoration: none;" onmouseover="this.style.background='rgba(245, 158, 11, 0.15)'; this.style.transform='translateX(5px)'; this.style.borderColor='rgba(245, 158, 11, 0.4)'" onmouseout="this.style.background='rgba(245, 158, 11, 0.08)'; this.style.transform='translateX(0)'; this.style.borderColor='rgba(245, 158, 11, 0.2)'">
+              <i class="fas fa-triangle-exclamation" style="color: #f59e0b; font-size: 16px; width: 20px; text-align: center;"></i>
+              <span data-i18n="footer.links.complaint" style="color: #cbd5e1; font-weight: 500; font-size: 14px;">Complaint</span>
+            </a>
+          </li>
+          <li style="margin-bottom: 12px;">
+            <a href="#" onclick="openSupportModal('contact'); return false;" style="display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-radius: 10px; background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.2); transition: all 0.3s ease; text-decoration: none;" onmouseover="this.style.background='rgba(239, 68, 68, 0.15)'; this.style.transform='translateX(5px)'; this.style.borderColor='rgba(239, 68, 68, 0.4)'" onmouseout="this.style.background='rgba(239, 68, 68, 0.08)'; this.style.transform='translateX(0)'; this.style.borderColor='rgba(239, 68, 68, 0.2)'">
+              <i class="fas fa-phone" style="color: #ef4444; font-size: 16px; width: 20px; text-align: center;"></i>
+              <span data-i18n="footer.links.contact" style="color: #cbd5e1; font-weight: 500; font-size: 14px;">Contact</span>
+            </a>
+          </li>
+          <li style="margin-top: 16px; padding: 10px 14px; border-radius: 8px; background: rgba(245, 158, 11, 0.05); border: 1px solid rgba(245, 158, 11, 0.15);">
+            <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: #94a3b8;">
+              <i class="fas fa-certificate" style="color: #f59e0b; font-size: 14px;"></i>
+              <span data-i18n="footer.reg" style="font-weight: 500;">Reg: 12A • 80G • CSR-1</span>
+            </div>
+          </li>
         </ul>
       </div>
     </div>
