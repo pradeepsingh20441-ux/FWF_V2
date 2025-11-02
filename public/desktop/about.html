@@ -204,7 +204,7 @@
       max-width: 1240px;
       margin: 0 auto;
       padding: 0 24px 32px;
-      gap: 48px;
+      gap: 0;
       justify-content: space-between;
       align-items: flex-start;
     }
@@ -214,18 +214,21 @@
       margin-bottom: 18px;
     }
     .brand-col {
-      flex: 0 0 280px;
+      flex: 0 0 50%;
       min-width: 240px;
+      padding-right: 24px;
     }
     .links-col {
-      flex: 0 0 180px;
+      flex: 0 0 auto;
+      min-width: 160px;
     }
     .footer-links-container {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 48px;
-      flex: 1;
+      flex: 0 0 50%;
       min-width: 400px;
+      padding-left: 24px;
     }
     .brand-col img { margin-bottom: 18px; }
     .footer-lead {
