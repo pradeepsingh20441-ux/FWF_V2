@@ -907,32 +907,30 @@
 
   <!-- Support Modal -->
   <div id="supportModal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.75); z-index: 10000; backdrop-filter: blur(12px); align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease;">
-  <div id="supportModalContent" style="max-width: 440px; width: 90%; padding: 28px; position: relative; transform: scale(0.9); transition: transform 0.3s ease; background: #fff;">
-      <button onclick="closeSupportModal()" style="position: absolute; top: 18px; right: 18px; background: transparent; border: none; border-radius: 0; width: 40px; height: 40px; cursor: pointer; color: #fff; font-size: 22px; display: flex; align-items: center; justify-content: center; transition: all 0.3s; font-weight: 300;" onmouseover="this.style.background='transparent'; this.style.transform='rotate(90deg)'" onmouseout="this.style.background='transparent'; this.style.transform='rotate(0deg)'">×</button>
+    <div id="supportModalContent" style="max-width: 440px; width: 90%; padding: 28px; position: relative; transform: scale(0.9); transition: transform 0.3s ease; background: #1a1a2e; border-radius: 16px;">
+      <button onclick="closeSupportModal()" style="position: absolute; top: 18px; right: 18px; background: transparent; border: none; border-radius: 0; width: 40px; height: 40px; cursor: pointer; color: #cbd5e1; font-size: 22px; display: flex; align-items: center; justify-content: center; transition: all 0.3s; font-weight: 300;" onmouseover="this.style.color='#fff'; this.style.transform='rotate(90deg)'" onmouseout="this.style.color='#cbd5e1'; this.style.transform='rotate(0deg)'">×</button>
       
       <div style="text-align: center; margin-bottom: 24px;">
         <div id="modalIcon" style="font-size: 52px; margin-bottom: 14px; animation: modalIconBounce 0.6s ease;"></div>
         <h3 id="modalTitle" style="color: #fff; margin: 0; font-size: 22px; font-weight: 800; letter-spacing: -0.5px;"></h3>
         <p id="modalSubtitle" style="color: #94a3b8; margin: 8px 0 0 0; font-size: 13px; font-weight: 500;"></p>
-      </div>
-
-      <form id="supportForm" onsubmit="submitSupportForm(event)">
+      </div>      <form id="supportForm" onsubmit="submitSupportForm(event)">
         <input type="hidden" id="supportType" name="type">
         
         <div class="form-group" style="margin-bottom: 12px; position: relative;">
-          <input type="text" name="name" required minlength="2" maxlength="50" class="modern-input" style="width: 100%; padding: 12px 16px; border-radius: 12px; border: 2px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.06); color: #fff; font-size: 15px; transition: all 0.3s; font-weight: 500;" placeholder="👤 Name" onfocus="this.style.borderColor='#60a5fa'; this.style.background='rgba(96,165,250,0.08)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'; this.style.background='rgba(255,255,255,0.06)'">
+          <input type="text" name="name" required minlength="2" maxlength="50" class="modern-input" style="width: 100%; padding: 12px 16px; border-radius: 12px; border: 2px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.08); color: #e2e8f0; font-size: 15px; transition: all 0.3s; font-weight: 500;" placeholder="👤 Name" onfocus="this.style.borderColor='#60a5fa'; this.style.background='rgba(96,165,250,0.12)'" onblur="this.style.borderColor='rgba(255,255,255,0.15)'; this.style.background='rgba(255,255,255,0.08)'">
         </div>
 
         <div class="form-group" style="margin-bottom: 12px; position: relative;">
-          <input type="email" name="email" required class="modern-input" style="width: 100%; padding: 12px 16px; border-radius: 12px; border: 2px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.06); color: #fff; font-size: 15px; transition: all 0.3s; font-weight: 500;" placeholder="📧 Email" onfocus="this.style.borderColor='#a78bfa'; this.style.background='rgba(167,139,250,0.08)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'; this.style.background='rgba(255,255,255,0.06)'">
+          <input type="email" name="email" required class="modern-input" style="width: 100%; padding: 12px 16px; border-radius: 12px; border: 2px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.08); color: #e2e8f0; font-size: 15px; transition: all 0.3s; font-weight: 500;" placeholder="📧 Email" onfocus="this.style.borderColor='#a78bfa'; this.style.background='rgba(167,139,250,0.12)'" onblur="this.style.borderColor='rgba(255,255,255,0.15)'; this.style.background='rgba(255,255,255,0.08)'">
         </div>
 
         <div class="form-group" style="margin-bottom: 12px; position: relative;">
-          <input type="tel" name="phone" required pattern="[0-9+\-\s]{10,15}" class="modern-input" style="width: 100%; padding: 12px 16px; border-radius: 12px; border: 2px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.06); color: #fff; font-size: 15px; transition: all 0.3s; font-weight: 500;" placeholder="📱 Phone Number" onfocus="this.style.borderColor='#22c55e'; this.style.background='rgba(34,197,94,0.08)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'; this.style.background='rgba(255,255,255,0.06)'">
+          <input type="tel" name="phone" required pattern="[0-9+\-\s]{10,15}" class="modern-input" style="width: 100%; padding: 12px 16px; border-radius: 12px; border: 2px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.08); color: #e2e8f0; font-size: 15px; transition: all 0.3s; font-weight: 500;" placeholder="📱 Phone Number" onfocus="this.style.borderColor='#22c55e'; this.style.background='rgba(34,197,94,0.12)'" onblur="this.style.borderColor='rgba(255,255,255,0.15)'; this.style.background='rgba(255,255,255,0.08)'">
         </div>
 
         <div class="form-group" style="margin-bottom: 18px; position: relative;">
-          <textarea name="message" id="messageInput" required rows="5" maxlength="500" style="width: 100%; padding: 12px 16px; border-radius: 12px; border: 2px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.06); color: #fff; font-size: 15px; resize: vertical; line-height: 1.6; font-family: inherit; transition: all 0.3s; font-weight: 500;" placeholder="💬 Your message" onfocus="this.style.borderColor='#f59e0b'; this.style.background='rgba(245,158,11,0.08)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'; this.style.background='rgba(255,255,255,0.06)'" oninput="updateCharCount(this)"></textarea>
+          <textarea name="message" id="messageInput" required rows="5" maxlength="500" style="width: 100%; padding: 12px 16px; border-radius: 12px; border: 2px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.08); color: #e2e8f0; font-size: 15px; resize: vertical; line-height: 1.6; font-family: inherit; transition: all 0.3s; font-weight: 500;" placeholder="💬 Your message" onfocus="this.style.borderColor='#f59e0b'; this.style.background='rgba(245,158,11,0.12)'" onblur="this.style.borderColor='rgba(255,255,255,0.15)'; this.style.background='rgba(255,255,255,0.08)'" oninput="updateCharCount(this)"></textarea>
           <div style="font-size: 11px; color: #64748b; margin-top: 6px; display: flex; justify-content: flex-end; align-items: center;">
             <span style="font-weight: 600; color: #94a3b8;"><span id="charCount" style="color: #60a5fa;">0</span>/500</span>
           </div>
