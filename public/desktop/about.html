@@ -204,19 +204,28 @@
       max-width: 1240px;
       margin: 0 auto;
       padding: 0 24px 32px;
-      gap: 32px;
-      justify-content: flex-start;
+      gap: 48px;
+      justify-content: space-between;
       align-items: flex-start;
     }
     .footer-col {
-      flex: 0 1 auto;
+      flex: 0 0 auto;
       min-width: 160px;
       margin-bottom: 18px;
     }
     .brand-col {
-      flex: 0 1 300px;
+      flex: 0 0 280px;
       min-width: 240px;
-      margin-right: 24px;
+    }
+    .links-col {
+      flex: 0 0 180px;
+    }
+    .footer-links-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      flex: 1;
+      min-width: 400px;
     }
     .brand-col img { margin-bottom: 18px; }
     .footer-lead {
@@ -425,52 +434,54 @@
           <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
         </div>
       </div>
-      <div class="footer-col links-col">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="/projects">Projects</a></li>
-          <li><a href="/join">Join</a></li>
-          <li><a href="/donate">Donate</a></li>
-          <li><a href="/about">About</a></li>
-        </ul>
-      </div>
-      <div class="footer-col links-col">
-        <h4 data-i18n="footer.support" style="margin-bottom: 20px; font-size: 18px; font-weight: 700; color: #fff; position: relative; padding-bottom: 12px;">
-          Support
-          <span style="position: absolute; bottom: 0; left: 0; width: 40px; height: 3px; background: linear-gradient(90deg, #22c55e, #3b82f6); border-radius: 2px;"></span>
-        </h4>
-        <ul style="list-style: none; padding: 0; margin: 0;">
-          <li style="margin-bottom: 12px;">
-            <a href="#" onclick="openSupportModal('feedback'); return false;" style="display: flex; align-items: center; gap: 12px; padding: 0; text-decoration: none; cursor: pointer;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
-              <i class="fas fa-comment-dots" style="color: #22c55e; font-size: 16px; width: 20px; text-align: center;"></i>
-              <span data-i18n="footer.links.feedback" style="color: #cbd5e1; font-weight: 500; font-size: 14px;">Feedback</span>
-            </a>
-          </li>
-          <li style="margin-bottom: 12px;">
-            <a href="#" onclick="openSupportModal('query'); return false;" style="display: flex; align-items: center; gap: 12px; padding: 0; text-decoration: none; cursor: pointer;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
-              <i class="fas fa-circle-question" style="color: #3b82f6; font-size: 16px; width: 20px; text-align: center;"></i>
-              <span data-i18n="footer.links.query" style="color: #cbd5e1; font-weight: 500; font-size: 14px;">Query</span>
-            </a>
-          </li>
-          <li style="margin-bottom: 12px;">
-            <a href="#" onclick="openSupportModal('complaint'); return false;" style="display: flex; align-items: center; gap: 12px; padding: 0; text-decoration: none; cursor: pointer;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
-              <i class="fas fa-triangle-exclamation" style="color: #f59e0b; font-size: 16px; width: 20px; text-align: center;"></i>
-              <span data-i18n="footer.links.complaint" style="color: #cbd5e1; font-weight: 500; font-size: 14px;">Complaint</span>
-            </a>
-          </li>
-          <li style="margin-bottom: 12px;">
-            <a href="#" onclick="openSupportModal('contact'); return false;" style="display: flex; align-items: center; gap: 12px; padding: 0; text-decoration: none; cursor: pointer;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
-              <i class="fas fa-phone" style="color: #ef4444; font-size: 16px; width: 20px; text-align: center;"></i>
-              <span data-i18n="footer.links.contact" style="color: #cbd5e1; font-weight: 500; font-size: 14px;">Contact</span>
-            </a>
-          </li>
-          <li style="margin-top: 16px; padding: 10px 14px; border-radius: 8px; background: rgba(245, 158, 11, 0.05); border: 1px solid rgba(245, 158, 11, 0.15);">
-            <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: #94a3b8;">
-              <i class="fas fa-certificate" style="color: #f59e0b; font-size: 14px;"></i>
-              <span data-i18n="footer.reg" style="font-weight: 500;">Reg: 12A • 80G • CSR-1</span>
-            </div>
-          </li>
-        </ul>
+      <div class="footer-links-container">
+        <div class="footer-col links-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/projects">Projects</a></li>
+            <li><a href="/join">Join</a></li>
+            <li><a href="/donate">Donate</a></li>
+            <li><a href="/about">About</a></li>
+          </ul>
+        </div>
+        <div class="footer-col links-col">
+          <h4 data-i18n="footer.support" style="margin-bottom: 20px; font-size: 18px; font-weight: 700; color: #fff; position: relative; padding-bottom: 12px;">
+            Support
+            <span style="position: absolute; bottom: 0; left: 0; width: 40px; height: 3px; background: linear-gradient(90deg, #22c55e, #3b82f6); border-radius: 2px;"></span>
+          </h4>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="margin-bottom: 12px;">
+              <a href="#" onclick="openSupportModal('feedback'); return false;" style="display: flex; align-items: center; gap: 12px; padding: 0; text-decoration: none; cursor: pointer;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+                <i class="fas fa-comment-dots" style="color: #22c55e; font-size: 16px; width: 20px; text-align: center;"></i>
+                <span data-i18n="footer.links.feedback" style="color: #cbd5e1; font-weight: 500; font-size: 14px;">Feedback</span>
+              </a>
+            </li>
+            <li style="margin-bottom: 12px;">
+              <a href="#" onclick="openSupportModal('query'); return false;" style="display: flex; align-items: center; gap: 12px; padding: 0; text-decoration: none; cursor: pointer;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+                <i class="fas fa-circle-question" style="color: #3b82f6; font-size: 16px; width: 20px; text-align: center;"></i>
+                <span data-i18n="footer.links.query" style="color: #cbd5e1; font-weight: 500; font-size: 14px;">Query</span>
+              </a>
+            </li>
+            <li style="margin-bottom: 12px;">
+              <a href="#" onclick="openSupportModal('complaint'); return false;" style="display: flex; align-items: center; gap: 12px; padding: 0; text-decoration: none; cursor: pointer;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+                <i class="fas fa-triangle-exclamation" style="color: #f59e0b; font-size: 16px; width: 20px; text-align: center;"></i>
+                <span data-i18n="footer.links.complaint" style="color: #cbd5e1; font-weight: 500; font-size: 14px;">Complaint</span>
+              </a>
+            </li>
+            <li style="margin-bottom: 12px;">
+              <a href="#" onclick="openSupportModal('contact'); return false;" style="display: flex; align-items: center; gap: 12px; padding: 0; text-decoration: none; cursor: pointer;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+                <i class="fas fa-phone" style="color: #ef4444; font-size: 16px; width: 20px; text-align: center;"></i>
+                <span data-i18n="footer.links.contact" style="color: #cbd5e1; font-weight: 500; font-size: 14px;">Contact</span>
+              </a>
+            </li>
+            <li style="margin-top: 16px; padding: 10px 14px; border-radius: 8px; background: rgba(245, 158, 11, 0.05); border: 1px solid rgba(245, 158, 11, 0.15);">
+              <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: #94a3b8;">
+                <i class="fas fa-certificate" style="color: #f59e0b; font-size: 14px;"></i>
+                <span data-i18n="footer.reg" style="font-weight: 500;">Reg: 12A • 80G • CSR-1</span>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
       <div class="footer-col contact-col">
         <!-- Contact column hidden as per request -->
