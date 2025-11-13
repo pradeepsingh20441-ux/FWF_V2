@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>FWF � CSR Partnership</title>
+  <title>FWF ✓ CSR Partnership</title>
   
   <!-- Mobile/Tablet Detection & Redirect -->
   <script>
@@ -1181,18 +1181,59 @@ input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; marg
           <li><a href="/about" data-i18n="footer.links.about">About</a></li>
         </ul>
       </div>
+      <div class="foot-links">
+        <h4 data-i18n="footer.support" style="margin-bottom: 20px; font-size: 18px; font-weight: 700; color: #fff; position: relative; padding-bottom: 12px;">
+          Support
+          <span style="position: absolute; bottom: 0; left: 0; width: 40px; height: 3px; background: linear-gradient(90deg, #22c55e, #3b82f6); border-radius: 2px;"></span>
+        </h4>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 12px;">
+            <a href="#" onclick="openSupportModal('feedback'); return false;" style="display: flex; align-items: center; gap: 12px; padding: 0; text-decoration: none; cursor: pointer;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+              <i class="fas fa-comment-dots" style="color: #22c55e; font-size: 16px; width: 20px; text-align: center;"></i>
+              <span data-i18n="footer.links.feedback" style="color: #cbd5e1; font-weight: 500; font-size: 14px;">Feedback</span>
+            </a>
+          </li>
+          <li style="margin-bottom: 12px;">
+            <a href="#" onclick="openSupportModal('query'); return false;" style="display: flex; align-items: center; gap: 12px; padding: 0; text-decoration: none; cursor: pointer;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+              <i class="fas fa-circle-question" style="color: #3b82f6; font-size: 16px; width: 20px; text-align: center;"></i>
+              <span data-i18n="footer.links.query" style="color: #cbd5e1; font-weight: 500; font-size: 14px;">Query</span>
+            </a>
+          </li>
+          <li style="margin-bottom: 12px;">
+            <a href="#" onclick="openSupportModal('complaint'); return false;" style="display: flex; align-items: center; gap: 12px; padding: 0; text-decoration: none; cursor: pointer;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+              <i class="fas fa-triangle-exclamation" style="color: #f59e0b; font-size: 16px; width: 20px; text-align: center;"></i>
+              <span data-i18n="footer.links.complaint" style="color: #cbd5e1; font-weight: 500; font-size: 14px;">Complaint</span>
+            </a>
+          </li>
+          <li style="margin-bottom: 12px;">
+            <a href="#" onclick="openSupportModal('contact'); return false;" style="display: flex; align-items: center; gap: 12px; padding: 0; text-decoration: none; cursor: pointer;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+              <i class="fas fa-phone" style="color: #ef4444; font-size: 16px; width: 20px; text-align: center;"></i>
+              <span data-i18n="footer.links.contact" style="color: #cbd5e1; font-weight: 500; font-size: 14px;">Contact</span>
+            </a>
+          </li>
+          <li style="margin-top: 16px; padding: 10px 14px; border-radius: 8px; background: rgba(245, 158, 11, 0.05); border: 1px solid rgba(245, 158, 11, 0.15);">
+            <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: #94a3b8;">
+              <i class="fas fa-certificate" style="color: #f59e0b; font-size: 14px;"></i>
+              <span data-i18n="footer.reg" style="font-weight: 500;">Reg: 12A • 80G • CSR-1</span>
+            </div>
+          </li>
+        </ul>
+      </div>
       <div class="foot-contact">
+        <!-- Contact column hidden as per request -->
+        <!--
         <h4 data-i18n="footer.contact">Contact</h4>
         <div><i class="fas fa-location-dot" style="color: #ef4444; margin-right: 8px;"></i><span data-i18n="footer.addr">Address:</span> <span>1398/1850 Sagarpuri Gallamandi, Kanpur - 208021 U.P India</span></div>
         <div><i class="fas fa-phone" style="color: #22c55e; margin-right: 8px;"></i><span data-i18n="footer.phone">Phone:</span> <a href="tel:+919580118412" style="color: #cbd5e1; text-decoration: none;">+91-9580118412</a></div>
         <div><i class="fas fa-envelope" style="color: #3b82f6; margin-right: 8px;"></i><span data-i18n="footer.email">Email:</span> <a href="mailto:info@fwfindia.org" style="color: #cbd5e1; text-decoration: none;">info@fwfindia.org</a></div>
         <div><i class="fab fa-whatsapp" style="color: #25d366; margin-right: 8px;"></i><a href="https://wa.me/919580118412" target="_blank" style="color: #cbd5e1; text-decoration: none;" data-i18n="footer.whatsapp">WhatsApp</a></div>
-        <div style="margin-top:10px;color:#94a3b8"><i class="fas fa-certificate" style="color: #f59e0b; margin-right: 8px;"></i><span data-i18n="footer.reg">Reg: 12A � 80G � CSR-1</span></div>
+        <div style="margin-top:10px;color:#94a3b8"><i class="fas fa-certificate" style="color: #f59e0b; margin-right: 8px;"></i><span data-i18n="footer.reg">Reg: 12A  80G  CSR-1</span></div>
+        -->
       </div>
     </div>
     <div class="footbar">
-      <div>� <span id="year"></span> <span data-i18n="footer.rights">FWF � All Rights Reserved</span></div>
-      <div><a href="/privacy" data-i18n="footer.privacy">Privacy Policy</a> � <a href="/terms" data-i18n="footer.terms">Terms & Conditions</a></div>
+      <div>© <span id="year"></span> <span data-i18n="footer.rights">FWF ✓ All Rights Reserved</span></div>
+      <div><a href="/privacy" data-i18n="footer.privacy">Privacy Policy</a> • <a href="/terms" data-i18n="footer.terms">Terms & Conditions</a></div>
     </div>
   </div>
 </footer>
@@ -1203,7 +1244,7 @@ input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; marg
   <div class="modal" id="csrModal" aria-hidden="true" role="dialog" aria-label="CSR Contact Form">
     <div class="modalCard">
       <div class="modalHead">
-        <h3><i class="fa-solid fa-envelope"></i> Contact FWF � CSR Partnership</h3>
+        <h3><i class="fa-solid fa-envelope"></i> Contact FWF ✓ CSR Partnership</h3>
         <button class="closeBtn" onclick="closeModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
       </div>
 
@@ -1407,354 +1448,221 @@ input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; marg
     });
   })();
   </script>
-<!-- Fundraiser Contest Widget - Add this before </body> tag in all pages -->
-<style>
-.fundraiser-float-btn {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  z-index: 9999;
-  background: #fff;
-  color: #22c55e;
-  border: 3px solid #22c55e;
-  border-radius: 50%;
-  width: 70px;
-  height: 70px;
-  font-size: 32px;
-  font-weight: 700;
-  cursor: pointer;
-  box-shadow: 0 8px 24px rgba(34, 197, 94, 0.15), 0 0 0 0 rgba(34, 197, 94, 0.2);
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: float-pulse 3s ease-in-out infinite;
-}
-.fundraiser-float-btn::before {
-  content: '';
-  position: absolute;
-  top: -5px;
-  left: -5px;
-  right: -5px;
-  bottom: -5px;
-  background: linear-gradient(135deg, #bbf7d0, #22c55e);
-  border-radius: 50%;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  animation: ring-pulse 2s infinite;
-}
-.fundraiser-float-btn:hover {
-  transform: translateY(-6px) scale(1.15);
-  box-shadow: 0 12px 40px rgba(34, 197, 94, 0.25), 0 0 0 8px rgba(34, 197, 94, 0.12);
-  background: #bbf7d0;
-  color: #22c55e;
-  border-color: #16a34a;
-}
-.fundraiser-float-btn:hover::before { opacity: 0.3; }
-.fundraiser-float-btn .icon {
-  animation: icon-bounce 2s infinite;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-}
-@keyframes float-pulse {
-  0%, 100% { transform: translateY(0); box-shadow: 0 8px 24px rgba(34, 197, 94, 0.15), 0 0 0 0 rgba(34, 197, 94, 0.2); }
-  50% { transform: translateY(-8px); box-shadow: 0 12px 32px rgba(34, 197, 94, 0.25), 0 0 0 12px rgba(34, 197, 94, 0.12); }
-}
-@keyframes ring-pulse {
-  0%, 100% { transform: scale(1); opacity: 0; }
-  50% { transform: scale(1.2); opacity: 0.3; background: linear-gradient(135deg, #bbf7d0, #22c55e); }
-}
-@keyframes icon-bounce {
-  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
-  25% { transform: translateY(-4px) rotate(-8deg) scale(1.05); }
-  50% { transform: translateY(0) rotate(0deg) scale(1); }
-  75% { transform: translateY(-4px) rotate(8deg) scale(1.05); }
-}
-.contest-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.75); z-index: 10000; align-items: center; justify-content: center; padding: 20px; overflow-y: auto; }
-.contest-modal.active { display: flex; }
-.contest-content { background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 50%, #fef3c7 100%); border-radius: 24px; max-width: 580px; width: 100%; padding: 40px; position: relative; box-shadow: 0 20px 60px rgba(245, 158, 11, 0.4); max-height: 90vh; overflow-y: auto; scrollbar-width: none; -ms-overflow-style: none; border: 3px solid #fbbf24; }
-.contest-content::-webkit-scrollbar { display: none; }
-.contest-close { position: absolute; top: 16px; right: 16px; background: #f3f4f6; border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 20px; color: #6b7280; transition: all 0.2s; }
-.contest-close:hover { background: #e5e7eb; color: #111827; }
-.contest-header { text-align: center; margin-bottom: 24px; }
-.contest-header h2 { font-size: 28px; font-weight: 800; color: #111827; margin: 0 0 8px; background: linear-gradient(90deg, #f59e0b, #ef4444); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-.contest-header .subtitle { font-size: 16px; color: #6b7280; }
-.contest-details { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border-radius: 16px; padding: 20px; margin-bottom: 24px; border: 2px solid #fbbf24; box-shadow: 0 4px 12px rgba(251, 191, 36, 0.2); }
-.contest-details h3 { font-size: 18px; font-weight: 700; color: #92400e; margin: 0 0 12px; }
-.contest-details p { color: #78350f; margin: 8px 0; line-height: 1.6; }
-.contest-widget .form-group { margin-bottom: 20px; position: relative; }
-.contest-widget .form-group input, .contest-widget .form-group textarea { width: 100%; padding: 14px; border: 2px solid #e5e7eb; border-radius: 12px; font-size: 15px; font-family: inherit; transition: all 0.3s ease; box-sizing: border-box; background: white; }
-.contest-widget .form-group input::placeholder, .contest-widget .form-group textarea::placeholder { color: #9ca3af; opacity: 1; }
-.contest-widget .form-group input:focus, .contest-widget .form-group textarea:focus { outline: none; border-color: #f59e0b; box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1); }
-.contest-widget .form-group textarea { min-height: 100px; resize: vertical; }
-.contest-widget .word-count { text-align: right; font-size: 13px; color: #6b7280; margin-top: 4px; }
-.contest-widget .btn-primary { width: 100%; background: linear-gradient(90deg, #f59e0b, #ef4444); color: white; border: none; border-radius: 12px; padding: 16px; font-size: 17px; font-weight: 700; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3); }
-.contest-widget .btn-primary:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4); }
-.contest-widget .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
-.contest-widget .success-message { text-align: center; padding: 40px 20px; }
-.contest-widget .success-message .icon { font-size: 64px; color: #22c55e; margin-bottom: 16px; }
-.contest-widget .success-message h3 { font-size: 24px; color: #111827; margin: 0 0 16px; }
-.contest-widget .ticket-number { font-size: 32px; font-weight: 900; color: #f59e0b; font-family: monospace; margin: 16px 0; }
-.contest-widget .success-message p { color: #6b7280; line-height: 1.6; }
-.contest-widget .hidden { display: none !important; }
-</style>
-
-<div class="contest-widget">
-<button class="fundraiser-float-btn" id="fundraiserBtn">
-     <span class="icon">??</span>
-  </button>
-  
-  <div class="contest-modal" id="contestModal">
-      <div class="contest-content">
-          <button class="contest-close" id="closeModal">&times;</button>
-          <div id="step1">
-              <div class="contest-header">
-                  <h2 style="font-size: 36px; font-weight: 900; font-family: 'Bebas Neue', 'Arial Black', sans-serif; background: linear-gradient(120deg, #22c55e 0%, #f59e0b 60%, #ef4444 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-shadow: 0 2px 10px rgba(34,197,94,0.2), 0 4px 20px rgba(245,158,11,0.2); letter-spacing: 2px; display: flex; align-items: center; gap: 12px;">
-                    <span style="display:inline-block; transform: rotate(-18deg); background: linear-gradient(135deg, #22c55e 0%, #f59e0b 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 40px; margin-right: 2px;">??</span>
-                    <span>FUNDRAISER CONTEST</span>
-                  </h2>
-              </div>
-              
-              <div class="contest-details">
-                  <h3>?? How It Works:</h3>
-                  
-                  <!-- Theme Section -->
-          <div style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border-radius: 12px; padding: 8px 16px; margin: 12px 0; border: 2px solid #22c55e; text-align: center; display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 38px;">
-            <span style="font-size: 22px; margin-right: 2px; background: linear-gradient(135deg, #22c55e 0%, #f59e0b 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">??</span>
-            <span style="font-size: 18px; font-weight: 700; color: #166534; margin: 0; line-height: 1.2;">Theme: Your business idea that can help society</span>
-          </div>
-                  
-                  <p style="font-size: 16px; font-weight: 600; color: #15803d; margin: 16px 0; text-align: center;">
-                      Share it in just 50 words!
-                  </p>
-                  
-                  <!-- Prize Cards -->
-                  <div style="margin-top: 20px;">
-                      <p style="margin: 0 0 16px; font-weight: 700; color: #0f172a; font-size: 18px; text-align: center;">?? Amazing Prizes Await!</p>
-                      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
-                          <!-- 1st Prize -->
-                          <div style="position: relative; background: linear-gradient(135deg, #fff9e6 0%, #ffe8a3 100%); border-radius: 16px; padding: 20px 12px; text-align: center; border: 3px solid #f59e0b; box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);">
-                              <div style="position: absolute; top: 16px; right: 12px; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; background: #fffbe6; border-radius: 50%; box-shadow: 0 2px 8px rgba(245,158,11,0.15);">
-                                <span style="font-size: 28px;">??</span>
-                              </div>
-                              <div style="font-size: 60px; margin-bottom: 12px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));">??</div>
-                              <p style="margin: 0; font-weight: 700; color: #92400e; font-size: 16px;">Scooty</p>
-                          </div>
-                          <!-- 2nd Prize -->
-                          <div style="position: relative; background: linear-gradient(135deg, #eff6ff 0%, #bfdbfe 100%); border-radius: 16px; padding: 20px 12px; text-align: center; border: 3px solid #3b82f6; box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);">
-                              <div style="position: absolute; top: 16px; right: 12px; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; background: #e0e7ff; border-radius: 50%; box-shadow: 0 2px 8px rgba(59,130,246,0.15);">
-                                <span style="font-size: 28px;">??</span>
-                              </div>
-                              <div style="font-size: 60px; margin-bottom: 12px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));">??</div>
-                              <p style="margin: 0; font-weight: 700; color: #1e3a8a; font-size: 16px;">Smart TV</p>
-                          </div>
-                          <!-- 3rd Prize -->
-                          <div style="position: relative; background: linear-gradient(135deg, #fef2f2 0%, #fecaca 100%); border-radius: 16px; padding: 20px 12px; text-align: center; border: 3px solid #ef4444; box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4);">
-                              <div style="position: absolute; top: 16px; right: 12px; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; background: #fef2f2; border-radius: 50%; box-shadow: 0 2px 8px rgba(239,68,68,0.15);">
-                                <span style="font-size: 28px;">??</span>
-                              </div>
-                              <div style="font-size: 60px; margin-bottom: 12px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));">??</div>
-                              <p style="margin: 0; font-weight: 700; color: #991b1b; font-size: 16px;">Smart Mobile</p>
-                          </div>
-                      </div>
-                  </div>
-                  
-                  <p style="margin-top: 16px; text-align: center; font-size: 14px; color: #65a30d;"><strong>Impact:</strong> Your contribution helps to get livelihood.</p>
-              </div>
-              
-              <!-- Black Theme Form -->
-              <form id="ticketForm" style="background: linear-gradient(135deg, #1f2937 0%, #111827 100%); padding: 24px; border-radius: 16px; border: 2px solid #374151; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);">
-                <div class="form-group floating-label" style="margin-bottom: 24px; position: relative;">
-                  <input type="text" id="userName" required style="width: 100%; padding: 16px 16px 16px 44px; background: #374151; border: 2px solid #4b5563; border-radius: 10px; font-size: 15px; color: #f9fafb; font-family: inherit; transition: all 0.3s ease; box-sizing: border-box;">
-                  <label for="userName" style="position: absolute; left: 44px; top: 16px; color: #9ca3af; font-size: 15px; pointer-events: none; transition: 0.2s; background: transparent;"> <span style="font-size: 18px; margin-right: 6px; color:#22c55e;">??</span>Name</label>
-                </div>
-                <div class="form-group floating-label" style="margin-bottom: 24px; position: relative;">
-                  <input type="email" id="userEmail" required style="width: 100%; padding: 16px 16px 16px 44px; background: #374151; border: 2px solid #4b5563; border-radius: 10px; font-size: 15px; color: #f9fafb; font-family: inherit; transition: all 0.3s ease; box-sizing: border-box;">
-                  <label for="userEmail" style="position: absolute; left: 44px; top: 16px; color: #9ca3af; font-size: 15px; pointer-events: none; transition: 0.2s; background: transparent;"> <span style="font-size: 18px; margin-right: 6px; color:#3b82f6;">??</span>Email</label>
-                </div>
-                <div class="form-group floating-label" style="margin-bottom: 24px; position: relative;">
-                  <input type="tel" id="userMobile" required pattern="[0-9]{10}" style="width: 100%; padding: 16px 16px 16px 44px; background: #374151; border: 2px solid #4b5563; border-radius: 10px; font-size: 15px; color: #f9fafb; font-family: inherit; transition: all 0.3s ease; box-sizing: border-box;">
-                  <label for="userMobile" style="position: absolute; left: 44px; top: 16px; color: #9ca3af; font-size: 15px; pointer-events: none; transition: 0.2s; background: transparent;"> <span style="font-size: 18px; margin-right: 6px; color:#f59e0b;">??</span>Mobile</label>
-                </div>
-                <button type="submit" class="btn-primary" style="width: 100%; background: linear-gradient(90deg, #f59e0b, #ef4444); color: white; border: none; border-radius: 12px; padding: 16px; font-size: 18px; font-weight: 700; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 16px rgba(239, 68, 68, 0.4);">??? Buy Ticket ?200 & Participate</button>
-              </form>
-              <style>
-              .floating-label input:focus + label,
-              .floating-label input:not(:placeholder-shown) + label,
-              .floating-label input:valid + label {
-                top: -10px !important;
-                left: 38px !important;
-                font-size: 12px !important;
-                color: #f59e0b !important;
-                background: #1f2937 !important;
-                padding: 0 4px;
-                border-radius: 6px;
-              }
-              .floating-label label {
-                pointer-events: none;
-                position: absolute;
-                left: 44px;
-                top: 16px;
-                font-size: 15px;
-                color: #9ca3af;
-                transition: 0.2s;
-                background: transparent;
-              }
-              #ticketForm input::placeholder { color: transparent; }
-              #ticketForm input:focus { outline: none; border-color: #f59e0b; background: #4b5563; box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2); }
-              #ticketForm input:-webkit-autofill { -webkit-box-shadow: 0 0 0 30px #374151 inset !important; -webkit-text-fill-color: #f9fafb !important; }
-              </style>
-          </div>
-          <div id="step2" class="hidden">
-              <div class="contest-header">
-                  <h2>?? Submit Your Idea</h2>
-                  <p class="subtitle">Payment successful! Now share your idea.</p>
-              </div>
-              <form id="ideaForm">
-                  <div class="form-group">
-                      <textarea id="ideaPitch" required placeholder="Your Business Idea (Max 50 words) *"></textarea>
-                      <div class="word-count"><span id="wordCount">0</span> / 50 words</div>
-                  </div>
-                  <button type="submit" class="btn-primary">?? Submit Idea</button>
-              </form>
-          </div>
-          <div id="step3" class="hidden">
-              <div class="success-message">
-                  <div class="icon">?</div>
-                  <h3>Thank You! ???? Idea Submit ?? ???!</h3>
-                  <p><strong>Your Ticket Number:</strong></p>
-                  <div class="ticket-number" id="displayTicket"></div>
-                  <p style="margin-top: 20px;">
-                      ?? Confirmation email ???? ?? ???? ???<br>
-                      ?? Winners ?? ????? ???? ?? ?? ??????<br>
-                      ?? ???? ?????? ?? ??? ???????!
-                  </p>
-              </div>
-          </div>
+  <!-- Support Modal -->
+  <div id="supportModal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.75); z-index: 10000; backdrop-filter: blur(12px); align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease;">
+  <div id="supportModalContent" style="max-width: 440px; width: 90%; padding: 28px; position: relative; transform: scale(0.9); transition: transform 0.3s ease; background: #1a1a2e; border-radius: 16px;">
+      <button onclick="closeSupportModal()" style="position: absolute; top: 14px; right: 14px; background: transparent; border: none; border-radius: 0; width: 36px; height: 36px; cursor: pointer; color: #cbd5e1; font-size: 20px; display: flex; align-items: center; justify-content: center; transition: all 0.3s; font-weight: 300;" onmouseover="this.style.color='#fff'; this.style.transform='rotate(90deg)'" onmouseout="this.style.color='#cbd5e1'; this.style.transform='rotate(0deg)'">×</button>
+      
+      <div style="text-align: center; margin-bottom: 20px;">
+        <div id="modalIcon" style="font-size: 48px; margin-bottom: 12px;"></div>
+        <h3 id="modalTitle" style="color: #fff; margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -0.5px;"></h3>
+        <p id="modalSubtitle" style="color: #94a3b8; margin: 8px 0 0 0; font-size: 13px; font-weight: 500;"></p>
       </div>
+
+      <form id="supportForm" onsubmit="submitSupportForm(event)">
+        <input type="hidden" id="supportType" name="type">
+        
+        <div class="form-group" style="margin-bottom: 12px;">
+          <input type="text" name="name" required minlength="2" maxlength="50" style="width: 100%; padding: 12px 14px; border-radius: 10px; border: 2px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.08); color: #e2e8f0; font-size: 14px; transition: all 0.3s; font-weight: 500;" placeholder="👤 Name" onfocus="this.style.borderColor='#60a5fa'; this.style.background='rgba(96,165,250,0.12)'" onblur="this.style.borderColor='rgba(255,255,255,0.15)'; this.style.background='rgba(255,255,255,0.08)'">
+        </div>
+
+        <div class="form-group" style="margin-bottom: 12px;">
+          <input type="email" name="email" required style="width: 100%; padding: 12px 14px; border-radius: 10px; border: 2px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.08); color: #e2e8f0; font-size: 14px; transition: all 0.3s; font-weight: 500;" placeholder="📧 Email" onfocus="this.style.borderColor='#a78bfa'; this.style.background='rgba(167,139,250,0.12)'" onblur="this.style.borderColor='rgba(255,255,255,0.15)'; this.style.background='rgba(255,255,255,0.08)'">
+        </div>
+
+        <div class="form-group" style="margin-bottom: 12px;">
+          <input type="tel" name="phone" required pattern="[0-9+\-\s]{10,15}" style="width: 100%; padding: 12px 14px; border-radius: 10px; border: 2px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.08); color: #e2e8f0; font-size: 14px; transition: all 0.3s; font-weight: 500;" placeholder="📱 Phone Number" onfocus="this.style.borderColor='#22c55e'; this.style.background='rgba(34,197,94,0.12)'" onblur="this.style.borderColor='rgba(255,255,255,0.15)'; this.style.background='rgba(255,255,255,0.08)'">
+        </div>
+
+        <div class="form-group" style="margin-bottom: 16px;">
+          <textarea name="message" id="messageInput" required rows="4" maxlength="500" style="width: 100%; padding: 12px 14px; border-radius: 10px; border: 2px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.08); color: #e2e8f0; font-size: 14px; resize: vertical; line-height: 1.5; font-family: inherit; transition: all 0.3s; font-weight: 500;" placeholder="💬 Your message here..." onfocus="this.style.borderColor='#f59e0b'; this.style.background='rgba(245,158,11,0.12)'" onblur="this.style.borderColor='rgba(255,255,255,0.15)'; this.style.background='rgba(255,255,255,0.08)'" oninput="updateCharCount(this)"></textarea>
+          <div style="font-size: 11px; color: #64748b; margin-top: 4px; text-align: right;">
+            <span style="font-weight: 600; color: #94a3b8;"><span id="charCount" style="color: #60a5fa;">0</span>/500</span>
+          </div>
+        </div>
+
+        <button type="submit" id="submitBtn" style="width: 100%; padding: 13px 20px; border-radius: 10px; border: none; background: linear-gradient(135deg, #3b82f6, #8b5cf6); color: #fff; font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); display: flex; align-items: center; justify-content: center; gap: 8px;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(59, 130, 246, 0.5)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(59, 130, 246, 0.4)'">
+          <i class="fas fa-paper-plane" style="font-size: 13px;"></i>
+          <span id="submitBtnText">Send Message</span>
+          <div id="submitLoader" style="display: none; width: 16px; height: 16px; border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.8s linear infinite;"></div>
+        </button>
+      </form>
+
+      <div id="formMessage" style="display: none; margin-top: 14px; padding: 12px 14px; border-radius: 10px; text-align: center; font-weight: 600; font-size: 13px;"></div>
+    </div>
   </div>
-  
+
   <script>
-  (function() {
-      const modal = document.getElementById('contestModal');
-      const openBtn = document.getElementById('fundraiserBtn');
-      const closeBtn = document.getElementById('closeModal');
-      const step1 = document.getElementById('step1');
-      const step2 = document.getElementById('step2');
-      const step3 = document.getElementById('step3');
-      const ticketForm = document.getElementById('ticketForm');
-      const ideaForm = document.getElementById('ideaForm');
-      const ideaPitch = document.getElementById('ideaPitch');
-      const wordCountEl = document.getElementById('wordCount');
-      let ticketNumber = '';
-      let userInfo = {};
-      openBtn.addEventListener('click', () => {
-          modal.classList.add('active');
-          showStep(1);
-      });
-      closeBtn.addEventListener('click', () => {
-          modal.classList.remove('active');
-      });
-      modal.addEventListener('click', (e) => {
-          if (e.target === modal) {
-              modal.classList.remove('active');
-          }
-      });
-      function showStep(stepNum) {
-          step1.classList.add('hidden');
-          step2.classList.add('hidden');
-          step3.classList.add('hidden');
-          if (stepNum === 1) step1.classList.remove('hidden');
-          else if (stepNum === 2) step2.classList.remove('hidden');
-          else if (stepNum === 3) step3.classList.remove('hidden');
+    const supportConfig = {
+      feedback: {
+        icon: '💬',
+        iconColor: '#22c55e',
+        gradient: 'linear-gradient(135deg, #22c55e, #16a34a)',
+        title: 'Share Your Feedback',
+        subtitle: 'Help us improve our services',
+        placeholder: '💬 Share your thoughts, suggestions or appreciation...'
+      },
+      query: {
+        icon: '❓',
+        iconColor: '#3b82f6',
+        gradient: 'linear-gradient(135deg, #3b82f6, #1d4ed8)',
+        title: 'Ask Your Query',
+        subtitle: 'We\'re here to help with any questions',
+        placeholder: '💬 Describe your question or concern in detail...'
+      },
+      complaint: {
+        icon: '⚠️',
+        iconColor: '#f59e0b',
+        gradient: 'linear-gradient(135deg, #f59e0b, #d97706)',
+        title: 'Register Complaint',
+        subtitle: 'We take your concerns seriously',
+        placeholder: '💬 Please provide details about the issue you faced...'
+      },
+      contact: {
+        icon: '📞',
+        iconColor: '#ef4444',
+        gradient: 'linear-gradient(135deg, #ef4444, #dc2626)',
+        title: 'Get in Touch',
+        subtitle: 'We\'d love to hear from you',
+        placeholder: '💬 Tell us how we can help you...'
       }
-      ideaPitch.addEventListener('input', () => {
-          const words = ideaPitch.value.trim().split(/\s+/).filter(w => w.length > 0);
-          const count = words.length;
-          wordCountEl.textContent = count;
-          if (count > 50) {
-              wordCountEl.style.color = '#ef4444';
-          } else {
-              wordCountEl.style.color = '#6b7280';
-          }
-      });
-      ticketForm.addEventListener('submit', async (e) => {
-          e.preventDefault();
-          userInfo = {
-              name: document.getElementById('userName').value,
-              email: document.getElementById('userEmail').value,
-              mobile: document.getElementById('userMobile').value
-          };
-          const paymentSuccess = await simulatePayment(userInfo);
-          if (paymentSuccess) {
-              ticketNumber = 'FWF-IDEA-' + Date.now().toString().slice(-8);
-              await saveTicket(ticketNumber, userInfo);
-              showStep(2);
-          }
-      });
-      ideaForm.addEventListener('submit', async (e) => {
-          e.preventDefault();
-          const words = ideaPitch.value.trim().split(/\s+/).filter(w => w.length > 0);
-          if (words.length > 50) {
-              alert('????? ???? ?????? 50 ?????? ??? ????? ????? / Please limit your idea to 50 words.');
-              return;
-          }
-          if (words.length < 10) {
-              alert('????? ?? ?? ?? 10 ???? ?????? / Please write at least 10 words.');
-              return;
-          }
-          await saveIdea(ticketNumber, ideaPitch.value);
-          await sendConfirmationEmail(userInfo, ticketNumber);
-          document.getElementById('displayTicket').textContent = ticketNumber;
-          showStep(3);
-      });
-      async function simulatePayment(userInfo) {
-          return new Promise((resolve) => {
-              setTimeout(() => {
-                  alert('Payment of ?200 successful! (This is a simulation)');
-                  resolve(true);
-              }, 1000);
-          });
+    };
+
+    function updateCharCount(textarea) {
+      const count = textarea.value.length;
+      const charCountEl = document.getElementById('charCount');
+      charCountEl.textContent = count;
+      
+      if (count > 450) {
+        charCountEl.style.color = '#f59e0b';
+      } else if (count > 400) {
+        charCountEl.style.color = '#22c55e';
+      } else {
+        charCountEl.style.color = '#60a5fa';
       }
-      async function saveTicket(ticket, user) {
-          try {
-              const response = await fetch('/api/contest/ticket', {
-                  method: 'POST',
-                  headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify({ ticketNumber: ticket, ...user })
-              });
-              return await response.json();
-          } catch (err) {
-              console.error('Error saving ticket:', err);
+    }
+
+    function openSupportModal(type) {
+      const config = supportConfig[type];
+      const modal = document.getElementById('supportModal');
+      const modalContent = document.getElementById('supportModalContent');
+      
+      document.getElementById('modalIcon').textContent = config.icon;
+      document.getElementById('modalIcon').style.color = config.iconColor;
+      document.getElementById('modalTitle').textContent = config.title;
+      document.getElementById('modalSubtitle').textContent = config.subtitle;
+      document.getElementById('supportType').value = type;
+      
+      const submitBtn = document.querySelector('#supportForm button[type="submit"]');
+      submitBtn.style.background = config.gradient;
+      
+      const messageField = document.querySelector('textarea[name="message"]');
+      messageField.placeholder = config.placeholder;
+      
+      document.getElementById('supportForm').reset();
+      document.getElementById('charCount').textContent = '0';
+      document.getElementById('charCount').style.color = '#60a5fa';
+      
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      
+      setTimeout(() => {
+        modal.style.opacity = '1';
+        modalContent.style.transform = 'scale(1)';
+      }, 10);
+      
+      setTimeout(() => {
+        document.querySelector('input[name="name"]').focus();
+      }, 350);
+    }
+
+    function closeSupportModal() {
+      const modal = document.getElementById('supportModal');
+      const modalContent = document.getElementById('supportModalContent');
+      
+      modal.style.opacity = '0';
+      modalContent.style.transform = 'scale(0.9)';
+      
+      setTimeout(() => {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+        
+        const formMsg = document.getElementById('formMessage');
+        formMsg.style.display = 'none';
+      }, 300);
+      
+      document.getElementById('supportForm').reset();
+    }
+
+    async function submitSupportForm(event) {
+      event.preventDefault();
+      
+      const form = event.target;
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const btnText = document.getElementById('submitBtnText');
+      const messageDiv = document.getElementById('formMessage');
+      
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+      
+      const type = data.type;
+      const typeMap = {
+        'feedback': 'User Feedback',
+        'query': 'User Query',
+        'complaint': 'User Complaint', 
+        'contact': 'General Contact'
+      };
+      data.subject = typeMap[type] || 'Contact Form Submission';
+      
+      btnText.textContent = 'Sending...';
+      submitBtn.disabled = true;
+      submitBtn.style.opacity = '0.7';
+      
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        
+        const result = await response.json();
+        
+        if (result.ok) {
+          btnText.textContent = 'Sent';
+          submitBtn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+          submitBtn.style.opacity = '1';
+          
+          messageDiv.style.display = 'block';
+          messageDiv.style.background = 'rgba(34, 197, 94, 0.15)';
+          messageDiv.style.color = '#22c55e';
+          messageDiv.style.border = '1px solid rgba(34, 197, 94, 0.3)';
+          messageDiv.textContent = '✓ Message sent successfully! We will respond soon.';
+          
+          form.reset();
+          document.getElementById('charCount').textContent = '0';
+          setTimeout(closeSupportModal, 3000);
+        } else {
+          throw new Error(result.error || 'Failed to send');
+        }
+      } catch (error) {
+        messageDiv.style.display = 'block';
+        messageDiv.style.background = 'rgba(239, 68, 68, 0.15)';
+        messageDiv.style.color = '#ef4444';
+        messageDiv.style.border = '1px solid rgba(239, 68, 68, 0.3)';
+        messageDiv.textContent = '✗ Failed to send. Please try again.';
+      } finally {
+        setTimeout(() => {
+          btnText.textContent = 'Send Message';
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = '1';
+          const config = supportConfig[data.type];
+          if (config) {
+            submitBtn.style.background = config.gradient;
           }
+        }, 2000);
       }
-      async function saveIdea(ticket, idea) {
-          try {
-              const response = await fetch('/api/contest/idea', {
-                  method: 'POST',
-                  headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify({ ticketNumber: ticket, idea })
-              });
-              return await response.json();
-          } catch (err) {
-              console.error('Error saving idea:', err);
-          }
-      }
-      async function sendConfirmationEmail(user, ticket) {
-          try {
-              const response = await fetch('/api/contest/send-email', {
-                  method: 'POST',
-                  headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify({ ...user, ticketNumber: ticket })
-              });
-              return await response.json();
-          } catch (err) {
-              console.error('Error sending email:', err);
-          }
-      }
-  })();
+    }
   </script>
-</div>
 
 </body>
 </html>
